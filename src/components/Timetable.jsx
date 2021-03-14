@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import config from '../config.json';
+
+//Components
+import Courses from './Courses.jsx';
 
 class Timetable extends Component {
     state = { 
@@ -7,7 +11,7 @@ class Timetable extends Component {
      }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/courses`)
+        axios.get(config.apiEndpoint)
         .then(res => {
         const courses = res.data;
         this.setState({ courses });
@@ -15,13 +19,11 @@ class Timetable extends Component {
     }
 
     render() { 
+        const { courses } = this.state;
+
         return ( 
-            <div className="wrapper">
-              {this.state.courses.map(course => (
-                  <li>{course.name}</li>
-              ))}
-            </div>
-         );
+            <Courses courses={courses}/>
+        );
     }
 }
  
