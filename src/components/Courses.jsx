@@ -6,7 +6,7 @@ const Courses = props => {
     return ( 
         <div className="wrapper">
             {courses.map(course => (
-                <li>{course.name}</li>
+                <li className="courses-list">{course.name}</li>
             ))}
         </div>
      );
