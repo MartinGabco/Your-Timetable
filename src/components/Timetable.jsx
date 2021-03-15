@@ -32,7 +32,7 @@ class Timetable extends Component {
         const { courses, type_1, type_2 } = this.state;
 
         return (
-            <div class="tabbable"> 
+           <div class="tabbable"> 
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab1" data-toggle="tab">Compulsory courses</a></li>
                     <li><a href="#tab2" data-toggle="tab">Elective courses</a></li>
