@@ -9,12 +9,17 @@ import { getType_1 } from '../database/types.js';
 import { getType_2 } from '../database/types.js';
 
 //Components
+import Compulsory from './Compulsory.jsx';
+import Elective from './Elective.jsx';
 
 class Timetable extends Component {
     state = { 
         courses: [],
         type_1: [],
-        type_2: []
+        type_2: [],
+        selectedType_1: null,
+        selectedType_2: null,
+        isHiddden: true
      }
 
     componentDidMount() {
@@ -28,8 +33,25 @@ class Timetable extends Component {
         this.setState({ type_2: getType_2()})
     }
 
+    handleTypeSelect_1 = type_1 => {
+        this.setState({ selectedType_1: type_1, selectedType_2: null })
+        this.setState({ isHiddden: !this.state.isHiddden })
+    }
+
+    handleTypeSelect_2 = type_2 => {
+        this.setState({ selectedType_2: type_2, selectedType_1: null })
+        this.setState({ isHiddden: !this.state.isHiddden })
+    }
+
     render() {
-        const { courses, type_1, type_2 } = this.state;
+        const { courses, type_1, type_2, selectedType_1, selectedType_2, isHiddden } = this.state;
+
+        let filtered = courses;
+
+        if (selectedType_1 && selectedType_1.id_1)
+            filtered = courses.filter(courses => courses.type.id_1 === selectedType_1.id_1);
+        else if (selectedType_2 && selectedType_2.id_2)
+            filtered = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
 
         return (
            <div class="tabbable"> 
@@ -40,22 +62,22 @@ class Timetable extends Component {
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab1">
-                        {type_1.map(type_1 => (
-                            <button 
-                                key={type_1.id_1}
-                            >
-                                {type_1.title_1}
-                            </button>
-                        ))}                        
+                        <Compulsory 
+                           filtered={filtered}
+                           type_1={type_1}
+                           selectedType_1={selectedType_1}
+                           onTypeSelect_1={this.handleTypeSelect_1}
+                           isHiddden={isHiddden}
+                        />
                     </div>
                     <div class="tab-pane" id="tab2">
-                        {type_2.map(type_2 => (
-                            <button 
-                                key={type_2.id_2}
-                            >
-                                {type_2.title_2}
-                            </button>
-                        ))} 
+                        <Elective 
+                           filtered={filtered}
+                           type_2={type_2}
+                           selectedType_2={selectedType_2}
+                           onTypeSelect_2={this.handleTypeSelect_2}
+                           isHiddden={isHiddden}                        
+                        />
                     </div>
                 </div>
             </div>
