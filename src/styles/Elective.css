@@ -1,5 +1,23 @@
+.link-item {
+    font-size: 1.25em;
+    padding: 0.5em 0.75em 0.75em 0.75em;
+    text-decoration: none;    
+    border: 0.05em solid black;
+    cursor: pointer;
+}
+
+.link-item:hover,
+.link-item:focus {
+    text-decoration: none;
+}
+
 .elective-course-list {
     list-style: none;
+    width: 50em;
+    height: auto;
+    margin-top: 5em;
+    padding: 2em 2em 2em 13em;
+    background: #ffa64d;
 }
 
 .elective-course-item {
@@ -9,5 +27,5 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    background: yellow;
+    background: #ffff66;
 }

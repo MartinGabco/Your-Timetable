@@ -9,17 +9,17 @@ const Elective = props => {
     return ( 
         <div className="elective-wrapper">
             {type_2.map(type_2 => (
-                <button 
+                <a
                     key={type_2.id_2}
                     onClick={() => onTypeSelect_2(type_2)}
                     className = {
                         type_2 === selectedType_2
-                        ? "button-item active"
-                        : "button-item"
+                        ? "link-item active"
+                        : "link-item"
                     }
                 >
                     {type_2.title_2}
-                </button>
+                </a>
             ))}
             {!isHiddden || <ul className="elective-course-list">
                 {filtered.map(course => (

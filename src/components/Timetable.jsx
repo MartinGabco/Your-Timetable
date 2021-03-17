@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 //Styles
 import '../styles/Timetable.css';
@@ -14,6 +15,7 @@ import { getType_2 } from '../database/types.js';
 //Components
 import Compulsory from './Compulsory.jsx';
 import Elective from './Elective.jsx';
+import MyTimeTable from './MyTimeTable.jsx';
 
 class Timetable extends Component {
     state = { 
@@ -22,7 +24,7 @@ class Timetable extends Component {
         type_2: [],
         selectedType_1: null,
         selectedType_2: null,
-        isHiddden: true
+        isHiddden: true,
      }
 
     componentDidMount() {
@@ -57,12 +59,13 @@ class Timetable extends Component {
             filtered = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
 
         return (
-           <div class="tabbable"> 
+            <React.Fragment>
+            <div class="tabbable"> 
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab1" data-toggle="tab">Compulsory courses</a></li>
                     <li><a href="#tab2" data-toggle="tab">Elective courses</a></li>
+                    <li><a href="#tab3" data-toggle="tab">MyTimeTable</a></li>
                 </ul>
-
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab1">
                         <Compulsory 
@@ -82,8 +85,12 @@ class Timetable extends Component {
                            isHiddden={isHiddden}                        
                         />
                     </div>
+                    <div class="tab-pane" id="tab3">
+                        <MyTimeTable />
+                    </div>
                 </div>
             </div>
+        </React.Fragment>
         )
     }
 }
