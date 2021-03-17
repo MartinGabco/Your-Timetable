@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+//Styles
+import '../styles/Timetable.css';
+
 //Server connection
 import axios from 'axios';
 import config from '../config.json';
