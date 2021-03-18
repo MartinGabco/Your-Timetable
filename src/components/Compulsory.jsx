@@ -3,24 +3,19 @@ import React from 'react';
 //Styles
 import '../styles/Compulsory.css';
 
+//Util Components
+import CompulsoryLink from '../util-components/CompulsoryLink.jsx';
+
 const Compulsory = props => {
     const { filtered, type_1, selectedType_1, onTypeSelect_1, isHiddden } = props;
 
     return ( 
         <div className = "compulsory-wrapper" > 
-            {type_1.map(type_1 => ( 
-                <a 
-                    key = {type_1.id_1}
-                    onClick = {() => onTypeSelect_1(type_1)}
-                    className = {
-                    type_1 === selectedType_1 
-                        ? "link-item active" 
-                        : "link-item"
-                    } 
-                >
-                    {type_1.title_1} 
-                </a>
-            ))}      
+            <CompulsoryLink 
+                type_1={type_1}
+                selectedType_1={selectedType_1} 
+                onTypeSelect_1={onTypeSelect_1}          
+            />
             {!isHiddden && <ul className = "compulsory-course-list">
                 {filtered.map(course => ( 
                     <li key = {course.id} className="compulsory-course-item">
