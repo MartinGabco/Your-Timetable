@@ -24,6 +24,8 @@ class Timetable extends Component {
         selectedType_1: null,
         selectedType_2: null,
         isHiddden: true,
+        myTypes_1: [],
+        myTypes_2: []
     }
 
     componentDidMount() {
@@ -47,8 +49,36 @@ class Timetable extends Component {
         this.setState({ isHiddden: !this.state.isHiddden })
     }
 
+    handleAddMyTypes_1 = course => {
+        const newMyType_1 = {
+            id: course.id,
+            name: course.name,
+            day: course.day,
+            time: course.time,
+            place: course.place
+        }
+
+        this.setState({
+            myTypes_1: [...this.state.myTypes_1, newMyType_1]
+        })
+    }
+
+    handleAddMyTypes_2 = course => {
+        const newMyType_2 = {
+            id: course.id,
+            name: course.name,
+            day: course.day,
+            time: course.time,
+            place: course.place
+        }
+
+        this.setState({
+            myTypes_2: [...this.state.myTypes_2, newMyType_2]
+        })
+    }
+ 
     render() {
-        const { courses, type_1, type_2, selectedType_1, selectedType_2, isHiddden } = this.state;
+        const { courses, type_1, type_2, selectedType_1, selectedType_2, isHiddden, myTypes_1, myTypes_2 } = this.state;
 
         let filtered = courses;
 
@@ -73,6 +103,7 @@ class Timetable extends Component {
                                 selectedType_1={selectedType_1}
                                 onTypeSelect_1={this.handleTypeSelect_1}
                                 isHiddden={isHiddden}
+                                onAddMyTypes_1={this.handleAddMyTypes_1}
                             />
                         </div>
                         <div class="tab-pane" id="tab2">
@@ -81,11 +112,15 @@ class Timetable extends Component {
                                 type_2={type_2}
                                 selectedType_2={selectedType_2}
                                 onTypeSelect_2={this.handleTypeSelect_2}
-                                isHiddden={isHiddden}                        
+                                isHiddden={isHiddden}  
+                                onAddMyTypes_2={this.handleAddMyTypes_2}                      
                             />
                         </div>
                         <div class="tab-pane" id="tab3">
-                            <MyTimeTable />
+                            <MyTimeTable 
+                                myTypes_1={myTypes_1}
+                                myTypes_2={myTypes_2}
+                            />
                         </div>
                     </div>
                 </div>

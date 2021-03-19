@@ -1,5 +1,46 @@
 .table {
     width: 80em;
-    min-height: 100em;
+    min-height: 50em;
+    padding: 3em 3em 3em 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     background: #66ffff;
 }
+
+.my-compulsory-courses {
+    width: 30%;
+    min-height: 50em;
+    padding-top: 2em;
+    padding-right: 3em;
+    padding-bottom: 1.5em;
+    list-style: none;
+    background: #99c2ff;
+}
+
+.my-compulsory-course {
+    width: 60%;
+    min-height: 3.5em;
+    padding: 0.1em 0 0.85em 0;
+    margin: 2em auto;
+    background-color: #ffffff;
+}
+
+.my-elective-courses {
+    width: 30%;
+    min-height: 50em;
+    padding-top: 1.85em;
+    padding-right: 3em;
+    padding-bottom: 1.5em;
+    list-style: none;
+    background: #ffff99;
+}
+
+.my-elective-course {
+    width: 70%;
+    min-height: 3.5em;
+    padding: 0.05em 0.4em 0.85em 0.4em;
+    margin: 2em auto;
+    background-color: #ffb3ff;
+}
+

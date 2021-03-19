@@ -7,7 +7,7 @@ import '../styles/Compulsory.css';
 import CompulsoryLink from '../util-components/CompulsoryLink.jsx';
 
 const Compulsory = props => {
-    const { filtered, type_1, selectedType_1, onTypeSelect_1, isHiddden } = props;
+    const { filtered, type_1, selectedType_1, onTypeSelect_1, isHiddden, onAddMyTypes_1 } = props;
 
     return ( 
         <div className = "compulsory-wrapper" > 
@@ -22,6 +22,9 @@ const Compulsory = props => {
                         <h4>{course.name}</h4>
                         <p>{course.day}</p>
                         <p>{course.time}{course.place}</p>
+                        <button onClick={() => onAddMyTypes_1(course)}>
+                            Add to your timetable
+                        </button>
                     </li>
                 ))} 
             </ul>}

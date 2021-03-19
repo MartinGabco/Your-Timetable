@@ -7,7 +7,7 @@ import '../styles/Elective.css';
 import ElectiveLink from '../util-components/ElectiveLink.jsx';
 
 const Elective = props => {
-    const { filtered, type_2, selectedType_2, onTypeSelect_2, isHiddden } = props;
+    const { filtered, type_2, selectedType_2, onTypeSelect_2, isHiddden, onAddMyTypes_2 } = props;
 
     return ( 
         <div className="elective-wrapper">
@@ -22,6 +22,9 @@ const Elective = props => {
                         <h4>{course.name}</h4>
                         <p>{course.day}</p>
                         <p>{course.time}{course.place}</p>
+                        <button onClick={() => onAddMyTypes_2(course)}>
+                            Add to your timetable
+                        </button>
                     </li>
                 ))}
             </ul>}

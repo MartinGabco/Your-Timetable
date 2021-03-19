@@ -22,10 +22,16 @@
 
 .elective-course-item {
     width: 20em;
-    height: 7.5em; 
+    min-height: 7.5em; 
     margin: 1.5em 1.5em 1.5em 1.5em;
+    padding-top: 0.5em;
     display: flex;
     flex-direction: column;
     align-content: center;
     background: #ffff66;
+}
+
+button {
+    width: 60%;
+    margin: 0.75em auto 1.5em auto;
 }
