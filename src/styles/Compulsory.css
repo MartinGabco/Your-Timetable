@@ -31,7 +31,7 @@
     background: #ffff66;
 }
 
-button {
+.add-button {
     width: 60%;
     margin: 0.75em auto 1.5em auto;
 }

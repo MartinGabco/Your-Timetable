@@ -76,7 +76,17 @@ class Timetable extends Component {
             myTypes_2: [...this.state.myTypes_2, newMyType_2]
         })
     }
- 
+
+    handleDisableOnClick_1 = event => {
+        event.preventDefault();
+        event.target.disabled = true;
+    }
+
+    handleDisableOnClick_2 = event => {
+        event.preventDefault();
+        event.target.disabled = true;
+    }
+
     render() {
         const { courses, type_1, type_2, selectedType_1, selectedType_2, isHiddden, myTypes_1, myTypes_2 } = this.state;
 
@@ -104,6 +114,7 @@ class Timetable extends Component {
                                 onTypeSelect_1={this.handleTypeSelect_1}
                                 isHiddden={isHiddden}
                                 onAddMyTypes_1={this.handleAddMyTypes_1}
+                                onDisableOnClick_1={this.handleDisableOnClick_1}
                             />
                         </div>
                         <div class="tab-pane" id="tab2">
@@ -113,7 +124,8 @@ class Timetable extends Component {
                                 selectedType_2={selectedType_2}
                                 onTypeSelect_2={this.handleTypeSelect_2}
                                 isHiddden={isHiddden}  
-                                onAddMyTypes_2={this.handleAddMyTypes_2}                      
+                                onAddMyTypes_2={this.handleAddMyTypes_2}  
+                                onDisableOnClick_2={this.handleDisableOnClick_2}                    
                             />
                         </div>
                         <div class="tab-pane" id="tab3">
