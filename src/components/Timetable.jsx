@@ -87,6 +87,16 @@ class Timetable extends Component {
         event.target.disabled = true;
     }
 
+    handleDeleteCourse_1 = myType_1 => {
+        const myTypes_1 = this.state.myTypes_1.filter(m => m.id !== myType_1.id);
+        this.setState({ myTypes_1 })
+    }
+
+    handleDeleteCourse_2 = myType_2 => {
+        const myTypes_2 = this.state.myTypes_2.filter(m => m.id !== myType_2.id);
+        this.setState({ myTypes_2 });
+    }
+
     render() {
         const { courses, type_1, type_2, selectedType_1, selectedType_2, isHiddden, myTypes_1, myTypes_2 } = this.state;
 
@@ -132,6 +142,8 @@ class Timetable extends Component {
                             <MyTimeTable 
                                 myTypes_1={myTypes_1}
                                 myTypes_2={myTypes_2}
+                                onDeleteCourse_1={this.handleDeleteCourse_1}
+                                onDeleteCourse_2={this.handleDeleteCourse_2}
                             />
                         </div>
                     </div>
