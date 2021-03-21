@@ -1,21 +1,31 @@
 import React from 'react';
+import _ from 'lodash';
 
 import '../styles/MyTimeTable.css';
 
 const MyTimeTable = props => {
-    const { myTypes_1, myTypes_2, onDeleteCourse_1, onDeleteCourse_2 } = props;
+    const { myTypes_1, 
+        myTypes_2, 
+        onDeleteCourse_1, 
+        onDeleteCourse_2, 
+        onAbleOnClick, 
+        onPerformSort,
+        sortColumn
+    } = props;
+
+    const sorted = _.orderBy(myTypes_1, [sortColumn.path]);
 
     return (
         <div className="table">
-            <ul className="my-compulsory-courses">
-                {myTypes_1.map(myType_1 => (
+            <ul className="my-compulsory-courses" onClick={() => onPerformSort('day_id')}>
+                {sorted.map(myType_1 => (
                     <li className="my-compulsory-course" key={myType_1.id}>
                         <h3>{myType_1.name}</h3>
                         <p>{myType_1.day}</p>
                         <p>{myType_1.time}{myType_1.place}</p>
                         <button 
                             className="cancel-my-compulsory-course"
-                            onClick={() => onDeleteCourse_1(myType_1)}
+                            onClick={(event) => onDeleteCourse_1(myType_1)}
                         >
                             Remove course
                         </button>

@@ -14,7 +14,7 @@ const Compulsory = props => {
         onTypeSelect_1, 
         isHiddden, 
         onAddMyTypes_1, 
-        onDisableOnClick_1 
+        onDisableOnClick_1
     } = props;
 
     return ( 

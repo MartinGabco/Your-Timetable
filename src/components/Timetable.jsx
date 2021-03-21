@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 //Styles
 import '../styles/Timetable.css';
 
+//lodash
+import _ from 'lodash';
+
 //Server connection
 import axios from 'axios';
 import config from '../config.json';
@@ -25,7 +28,8 @@ class Timetable extends Component {
         selectedType_2: null,
         isHiddden: true,
         myTypes_1: [],
-        myTypes_2: []
+        myTypes_2: [],
+        sortColumn: { path:'day_id', order:'asc' }
     }
 
     componentDidMount() {
@@ -54,6 +58,7 @@ class Timetable extends Component {
             id: course.id,
             name: course.name,
             day: course.day,
+            day_id: course.day_id,
             time: course.time,
             place: course.place
         }
@@ -68,6 +73,7 @@ class Timetable extends Component {
             id: course.id,
             name: course.name,
             day: course.day,
+            day_id: course.day_id,                        
             time: course.time,
             place: course.place
         }
@@ -97,8 +103,13 @@ class Timetable extends Component {
         this.setState({ myTypes_2 });
     }
 
+    handlePerformSort = path => {
+        this.setState({ sortColumn: path, order: 'asc' });
+        console.log('sortColumn');
+    }
+
     render() {
-        const { courses, type_1, type_2, selectedType_1, selectedType_2, isHiddden, myTypes_1, myTypes_2 } = this.state;
+        const { courses, type_1, type_2, selectedType_1, selectedType_2, isHiddden, myTypes_1, myTypes_2, sortColumn } = this.state;
 
         let filtered = courses;
 
@@ -144,6 +155,8 @@ class Timetable extends Component {
                                 myTypes_2={myTypes_2}
                                 onDeleteCourse_1={this.handleDeleteCourse_1}
                                 onDeleteCourse_2={this.handleDeleteCourse_2}
+                                onPerformSort={this.handlePerformSort}
+                                sortColumn={sortColumn}
                             />
                         </div>
                     </div>
