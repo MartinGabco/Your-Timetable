@@ -29,7 +29,7 @@ class Timetable extends Component {
         isHiddden: true,
         myTypes_1: [],
         myTypes_2: [],
-        sortColumn: { path:'day_id', order:'asc' }
+        sortColumn: { path: 'day_id', order: 'asc' },
     }
 
     componentDidMount() {
@@ -39,8 +39,8 @@ class Timetable extends Component {
                 this.setState({ courses });
             });
 
-        this.setState({ type_1: getType_1() })
-        this.setState({ type_2: getType_2() })
+        this.setState({ type_1: getType_1() });
+        this.setState({ type_2: getType_2() });
     }
 
     handleTypeSelect_1 = type_1 => {
@@ -68,12 +68,17 @@ class Timetable extends Component {
         })
     }
 
+    function(myTypes_1) {
+        const sorted_1 = _.orderBy(this.state.myTypes_1, [this.state.sortColumn.path]);
+        this.setState({ sorted_1: myTypes_1 });
+    }
+
     handleAddMyTypes_2 = course => {
         const newMyType_2 = {
             id: course.id,
             name: course.name,
             day: course.day,
-            day_id: course.day_id,                        
+            day_id: course.day_id,
             time: course.time,
             place: course.place
         }
@@ -82,6 +87,11 @@ class Timetable extends Component {
             myTypes_2: [...this.state.myTypes_2, newMyType_2]
         })
     }
+
+    function(myTypes_2) {
+        const sorted_2 = _.orderBy(this.state.myTypes_2, [this.state.sortColumn.path]);
+        this.setState({ sorted: myTypes_2 });
+    }    
 
     handleDisableOnClick_1 = event => {
         event.preventDefault();
@@ -95,7 +105,7 @@ class Timetable extends Component {
 
     handleDeleteCourse_1 = myType_1 => {
         const myTypes_1 = this.state.myTypes_1.filter(m => m.id !== myType_1.id);
-        this.setState({ myTypes_1 })
+        this.setState({ myTypes_1 });
     }
 
     handleDeleteCourse_2 = myType_2 => {
@@ -103,13 +113,22 @@ class Timetable extends Component {
         this.setState({ myTypes_2 });
     }
 
-    handlePerformSort = path => {
-        this.setState({ sortColumn: path, order: 'asc' });
-        console.log('sortColumn');
+    PerformSort(path) {
+        this.setState({ sortColumn: {path, order: 'asc'} });
     }
 
     render() {
-        const { courses, type_1, type_2, selectedType_1, selectedType_2, isHiddden, myTypes_1, myTypes_2, sortColumn } = this.state;
+        const {
+            courses,
+            type_1,
+            type_2,
+            selectedType_1,
+            selectedType_2,
+            isHiddden,
+            myTypes_1,
+            myTypes_2,
+            sortColumn
+        } = this.state;
 
         let filtered = courses;
 
@@ -118,7 +137,10 @@ class Timetable extends Component {
         else if (selectedType_2 && selectedType_2.id_2)
             filtered = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
 
-        return (
+        const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
+        const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);        
+
+        return ( 
             <React.Fragment>
                 <div class="tabbable"> 
                     <ul class="nav nav-tabs">
@@ -155,8 +177,9 @@ class Timetable extends Component {
                                 myTypes_2={myTypes_2}
                                 onDeleteCourse_1={this.handleDeleteCourse_1}
                                 onDeleteCourse_2={this.handleDeleteCourse_2}
-                                onPerformSort={this.handlePerformSort}
                                 sortColumn={sortColumn}
+                                sorted_1={sorted_1}
+                                sorted_2={sorted_2}
                             />
                         </div>
                     </div>
