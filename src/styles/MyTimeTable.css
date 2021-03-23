@@ -1,4 +1,4 @@
-.table {
+.columns-wrapper {
     width: 80em;
     min-height: 50em;
     padding: 3em 3em 3em 3em;
@@ -42,5 +42,9 @@
     padding: 0.05em 0.4em 0.85em 0.4em;
     margin: 2em auto;
     background-color: #ffb3ff;
+}
+
+.table {
+    padding-top: 5em;
 }
 
