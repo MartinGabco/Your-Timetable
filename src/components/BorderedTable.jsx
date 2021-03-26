@@ -1,7 +1,11 @@
-import React from 'react';
+import React from 'react';      
 
-const BorderedTable = () => {
-    return ( 
+import '../styles/BorderedTable.css';
+
+const BorderedTable = props => {
+    const { myTypes_1, myTypes_2 } = props;
+
+    return (  
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -13,62 +17,152 @@ const BorderedTable = () => {
                     <th scope="col">12:00:00 PM</th>
                     <th scope="col">01:00:00 PM</th>
                     <th scope="col">02:00:00 PM</th>
-                </tr>
+                </tr>            
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">Monday</th>
                     <td></td>
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 1).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                        </div>
+                    ))}</td>                                       
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 2).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                        </div>
+                    ))}</td>
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 3).map(myType_1 => (
+                         <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                         </div>
+                    ))}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr> 
+                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 14).map(myType_2 => (
+                         <div className="first" style={{ background: myType_2.color }}>
+                            <p><b>{myType_2.name}</b></p>
+                            <p>{myType_2.place}</p>
+                         </div>
+                    ))}</td>                    
+                    <td></td>                    
+                </tr>
                 <tr>
                     <th scope="row">Tuesday</th>
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 4).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>                        
+                        </div>
+                    ))}</td>                   
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 5).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                        </div>
+                    ))}</td>                   
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 6).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                        </div>
+                    ))}</td>                    
+                    <td></td>  
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>                    
-                </tr>   
+                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 15).map(myType_2 => (
+                         <div className="first" style={{ background: myType_2.color }}>
+                            <p><b>{myType_2.name}</b></p>
+                            <p>{myType_2.place}</p>
+                         </div>
+                    ))}</td> 
+                    <td></td>                                    
+                </tr>
                 <tr>
                     <th scope="row">Wednesday</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>                    
-                </tr>  
+                    <td></td>                        
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 7).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                        </div>
+                    ))}</td>
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 8).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                        </div>
+                    ))}</td>
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 9).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                        </div>
+                    ))}</td>
+                    <td></td>      
+                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 16).map(myType_2 => (
+                         <div className="first" style={{ background: myType_2.color }}>
+                            <p><b>{myType_2.name}</b></p>
+                            <p>{myType_2.place}</p>
+                         </div>
+                    ))}</td> 
+                    <td></td>                                                                      
+                </tr>
                 <tr>
                     <th scope="row">Thursday</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>                    
-                </tr>   
+                    <td></td>                          
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 10).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                        </div>
+                    ))}</td>
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 11).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>
+                        </div>
+                    ))}</td>
+                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 17).map(myType_2 => (
+                         <div className="first" style={{ background: myType_2.color }}>
+                            <p><b>{myType_2.name}</b></p>
+                            <p>{myType_2.place}</p>
+                         </div>
+                    ))}</td> 
+                    <td></td>      
+                    <td></td> 
+                    <td></td>                                                                 
+                </tr>
                 <tr>
                     <th scope="row">Friday</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>                    
-                </tr>                                                                              
+                    <td></td> 
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 12).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>                        
+                        </div>
+                    ))}</td>                       
+                    <td>{myTypes_1.filter(myType_1 => myType_1.id === 13).map(myType_1 => (
+                        <div className="first" style={{ background: myType_1.color }}>
+                            <p><b>{myType_1.name}</b></p>
+                            <p>{myType_1.place}</p>                        
+                        </div>
+                    ))}</td>  
+                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 18).map(myType_2 => (
+                         <div className="first" style={{ background: myType_2.color }}>
+                            <p><b>{myType_2.name}</b></p>
+                            <p>{myType_2.place}</p>
+                         </div>
+                    ))}</td> 
+                    <td></td>      
+                    <td></td>      
+                    <td></td>                                                                                                      
+                </tr>
             </tbody>
         </table>
     );
 }
- 
+
 export default BorderedTable;

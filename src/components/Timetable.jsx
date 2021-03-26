@@ -60,7 +60,9 @@ class Timetable extends Component {
             day: course.day,
             day_id: course.day_id,
             time: course.time,
-            place: course.place
+            place: course.place,
+            key: course.key,
+            color: course.color
         }
 
         this.setState({
@@ -80,7 +82,9 @@ class Timetable extends Component {
             day: course.day,
             day_id: course.day_id,
             time: course.time,
-            place: course.place
+            place: course.place,
+            key: course.key,
+            color: course.color
         }
 
         this.setState({
@@ -138,7 +142,7 @@ class Timetable extends Component {
             filtered = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
 
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
-        const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);        
+        const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);      
 
         return ( 
             <React.Fragment>
@@ -172,7 +176,7 @@ class Timetable extends Component {
                             />
                         </div>
                         <div class="tab-pane" id="tab3">
-                            <MyTimeTable 
+                            <MyTimeTable
                                 myTypes_1={myTypes_1}
                                 myTypes_2={myTypes_2}
                                 onDeleteCourse_1={this.handleDeleteCourse_1}

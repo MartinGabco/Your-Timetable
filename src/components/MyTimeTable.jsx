@@ -52,7 +52,11 @@ const MyTimeTable = props => {
                 </ul>
             </div>
             <div className="table">
-                <BorderedTable/>
+                <BorderedTable
+                    myTypes_1={myTypes_1}
+                    myTypes_2={myTypes_2}
+                    sortColumn={sortColumn}
+                />
             </div>
         </div>
     );
