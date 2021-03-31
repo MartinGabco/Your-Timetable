@@ -18,6 +18,10 @@ import { getType_2 } from '../database/types.js';
 import Compulsory from './Compulsory.jsx';
 import Elective from './Elective.jsx';
 import MyTimeTable from './MyTimeTable.jsx';
+import Pagination from '../util-components/Pagination.jsx';
+
+// Export functions
+import { paginate } from '../util-components/paginate.js';
 
 class Timetable extends Component {
     state = {
@@ -33,7 +37,9 @@ class Timetable extends Component {
         sortColumn: { path: 'day_id', order: 'asc' },
         disabled: false,
         show: false,
-        helpVariable: true
+        helpVariable: true,
+        pageSize: 4,
+        currentPage: 1
     }
 
     componentDidMount() {
@@ -211,6 +217,10 @@ class Timetable extends Component {
         this.setState({ courses });        
     }
 
+    handlePageChange = page => {
+        this.setState({ currentPage: page });
+    }
+
     render() {
         const {
             courses,
@@ -226,7 +236,9 @@ class Timetable extends Component {
             onDisableAll,
             disabled,
             show, 
-            helpVariable
+            helpVariable,
+            pageSize,
+            currentPage
         } = this.state;
 
         let filtered = courses;
@@ -235,6 +247,9 @@ class Timetable extends Component {
             filtered = courses.filter(courses => courses.type.id_1 === selectedType_1.id_1);
         else if (selectedType_2 && selectedType_2.id_2)
             filtered = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
+
+        const {length: count} = filtered;
+        const filteredAndPaginated = paginate(filtered, currentPage, pageSize);
 
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
         const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);
@@ -250,7 +265,7 @@ class Timetable extends Component {
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1">
                             <Compulsory 
-                                filtered={filtered}
+                                filteredAndPaginated = {filteredAndPaginated}
                                 type_1={type_1}
                                 selectedType_1={selectedType_1}
                                 onTypeSelect_1={this.handleTypeSelect_1}
@@ -272,6 +287,10 @@ class Timetable extends Component {
                                 onRemoveMyTypes_1={this.handleRemoveMyTypes_1}
                                 onDisableOnClickRemove_1={this.handleDisableOnClickRemove_1}
                                 onDisabledFunction={this.handleDisabledFunction}
+                                itemsCount={count}
+                                pageSize={pageSize}
+                                currentPage={currentPage}
+                                onPageChange={this.handlePageChange}
                             />
                         </div>
                         <div class="tab-pane" id="tab2">

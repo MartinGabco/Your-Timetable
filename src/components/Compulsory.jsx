@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 
+// Components
+import Pagination from '../util-components/Pagination.jsx';
+
 //Styles
 import '../styles/Compulsory.css';
 
@@ -8,7 +11,7 @@ import CompulsoryLink from '../util-components/CompulsoryLink.jsx';
 
 const Compulsory = props => {
     const { 
-        filtered, 
+        filteredAndPaginated,
         type_1, 
         selectedType_1, 
         onTypeSelect_1, 
@@ -27,7 +30,11 @@ const Compulsory = props => {
         onFadeOut,
         onRefresh2,
         onRemoveMyTypes_1,
-        onDisableOnClickRemove_1
+        onDisableOnClickRemove_1,
+        itemsCount,
+        pageSize,
+        currentPage,
+        onPageChange
     } = props;
 
     return ( 
@@ -39,7 +46,7 @@ const Compulsory = props => {
             />
             {!isHidden && <div className="main-content">
                <ul className = "compulsory-course-list">
-                    {filtered.map(course => ( 
+                    {filteredAndPaginated.map(course => ( 
                          <li key = {course.id} className="compulsory-course-item">
                             <h4>{course.name}</h4>
                             <p>{course.day}</p>
@@ -60,6 +67,12 @@ const Compulsory = props => {
                             </button>
                         </li>
                     ))} 
+                    <Pagination
+                        itemsCount={itemsCount}
+                        pageSize={pageSize}    
+                        currentPage={currentPage}
+                        onPageChange={onPageChange}             
+                    />
                 </ul>
                 <div className="buttonsWrapper">
                     <section className="section1">
