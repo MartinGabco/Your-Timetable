@@ -8,14 +8,39 @@
     background: #66ffff;
 }
 
-.my-compulsory-courses {
+.my-compulsory-courses-column {
     width: 30%;
+    min-height: 50em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #99c2ff;
+}
+
+.my-compulsory-courses-column .remove-all {
+    width: 10em;
+    font-size: 1.25em;
+    padding: 0.35em 1.5em 0.5em 1.5em;  
+    margin-bottom: 2.5em; 
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #0000e6;
+    cursor: pointer;
+}
+
+.remove-all:hover,
+.remove:focus{
+    color: #0000e6;
+    background-color: #ccccff;
+}
+
+.my-compulsory-courses {
+    width: 100%;
     min-height: 50em;
     padding-top: 2em;
     padding-right: 3em;
     padding-bottom: 1.5em;
     list-style: none;
-    background: #99c2ff;
 }
 
 .my-compulsory-course {

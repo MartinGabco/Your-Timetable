@@ -12,11 +12,12 @@
 }
 
 .compulsory-course-list {
-    list-style: none;
     width: 50em;
     height: auto;
     margin-top: 5em;
     padding: 2em 2em 2em 13em;
+    margin-bottom: 2.5em;
+    list-style: none;    
     background: #00ccff;
 }
 
@@ -35,3 +36,84 @@
     width: 60%;
     margin: 0.75em auto 1.5em auto;
 }
+
+.remove-button {
+    width: 60%;
+    margin: 0.75em auto 1.5em auto;
+    border: none;  
+}
+
+.buttonsWrapper {
+    width: 100%;
+    height: 15em;
+    background-color: yellow;
+}
+
+.section1 {
+    width: 100%;
+    height: 50%;
+    padding-top: 3.1em;
+}
+
+.section2 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; 
+    padding-bottom: 1.5em;   
+}
+
+.main-content .add-all {
+    width: 15em;
+    font-size: 1.25em;
+    padding: 0.35em 1.5em 0.5em 1.5em;    
+    text-decoration: none;
+    color: white;
+    background-color: #ff8c1a;
+    cursor: pointer;
+    border: none;
+}
+
+.add-all:hover,
+.add-all:focus{
+    color: #ff0066;
+    background-color: #ffe6cc;
+}
+
+.main-content .backToStart {
+    width: 15em;
+    font-size: 1.25em;
+    padding: 0.35em 1.5em 0.5em 1.5em; 
+    margin-left: 2em;   
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #ff3333;
+    cursor: pointer;
+    border: none;
+}
+
+.backToStart:hover,
+.backToStart:focus {
+    color: #ff3333;
+    background-color: #ffffff;   
+}
+
+.main-content .start {
+    width: 15em;
+    font-size: 1.25em;
+    padding: 0.35em 1.5em 0.5em 1.5em;   
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #1a1aff;
+    cursor: pointer;
+    border: none;
+}
+
+.start:hover,
+.start:focus {
+    color: #1a1aff;
+    background-color: #ffffff;   
+}
+

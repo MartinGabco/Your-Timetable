@@ -26,10 +26,14 @@ class Timetable extends Component {
         type_2: [],
         selectedType_1: null,
         selectedType_2: null,
-        isHiddden: true,
+        isHidden: true,
+        isHidden1: false,
         myTypes_1: [],
         myTypes_2: [],
         sortColumn: { path: 'day_id', order: 'asc' },
+        disabled: false,
+        show: false,
+        helpVariable: true
     }
 
     componentDidMount() {
@@ -44,18 +48,19 @@ class Timetable extends Component {
     }
 
     handleTypeSelect_1 = type_1 => {
-        this.setState({ selectedType_1: type_1, selectedType_2: null })
-        this.setState({ isHiddden: !this.state.isHiddden })
+        this.setState({ selectedType_1: type_1, selectedType_2: null });
+        this.setState({ isHidden: !this.state.isHidden });
     }
 
     handleTypeSelect_2 = type_2 => {
-        this.setState({ selectedType_2: type_2, selectedType_1: null })
-        this.setState({ isHiddden: !this.state.isHiddden })
+        this.setState({ selectedType_2: type_2, selectedType_1: null });
+        this.setState({ isHidden: !this.state.isHidden });
     }
 
     handleAddMyTypes_1 = course => {
         const newMyType_1 = {
             id: course.id,
+            value: course.value,
             name: course.name,
             day: course.day,
             day_id: course.day_id,
@@ -78,6 +83,7 @@ class Timetable extends Component {
     handleAddMyTypes_2 = course => {
         const newMyType_2 = {
             id: course.id,
+            value: course.value,
             name: course.name,
             day: course.day,
             day_id: course.day_id,
@@ -96,11 +102,6 @@ class Timetable extends Component {
         const sorted_2 = _.orderBy(this.state.myTypes_2, [this.state.sortColumn.path]);
         this.setState({ sorted: myTypes_2 });
     }    
-
-    handleDisableOnClick_1 = event => {
-        event.preventDefault();
-        event.target.disabled = true;
-    }
 
     handleDisableOnClick_2 = event => {
         event.preventDefault();
@@ -121,6 +122,95 @@ class Timetable extends Component {
         this.setState({ sortColumn: {path, order: 'asc'} });
     }
 
+    handleAddAll = event => {
+        event.preventDefault();
+
+        const courses_map_1 = this.state.courses.map(course => course);
+        const compulsory_courses_1 = courses_map_1.filter(c => c.id <= 13);
+
+        this.setState({
+            myTypes_1: [...this.state.myTypes_1,...compulsory_courses_1]
+        });
+    }
+
+    handleRemoveArray_1 = event => {
+        event.preventDefault();
+        const removed_1 = this.state.myTypes_1;
+        removed_1.length = 0;
+        this.setState({ removed_1 })
+    }
+
+    handleDisableAll = event => {
+        event.preventDefault();
+        this.setState({ helpVariable: this.state.helpVariable = false});
+        console.log(this.state.helpVariable);
+    }
+
+    handleReset = event => {
+        event.preventDefault();
+        const courses_map_1 = this.state.courses.map(course => course);
+        const compulsory_courses_1 = courses_map_1.filter(c => c.id <= 13);
+
+        const unique = compulsory_courses_1.filter((item, index) => compulsory_courses_1.indexOf(item) === index);
+        this.setState({ myTypes_1: unique });
+    }
+
+    handleDisableButton = event => {
+        event.preventDefault();      
+    }
+
+    handleRefresh = event => {
+        event.preventDefault();
+        this.setState({ disabled: !this.state.disabled }); 
+
+        const removed_1 = this.state.myTypes_1;
+        removed_1.length = 0;
+        this.setState({ removed_1 })           
+    }
+
+    handleReturnButton = event => {
+        event.preventDefault();
+        this.setState({ show: true })
+    }
+
+    handleFadeOut = event => {
+        event.preventDefault();
+        this.setState({ show: false })        
+    }
+
+    handleRefresh2 = event => {
+        event.preventDefault();
+        this.handleTypeSelect_1();
+
+        const removed_1 = this.state.myTypes_1;
+        removed_1.length = 0;
+        this.setState({ removed_1 })      
+    }
+
+    handleRemoveMyTypes_1 = course => {
+        const mapped = this.state.myTypes_1.map(myType_1 => myType_1);
+        const filtered2 = mapped.filter(m => m.id !== course.id);
+        this.setState({ myTypes_1: filtered2 });
+    }
+
+    handleDisableOnClick_1 = course => {
+        const courses = [...this.state.courses];
+        const index = courses.indexOf(course);
+        courses[index] = {...course};
+        courses[index].value++;
+        this.setState({ courses });
+
+        this.setState({ disabled: this.state.disabled = true }); 
+    }
+
+    handleDisableOnClickRemove_1 = course => {
+        const courses = [...this.state.courses];
+        const index = courses.indexOf(course);
+        courses[index] = {...course};
+        courses[index].value--;
+        this.setState({ courses });        
+    }
+
     render() {
         const {
             courses,
@@ -128,10 +218,15 @@ class Timetable extends Component {
             type_2,
             selectedType_1,
             selectedType_2,
-            isHiddden,
+            isHidden,
+            isHidden1,
             myTypes_1,
             myTypes_2,
-            sortColumn
+            sortColumn, 
+            onDisableAll,
+            disabled,
+            show, 
+            helpVariable
         } = this.state;
 
         let filtered = courses;
@@ -142,7 +237,7 @@ class Timetable extends Component {
             filtered = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
 
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
-        const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);      
+        const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);
 
         return ( 
             <React.Fragment>
@@ -159,9 +254,24 @@ class Timetable extends Component {
                                 type_1={type_1}
                                 selectedType_1={selectedType_1}
                                 onTypeSelect_1={this.handleTypeSelect_1}
-                                isHiddden={isHiddden}
+                                isHidden={isHidden}
                                 onAddMyTypes_1={this.handleAddMyTypes_1}
                                 onDisableOnClick_1={this.handleDisableOnClick_1}
+                                onAddAll={this.handleAddAll}
+                                onDisableAddMore={this.handleDisableAddMore}
+                                onDisableAll={this.handleDisableAll}
+                                disabled={disabled}
+                                show={show}
+                                onReset={this.handleReset}
+                                onDisableButton={this.handleDisableButton}
+                                onRefresh={this.handleRefresh}
+                                onReturnButton={this.handleReturnButton}                                
+                                onFadeOut={this.handleFadeOut}
+                                onRefresh2={this.handleRefresh2}
+                                isHidden1={isHidden1}
+                                onRemoveMyTypes_1={this.handleRemoveMyTypes_1}
+                                onDisableOnClickRemove_1={this.handleDisableOnClickRemove_1}
+                                onDisabledFunction={this.handleDisabledFunction}
                             />
                         </div>
                         <div class="tab-pane" id="tab2">
@@ -170,7 +280,7 @@ class Timetable extends Component {
                                 type_2={type_2}
                                 selectedType_2={selectedType_2}
                                 onTypeSelect_2={this.handleTypeSelect_2}
-                                isHiddden={isHiddden}  
+                                isHidden={isHidden}  
                                 onAddMyTypes_2={this.handleAddMyTypes_2}  
                                 onDisableOnClick_2={this.handleDisableOnClick_2}                    
                             />
@@ -184,6 +294,7 @@ class Timetable extends Component {
                                 sortColumn={sortColumn}
                                 sorted_1={sorted_1}
                                 sorted_2={sorted_2}
+                                onRemoveArray_1={this.handleRemoveArray_1}
                             />
                         </div>
                     </div>

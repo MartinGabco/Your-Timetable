@@ -12,7 +12,7 @@ const Elective = props => {
         type_2, 
         selectedType_2, 
         onTypeSelect_2, 
-        isHiddden, 
+        isHidden, 
         onAddMyTypes_2, 
         onDisableOnClick_2 
     } = props;
@@ -24,7 +24,7 @@ const Elective = props => {
                 selectedType_2={selectedType_2}
                 onTypeSelect_2={onTypeSelect_2}
             />
-            {!isHiddden || <ul className="elective-course-list">
+            {!isHidden || <ul className="elective-course-list">
                 {filtered.map(course => (
                     <li key = {course.id} className="elective-course-item">
                         <h4>{course.name}</h4>
