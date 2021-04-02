@@ -6,7 +6,7 @@ const CompulsoryLink = props => {
     return ( 
         <div className="compulsory-link-wrapper">
             {type_1.map(type_1 => ( 
-                <a 
+                <a
                     key = {type_1.id_1}
                     onClick = {() => onTypeSelect_1(type_1)}
                     className = {

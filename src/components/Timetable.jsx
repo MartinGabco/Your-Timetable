@@ -5,6 +5,7 @@ import '../styles/Timetable.css';
 
 //lodash
 import _ from 'lodash';
+import { debounce } from 'lodash-es';
 
 //Server connection
 import axios from 'axios';
@@ -13,6 +14,7 @@ import config from '../config.json';
 //Help database connection
 import { getType_1 } from '../database/types.js';
 import { getType_2 } from '../database/types.js';
+import { getDays } from '../database/days.js';
 
 //Components
 import Compulsory from './Compulsory.jsx';
@@ -26,6 +28,7 @@ import { paginate } from '../util-components/paginate.js';
 class Timetable extends Component {
     state = {
         courses: [],
+        days: [],
         type_1: [],
         type_2: [],
         selectedType_1: null,
@@ -34,23 +37,27 @@ class Timetable extends Component {
         isHidden1: false,
         myTypes_1: [],
         myTypes_2: [],
-        sortColumn: { path: 'day_id', order: 'asc' },
+        sortColumn: { path: 'day.id', order: 'asc' },
         disabled: false,
         show: false,
         helpVariable: true,
-        pageSize: 4,
-        currentPage: 1
+        pageSize: 3,
+        currentPage: 1,
+        selectedDay: null,
+        searchQuery: ''
     }
 
     componentDidMount() {
         axios.get(config.apiEndpoint)
             .then(res => {
                 const courses = res.data;
-                this.setState({ courses });
+                this.setState({ courses, days });
             });
 
         this.setState({ type_1: getType_1() });
         this.setState({ type_2: getType_2() });
+        const days = [{ name: 'All days' }, ...getDays()]
+        this.setState({ days: getDays() });
     }
 
     handleTypeSelect_1 = type_1 => {
@@ -69,7 +76,6 @@ class Timetable extends Component {
             value: course.value,
             name: course.name,
             day: course.day,
-            day_id: course.day_id,
             time: course.time,
             place: course.place,
             key: course.key,
@@ -92,7 +98,6 @@ class Timetable extends Component {
             value: course.value,
             name: course.name,
             day: course.day,
-            day_id: course.day_id,
             time: course.time,
             place: course.place,
             key: course.key,
@@ -107,7 +112,7 @@ class Timetable extends Component {
     function(myTypes_2) {
         const sorted_2 = _.orderBy(this.state.myTypes_2, [this.state.sortColumn.path]);
         this.setState({ sorted: myTypes_2 });
-    }    
+    }
 
     handleDisableOnClick_2 = event => {
         event.preventDefault();
@@ -125,7 +130,7 @@ class Timetable extends Component {
     }
 
     PerformSort(path) {
-        this.setState({ sortColumn: {path, order: 'asc'} });
+        this.setState({ sortColumn: { path, order: 'asc' } });
     }
 
     handleAddAll = event => {
@@ -135,7 +140,7 @@ class Timetable extends Component {
         const compulsory_courses_1 = courses_map_1.filter(c => c.id <= 13);
 
         this.setState({
-            myTypes_1: [...this.state.myTypes_1,...compulsory_courses_1]
+            myTypes_1: [...this.state.myTypes_1, ...compulsory_courses_1]
         });
     }
 
@@ -148,7 +153,7 @@ class Timetable extends Component {
 
     handleDisableAll = event => {
         event.preventDefault();
-        this.setState({ helpVariable: this.state.helpVariable = false});
+        this.setState({ helpVariable: this.state.helpVariable = false });
         console.log(this.state.helpVariable);
     }
 
@@ -162,7 +167,7 @@ class Timetable extends Component {
     }
 
     handleDisableButton = event => {
-        event.preventDefault();      
+        event.preventDefault();
     }
 
     handleRefresh = event => {
@@ -171,7 +176,7 @@ class Timetable extends Component {
 
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
-        this.setState({ removed_1 })           
+        this.setState({ removed_1 })
     }
 
     handleReturnButton = event => {
@@ -181,7 +186,7 @@ class Timetable extends Component {
 
     handleFadeOut = event => {
         event.preventDefault();
-        this.setState({ show: false })        
+        this.setState({ show: false })
     }
 
     handleRefresh2 = event => {
@@ -190,7 +195,7 @@ class Timetable extends Component {
 
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
-        this.setState({ removed_1 })      
+        this.setState({ removed_1 })
     }
 
     handleRemoveMyTypes_1 = course => {
@@ -202,23 +207,31 @@ class Timetable extends Component {
     handleDisableOnClick_1 = course => {
         const courses = [...this.state.courses];
         const index = courses.indexOf(course);
-        courses[index] = {...course};
+        courses[index] = {...course };
         courses[index].value++;
         this.setState({ courses });
 
-        this.setState({ disabled: this.state.disabled = true }); 
+        this.setState({ disabled: this.state.disabled = true });
     }
 
     handleDisableOnClickRemove_1 = course => {
         const courses = [...this.state.courses];
         const index = courses.indexOf(course);
-        courses[index] = {...course};
+        courses[index] = {...course };
         courses[index].value--;
-        this.setState({ courses });        
+        this.setState({ courses });
     }
 
     handlePageChange = page => {
         this.setState({ currentPage: page });
+    }
+
+    handleDaysSelect = day => {
+        this.setState({ selectedDay: day, searchQuery: '', currentPage: 1 });
+    }
+
+    handleChange = query => {
+        this.setState({ selectedDay: null, searchQuery: query, currentPage: 1 });
     }
 
     render() {
@@ -232,13 +245,16 @@ class Timetable extends Component {
             isHidden1,
             myTypes_1,
             myTypes_2,
-            sortColumn, 
+            sortColumn,
             onDisableAll,
             disabled,
-            show, 
+            show,
             helpVariable,
             pageSize,
-            currentPage
+            currentPage,
+            days,
+            selectedDay,
+            searchQuery
         } = this.state;
 
         let filtered = courses;
@@ -248,13 +264,22 @@ class Timetable extends Component {
         else if (selectedType_2 && selectedType_2.id_2)
             filtered = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
 
-        const {length: count} = filtered;
-        const filteredAndPaginated = paginate(filtered, currentPage, pageSize);
+        let filteredSecond = filtered;
+
+        if (searchQuery)
+            filteredSecond = filteredSecond.filter(course =>
+                course.name.toLowerCase().startsWith(searchQuery.toLowerCase()));
+        else if (selectedDay && selectedDay.id)
+            filteredSecond = filteredSecond.filter(course => course.day.id === selectedDay.id);
+
+        const { length: count } = filteredSecond;
+
+        const filteredAndPaginated = paginate(filteredSecond, currentPage, pageSize);
 
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
         const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);
 
-        return ( 
+        return (
             <React.Fragment>
                 <div class="tabbable"> 
                     <ul class="nav nav-tabs">
@@ -288,9 +313,15 @@ class Timetable extends Component {
                                 onDisableOnClickRemove_1={this.handleDisableOnClickRemove_1}
                                 onDisabledFunction={this.handleDisabledFunction}
                                 itemsCount={count}
+                                count={count}
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onPageChange={this.handlePageChange}
+                                items={days}
+                                onDaysSelect={this.handleDaysSelect}
+                                selectedItem={selectedDay}
+                                searchQuery={searchQuery}
+                                onChange={this.handleChange}
                             />
                         </div>
                         <div class="tab-pane" id="tab2">

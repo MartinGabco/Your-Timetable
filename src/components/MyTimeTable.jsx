@@ -27,7 +27,7 @@ const MyTimeTable = props => {
                         {sorted_1.map(myType_1 => (
                             <li className="my-compulsory-course" key={myType_1.id}>
                                 <h3>{myType_1.name}</h3>
-                                <p>{myType_1.day}</p>
+                                <p>{myType_1.day.name}</p>
                                 <p>{myType_1.time}{myType_1.place}</p>
                                 <button 
                                     className="cancel-my-compulsory-course"
@@ -44,7 +44,7 @@ const MyTimeTable = props => {
                     {sorted_2.map(myType_2 => (
                         <li className="my-elective-course" key={myType_2.id}>
                             <h3>{myType_2.name}</h3>
-                            <p>{myType_2.day}</p>
+                            <p>{myType_2.day.name}</p>
                             <p>{myType_2.time}{myType_2.place}</p>
                             <button 
                                 className="cancel-my-elective-course"

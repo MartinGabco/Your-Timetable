@@ -16,7 +16,7 @@
     height: auto;
     margin-top: 5em;
     padding: 2em 2em 2em 13em;
-    margin-bottom: 2.5em;
+    margin-bottom: 1.25em;
     list-style: none;    
     background: #00ccff;
 }
@@ -46,6 +46,7 @@
 .buttonsWrapper {
     width: 100%;
     height: 15em;
+    margin-top: 3em;
     background-color: yellow;
 }
 
@@ -63,6 +64,31 @@
     align-items: center;
     justify-content: space-around; 
     padding-bottom: 1.5em;   
+}
+
+.main-content {
+    width: 150%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    padding: 0 0 0 5em;
+}
+
+.listGroup-wrapper {
+    width: 15em;
+    padding-top: 5em;
+}
+
+.namesSearchWrapper {
+    width: 15em;
+    padding-top: 2.5em;
+}
+
+.namesSearchWrapper .namesInput {
+    width: 100%;
 }
 
 .main-content .add-all {
@@ -116,4 +142,5 @@
     color: #1a1aff;
     background-color: #ffffff;   
 }
+
 

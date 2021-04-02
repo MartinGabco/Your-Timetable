@@ -28,7 +28,7 @@ const Elective = props => {
                 {filtered.map(course => (
                     <li key = {course.id} className="elective-course-item">
                         <h4>{course.name}</h4>
-                        <p>{course.day}</p>
+                        <p>{course.day.name}</p>
                         <p>{course.time}{course.place}</p>
                         <button 
                             className="add-button"                        
