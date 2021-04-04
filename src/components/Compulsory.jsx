@@ -40,7 +40,8 @@ const Compulsory = props => {
         selectedItem,
         searchQuery,
         onChange,
-        count
+        count,
+        removeAllAdds
     } = props;
 
     return ( 
@@ -74,13 +75,13 @@ const Compulsory = props => {
                                 <h4>{course.name}</h4>
                                 <p>{course.day.name}</p>
                                 <p>{course.time}{course.place}</p>
-                                <button 
+                                {removeAllAdds && <button 
                                     className="add-button"
                                     disabled = {course.value === 0 ? false : true}
                                     onClick={() => {onAddMyTypes_1(course); onDisableOnClick_1(course);}}
                                 >
                                     Add to your timetable
-                                </button>
+                                </button>}
                                 <button 
                                     className="remove-button"
                                     disabled = {course.value === 1 ? false : true}

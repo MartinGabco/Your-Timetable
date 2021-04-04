@@ -5,7 +5,6 @@ import '../styles/Timetable.css';
 
 //lodash
 import _ from 'lodash';
-import { debounce } from 'lodash-es';
 
 //Server connection
 import axios from 'axios';
@@ -15,11 +14,15 @@ import config from '../config.json';
 import { getType_1 } from '../database/types.js';
 import { getType_2 } from '../database/types.js';
 import { getDays } from '../database/days.js';
+import { getMessages } from '../database/messages.js';
+import { getAllDaysMessage } from '../database/messages.js';
 
 //Components
 import Compulsory from './Compulsory.jsx';
 import Elective from './Elective.jsx';
 import MyTimeTable from './MyTimeTable.jsx';
+
+// Util components
 import Pagination from '../util-components/Pagination.jsx';
 
 // Export functions
@@ -38,13 +41,19 @@ class Timetable extends Component {
         myTypes_1: [],
         myTypes_2: [],
         sortColumn: { path: 'day.id', order: 'asc' },
+        timeSorted: { path: 'id', order: 'asc' },
         disabled: false,
         show: false,
         helpVariable: true,
         pageSize: 3,
         currentPage: 1,
         selectedDay: null,
-        searchQuery: ''
+        searchQuery: '',
+        messages: [],
+        allDaysMessage: [],
+        showRecentMessage: true,
+        showDaysMessage: true,
+        removeAllAdds: true
     }
 
     componentDidMount() {
@@ -58,6 +67,8 @@ class Timetable extends Component {
         this.setState({ type_2: getType_2() });
         const days = [{ name: 'All days' }, ...getDays()]
         this.setState({ days: getDays() });
+        this.setState({ messages: getMessages() });
+        this.setState({ allDaysMessage: getAllDaysMessage() });
     }
 
     handleTypeSelect_1 = type_1 => {
@@ -84,7 +95,10 @@ class Timetable extends Component {
 
         this.setState({
             myTypes_1: [...this.state.myTypes_1, newMyType_1]
-        })
+        });
+
+        this.setState({ showRecentMessage: this.state.showRecentMessage = true})
+        this.setState({ showDaysMessage: this.state.showDaysMessage = false})
     }
 
     function(myTypes_1) {
@@ -142,6 +156,12 @@ class Timetable extends Component {
         this.setState({
             myTypes_1: [...this.state.myTypes_1, ...compulsory_courses_1]
         });
+
+        this.setState({ showRecentMessage: this.state.showRecentMessage = true})
+        this.setState({ showDaysMessage: this.state.showDaysMessage = false})
+        this.setState({ removeAllAdds: this.state.removeAllAdds = false})
+
+        this.setState({ isRemoved: this.state.isRemoved = false})
     }
 
     handleRemoveArray_1 = event => {
@@ -154,7 +174,6 @@ class Timetable extends Component {
     handleDisableAll = event => {
         event.preventDefault();
         this.setState({ helpVariable: this.state.helpVariable = false });
-        console.log(this.state.helpVariable);
     }
 
     handleReset = event => {
@@ -177,6 +196,10 @@ class Timetable extends Component {
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
         this.setState({ removed_1 })
+
+        this.setState({ removeAllAdds: this.state.removeAllAdds = true})
+
+        this.setState({ isRemoved: this.state.isRemoved = true})
     }
 
     handleReturnButton = event => {
@@ -232,6 +255,17 @@ class Timetable extends Component {
 
     handleChange = query => {
         this.setState({ selectedDay: null, searchQuery: query, currentPage: 1 });
+    } 
+
+    handleCompulsoryPageChange = page => {
+        this.setState({ currentPage: page });
+        this.setState({ hide: this.state.hide = true });
+    }
+
+    handleCompulsoryDayChange = day => {
+        this.setState({ selectedDay: day, currentPage: 1 });
+        this.setState({ showRecentMessage: this.state.showRecentMessage = false})   
+        this.setState({ showDaysMessage: this.state.showDaysMessage = true})     
     }
 
     render() {
@@ -254,7 +288,11 @@ class Timetable extends Component {
             currentPage,
             days,
             selectedDay,
-            searchQuery
+            searchQuery,
+            messages,
+            showRecentMessage,
+            showDaysMessage,
+            removeAllAdds
         } = this.state;
 
         let filtered = courses;
@@ -277,7 +315,25 @@ class Timetable extends Component {
         const filteredAndPaginated = paginate(filteredSecond, currentPage, pageSize);
 
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
-        const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);
+        const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);   
+
+        const filteredSorted_1 = selectedDay && selectedDay.id
+        ? sorted_1.filter(course => course.day.id === selectedDay.id)
+        : sorted_1; 
+
+        const sorted_time = _.orderBy(filteredSorted_1, [this.state.timeSorted.path]); 
+
+        const sorted1Count = sorted_time.length;         
+        
+        const sortedMyTypes_1 = paginate(sorted_time, currentPage, pageSize);
+
+        const filteredMessage = selectedDay && selectedDay.id
+        ? this.state.messages.filter(m => m.id === selectedDay.id).map(message => message.text)
+        : null;
+
+        const filteredAllDaysMessage = selectedDay && selectedDay.name
+        ? this.state.allDaysMessage.filter(allDaysMessage => allDaysMessage.name === selectedDay.name).map(allDaysMessage => allDaysMessage.text)
+        : null;
 
         return (
             <React.Fragment>
@@ -322,6 +378,7 @@ class Timetable extends Component {
                                 selectedItem={selectedDay}
                                 searchQuery={searchQuery}
                                 onChange={this.handleChange}
+                                removeAllAdds={removeAllAdds}
                             />
                         </div>
                         <div class="tab-pane" id="tab2">
@@ -342,9 +399,22 @@ class Timetable extends Component {
                                 onDeleteCourse_1={this.handleDeleteCourse_1}
                                 onDeleteCourse_2={this.handleDeleteCourse_2}
                                 sortColumn={sortColumn}
-                                sorted_1={sorted_1}
+                                sortedMyTypes_1={sortedMyTypes_1}
                                 sorted_2={sorted_2}
+                                sorted_time={sorted_time}
                                 onRemoveArray_1={this.handleRemoveArray_1}
+                                items={sorted1Count}
+                                pageSize={pageSize}
+                                currentPage={currentPage}
+                                onCompulsoryPageChange={this.handleCompulsoryPageChange}
+                                days={days}
+                                selectedItem={selectedDay}
+                                onCompulsoryDayChange={this.handleCompulsoryDayChange}
+                                messages={messages}
+                                filteredMessage={filteredMessage}
+                                filteredAllDaysMessage={filteredAllDaysMessage}     
+                                showRecentMessage={showRecentMessage}
+                                showDaysMessage={showDaysMessage}
                             />
                         </div>
                     </div>

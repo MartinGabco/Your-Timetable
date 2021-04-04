@@ -17,6 +17,30 @@
     background: #99c2ff;
 }
 
+.myCompulsoryCoursesPageNumbers,
+.myCompulsoryCoursesRemove,
+.myCompulsoryCoursesFilter {
+    width: 100%;
+}
+
+.myCompulsoryCoursesFilter {
+    min-height: 26em;
+    padding-top: 3.6em;
+    background: #ccffff;
+}
+
+.myCompulsoryCoursesPageNumbers {
+    min-height: 10em;
+    padding-top: 2.4em;
+    background: #ffff1a;   
+}
+
+.myCompulsoryCoursesRemove {
+    min-height: 10em;
+    padding-top: 3.25em;
+    background: #b3b3ff;     
+}
+
 .my-compulsory-courses-column .remove-all {
     width: 10em;
     font-size: 1.25em;
@@ -49,6 +73,11 @@
     padding: 0.1em 0 0.85em 0;
     margin: 2em auto;
     background-color: #ffffff;
+}
+
+.recentMessage {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    background: #ffff80;
 }
 
 .my-elective-courses {
