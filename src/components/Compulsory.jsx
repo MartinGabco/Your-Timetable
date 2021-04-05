@@ -24,10 +24,9 @@ const Compulsory = props => {
         disabled,
         onReset,
         onDisableButton,
-        onRefresh,
         onReturnButton,
         show,
-        onFadeOut,
+        onRefresh,
         onRefresh2,
         onRemoveMyTypes_1,
         onDisableOnClickRemove_1,
@@ -46,12 +45,7 @@ const Compulsory = props => {
 
     return ( 
         <div className = "row" > 
-            <CompulsoryLink 
-                type_1={type_1}
-                selectedType_1={selectedType_1} 
-                onTypeSelect_1={onTypeSelect_1}          
-            />
-            {!isHidden && <div className="main-content">
+            <div className="main-content">
                 <div className = "col">
                     <div className="listGroup-wrapper">
                         <ListGroup
@@ -82,13 +76,13 @@ const Compulsory = props => {
                                 >
                                     Add to your timetable
                                 </button>}
-                                <button 
+                                {removeAllAdds && <button 
                                     className="remove-button"
                                     disabled = {course.value === 1 ? false : true}
                                     onClick={() => {onRemoveMyTypes_1(course); onDisableOnClickRemove_1(course);}}                                
                                 >
                                     Remove from your timetable
-                                </button>
+                                </button>}
                             </li>                     
                         ))}                              
                     </ul>
@@ -114,7 +108,7 @@ const Compulsory = props => {
                             </button>
                             {show && <button
                                 className="backToStart"
-                                onClick={(event) => {onRefresh(event); onFadeOut(event);}}
+                                onClick={(event) => onRefresh(event)}
                             >
                                 Return to start
                             </button>} 
@@ -129,7 +123,7 @@ const Compulsory = props => {
                         </section>
                     </div>  
                 </div>                                     
-            </div>}
+            </div>
         </div>   
     );
 }

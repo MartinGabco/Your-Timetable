@@ -15,8 +15,7 @@ import '../styles/MyTimeTable.css';
 const MyTimeTable = props => {
     const { 
         myTypes_1, 
-        myTypes_2, 
-        onDeleteCourse_1,
+        myTypes_2,
         onRestartCourse,
         onDeleteCourse_2, 
         sortColumn,
@@ -65,12 +64,6 @@ const MyTimeTable = props => {
                                 <h3>{myType_1.name}</h3>
                                 <p>{myType_1.day.name}</p>
                                 <p>{myType_1.time}{myType_1.place}</p>
-                                <button 
-                                    className="cancel-my-compulsory-course"
-                                    onClick={(event) => {onDeleteCourse_1(myType_1);}}
-                                >
-                                    Remove course
-                                </button>
                             </li>      
                         ))}
                     </ul>

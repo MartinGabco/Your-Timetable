@@ -72,7 +72,7 @@ class Timetable extends Component {
     }
 
     handleTypeSelect_1 = type_1 => {
-        this.setState({ selectedType_1: type_1, selectedType_2: null });
+        this.setState({ selctedType_1: type_1, selectedType_2: null });
         this.setState({ isHidden: !this.state.isHidden });
     }
 
@@ -133,11 +133,6 @@ class Timetable extends Component {
         event.target.disabled = true;
     }
 
-    handleDeleteCourse_1 = myType_1 => {
-        const myTypes_1 = this.state.myTypes_1.filter(m => m.id !== myType_1.id);
-        this.setState({ myTypes_1 });
-    }
-
     handleDeleteCourse_2 = myType_2 => {
         const myTypes_2 = this.state.myTypes_2.filter(m => m.id !== myType_2.id);
         this.setState({ myTypes_2 });
@@ -160,7 +155,6 @@ class Timetable extends Component {
         this.setState({ showRecentMessage: this.state.showRecentMessage = true})
         this.setState({ showDaysMessage: this.state.showDaysMessage = false})
         this.setState({ removeAllAdds: this.state.removeAllAdds = false})
-
         this.setState({ isRemoved: this.state.isRemoved = false})
     }
 
@@ -169,6 +163,8 @@ class Timetable extends Component {
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
         this.setState({ removed_1 })
+
+        window.location.reload(false)
     }
 
     handleDisableAll = event => {
@@ -198,18 +194,17 @@ class Timetable extends Component {
         this.setState({ removed_1 })
 
         this.setState({ removeAllAdds: this.state.removeAllAdds = true})
-
         this.setState({ isRemoved: this.state.isRemoved = true})
-    }
 
-    handleReturnButton = event => {
-        event.preventDefault();
-        this.setState({ show: true })
-    }
+        window.location.reload(false);
 
-    handleFadeOut = event => {
         event.preventDefault();
         this.setState({ show: false })
+    }
+
+    handleReturnButton = event => { 
+        event.preventDefault();
+        this.setState({ show: true })
     }
 
     handleRefresh2 = event => {
@@ -219,6 +214,10 @@ class Timetable extends Component {
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
         this.setState({ removed_1 })
+
+        this.setState({ remove: this.state.remove = true});
+
+        window.location.reload(false);
     }
 
     handleRemoveMyTypes_1 = course => {
@@ -360,9 +359,8 @@ class Timetable extends Component {
                                 show={show}
                                 onReset={this.handleReset}
                                 onDisableButton={this.handleDisableButton}
-                                onRefresh={this.handleRefresh}
-                                onReturnButton={this.handleReturnButton}                                
-                                onFadeOut={this.handleFadeOut}
+                                onReturnButton={this.handleReturnButton} 
+                                onRefresh={this.handleRefresh}                               
                                 onRefresh2={this.handleRefresh2}
                                 isHidden1={isHidden1}
                                 onRemoveMyTypes_1={this.handleRemoveMyTypes_1}
@@ -396,7 +394,6 @@ class Timetable extends Component {
                             <MyTimeTable
                                 myTypes_1={myTypes_1}
                                 myTypes_2={myTypes_2}
-                                onDeleteCourse_1={this.handleDeleteCourse_1}
                                 onDeleteCourse_2={this.handleDeleteCourse_2}
                                 sortColumn={sortColumn}
                                 sortedMyTypes_1={sortedMyTypes_1}
