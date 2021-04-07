@@ -293,7 +293,8 @@ class Timetable extends Component {
             messages,
             showRecentMessage,
             showDaysMessage,
-            removeAllAdds
+            removeAllAdds,
+            countReal
         } = this.state;
 
         const courses_map_1 = this.state.courses.map(course => course);
@@ -386,6 +387,7 @@ class Timetable extends Component {
                                 searchQuery={searchQuery}
                                 onChange={this.handleChange}
                                 removeAllAdds={removeAllAdds}
+                                myTypes_1={myTypes_1}
                             /> 
                         </div>
                         <div class="tab-pane" id="tab2" href="second">                           

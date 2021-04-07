@@ -42,8 +42,12 @@ const Compulsory = props => {
         searchQuery,
         onChange,
         count,
-        removeAllAdds
+        removeAllAdds,
+        myTypes_1
     } = props;
+
+    //count of added myTypes_1
+    const countMyTypes_1 = myTypes_1.length;
 
     return ( 
         <div className = "row" > 
@@ -62,6 +66,21 @@ const Compulsory = props => {
                             value={searchQuery}
                             onChange={onChange}
                         />
+                    </div>
+                    <div className="items-message">
+                        <section className="head">
+                            <p>List of actually added compulsory courses</p>
+                        </section>
+                        <section className="count-box">
+                            <p><b>Count: {countMyTypes_1}</b></p>
+                        </section>
+                        <section className="body">
+                            <ol className="course-items-list" type="number">
+                                {myTypes_1.map(myType_1 => (
+                                    <li key={myType_1.id} className="list-item">{myType_1.name}</li>
+                                ))}
+                            </ol> 
+                        </section>
                     </div>
                 </div>
                     <div className = "col">
