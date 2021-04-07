@@ -98,6 +98,16 @@ const MyTimeTable = props => {
                 </ul>
             </div>
             <div className="table">
+                {showRecentMessage && 
+                    <p className="recentMessage">
+                        Your recently added courses. Continue to upper menu.
+                    </p>
+                }
+                {showDaysMessage && 
+                    <p className="message">
+                        {filteredMessage}{filteredAllDaysMessage}
+                    </p>
+                }
                 <BorderedTable
                     myTypes_1={myTypes_1}
                     myTypes_2={myTypes_2}

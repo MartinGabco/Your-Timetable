@@ -11,7 +11,7 @@ export function getMessages() {
 }
 
 export const allDaysMessage = [
-    {text: "You are searching compulsory courses for all days", name: "All days"}
+    {text: "You are searching compulsory courses chosen by you for all days", name: "All days"}
 ];
 
 export function getAllDaysMessage() {
