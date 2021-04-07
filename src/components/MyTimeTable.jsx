@@ -87,12 +87,6 @@ const MyTimeTable = props => {
                             <h3>{myType_2.name}</h3>
                             <p>{myType_2.day.name}</p>
                             <p>{myType_2.time}{myType_2.place}</p>
-                            <button 
-                                className="cancel-my-elective-course"
-                                onClick={() => onDeleteCourse_2(myType_2)}
-                            >
-                                Remove course
-                            </button>
                         </li>
                     ))}
                 </ul>

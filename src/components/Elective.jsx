@@ -11,7 +11,10 @@ const Elective = props => {
         onTypeSelect_2, 
         isHidden, 
         onAddMyTypes_2, 
-        onDisableOnClick_2 
+        onDisableOnClick_2 ,
+        disabled,
+        onRemoveMyTypes_2,
+        onDisableOnClickRemove_2
     } = props;
 
     return ( 
@@ -23,9 +26,17 @@ const Elective = props => {
                         <p>{course.day.name}</p>
                         <p>{course.time}{course.place}</p>
                         <button 
-                            className="add-button"                        
-                            onClick={(event) => {onAddMyTypes_2(course); onDisableOnClick_2(event);}}>
+                            className="add-button"   
+                            disabled = {course.value === 0 ? false : true}                     
+                            onClick={() => {onAddMyTypes_2(course); onDisableOnClick_2(course);}}>
                             Add to your timetable
+                        </button>
+                        <button 
+                            className="remove-button"
+                            disabled = {course.value === 1 ? false : true}
+                            onClick={() => {onRemoveMyTypes_2(course); onDisableOnClickRemove_2(course);}}
+                        >
+                            Remove from your timetable
                         </button>
                     </li>
                 ))}

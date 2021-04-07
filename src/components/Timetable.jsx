@@ -130,14 +130,14 @@ class Timetable extends Component {
         this.setState({ sorted: myTypes_2 });
     }
 
-    handleDisableOnClick_2 = event => {
-        event.preventDefault();
-        event.target.disabled = true;
-    }
+    handleDisableOnClick_2 = course => {
+        const courses = [...this.state.courses];
+        const index = courses.indexOf(course);
+        courses[index] = {...course };
+        courses[index].value++;
+        this.setState({ courses });
 
-    handleDeleteCourse_2 = myType_2 => {
-        const myTypes_2 = this.state.myTypes_2.filter(m => m.id !== myType_2.id);
-        this.setState({ myTypes_2 });
+        this.setState({ disabled: this.state.disabled = true });
     }
 
     PerformSort(path) {
@@ -228,6 +228,12 @@ class Timetable extends Component {
         this.setState({ myTypes_1: filtered2 });
     }
 
+    handleRemoveMyTypes_2 = course => {
+        const mapped_2 = this.state.myTypes_2.map(myType_2 => myType_2);
+        const filtered2_elective = mapped_2.filter(m => m.id !== course.id);
+        this.setState({ myTypes_2: filtered2_elective });
+    }    
+
     handleDisableOnClick_1 = course => {
         const courses = [...this.state.courses];
         const index = courses.indexOf(course);
@@ -245,6 +251,14 @@ class Timetable extends Component {
         courses[index].value--;
         this.setState({ courses });
     }
+
+    handleDisableOnClickRemove_2 = course => {
+        const courses = [...this.state.courses];
+        const index = courses.indexOf(course);
+        courses[index] = {...course };
+        courses[index].value--;
+        this.setState({ courses });
+    }    
 
     handlePageChange = page => {
         this.setState({ currentPage: page });
@@ -410,14 +424,15 @@ class Timetable extends Component {
                                 onTypeSelect_2={this.handleTypeSelect_2}
                                 isHidden={isHidden}  
                                 onAddMyTypes_2={this.handleAddMyTypes_2}  
-                                onDisableOnClick_2={this.handleDisableOnClick_2}                    
+                                onDisableOnClick_2={this.handleDisableOnClick_2} 
+                                onRemoveMyTypes_2={this.handleRemoveMyTypes_2}
+                                onDisableOnClickRemove_2={this.handleDisableOnClickRemove_2}                   
                             />
                         </div>
                         <div class="tab-pane" id="tab3" href="third">
                             <MyTimeTable
                                 myTypes_1={myTypes_1}
                                 myTypes_2={myTypes_2}
-                                onDeleteCourse_2={this.handleDeleteCourse_2}
                                 sortColumn={sortColumn}
                                 sortedMyTypes_1={sortedMyTypes_1}
                                 sorted_2={sorted_2}
