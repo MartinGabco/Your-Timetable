@@ -5,7 +5,7 @@ import '../styles/Elective.css';
 
 const Elective = props => {
     const { 
-        filtered, 
+        filtered_elective, 
         type_2, 
         selectedType_2, 
         onTypeSelect_2, 
@@ -17,7 +17,7 @@ const Elective = props => {
     return ( 
         <div className="elective-wrapper">
             {!isHidden || <ul className="elective-course-list">
-                {filtered.map(course => (
+                {filtered_elective.map(course => (
                     <li key = {course.id} className="elective-course-item">
                         <h4>{course.name}</h4>
                         <p>{course.day.name}</p>

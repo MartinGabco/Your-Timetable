@@ -297,15 +297,21 @@ class Timetable extends Component {
             countReal
         } = this.state;
 
+        // Extracting compulsory courses ( courses <= 13)
         const courses_map_1 = this.state.courses.map(course => course);
-        const compulsory_courses_1 = courses_map_1.filter(c => c.id <= 13);
+        const compulsory_courses = courses_map_1.filter(c => c.id <= 13);
 
-        let filtered = compulsory_courses_1;
+        //Extracting elective courses (courses => 14)
+        const courses_map_2 = this.state.courses.map(course => course);
+        const elective_courses = courses_map_2.filter(c => c.id >= 14);
+
+        let filtered = compulsory_courses;
+        let filtered_elective = elective_courses;
 
         if (selectedType_1 && selectedType_1.id_1)
             filtered = courses.filter(courses => courses.type.id_1 === selectedType_1.id_1);
         else if (selectedType_2 && selectedType_2.id_2)
-            filtered = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
+            filtered_elective = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
 
         let filteredSecond = filtered;
 
@@ -398,7 +404,7 @@ class Timetable extends Component {
                         </div>
                         <div class="tab-pane" id="tab2" href="second">                           
                             <Elective 
-                                filtered={filtered}
+                                filtered_elective={filtered_elective}
                                 type_2={type_2}
                                 selectedType_2={selectedType_2}
                                 onTypeSelect_2={this.handleTypeSelect_2}
