@@ -53,8 +53,8 @@ class Timetable extends Component {
         searchQuery: '',
         messages: [],
         allDaysMessage: [],
-        showRecentMessage: true,
-        showDaysMessage: true,
+        showRecentMessage: false,
+        showDaysMessage: false,
         removeAllAdds: true
     }
 
@@ -337,7 +337,10 @@ class Timetable extends Component {
 
         const filteredAllDaysMessage = selectedDay && selectedDay.name
         ? this.state.allDaysMessage.filter(allDaysMessage => allDaysMessage.name === selectedDay.name).map(allDaysMessage => allDaysMessage.text)
-        : null;        
+        : null;       
+
+        //count of myTypes_1 rendered in my-compulsory-courses
+        const messagesCount = sortedMyTypes_1.length; 
 
         return (
             <React.Fragment>
@@ -419,7 +422,7 @@ class Timetable extends Component {
                                 showRecentMessage={showRecentMessage}
                                 showDaysMessage={showDaysMessage}
                                 onShowPrevious={this.handleShowPrevious}
-                                onBack={this.handleBack}
+                                messagesCount={messagesCount}
                             />
                         </div>
                     </div>

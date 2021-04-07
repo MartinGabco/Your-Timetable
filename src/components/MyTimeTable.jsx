@@ -7,7 +7,6 @@ import BorderedTable from './BorderedTable.jsx';
 // util components
 import PaginationCompulsory from '../util-components/PaginationCompulsory';
 import DropdownListGroup from '../util-components/DropdownListGroup';
-import Message from '../util-components/Message';
 
 //styles
 import '../styles/MyTimeTable.css';
@@ -36,7 +35,8 @@ const MyTimeTable = props => {
         filteredMessage,
         filteredAllDaysMessage,
         showRecentMessage,
-        showDaysMessage
+        showDaysMessage,
+        messagesCount
     } = props;
 
     return (
@@ -51,15 +51,16 @@ const MyTimeTable = props => {
                         />
                     </div>
                     <ul className="my-compulsory-courses">
-                        {showRecentMessage && <p className="recentMessage">
-                            Your recently added courses. Continue to menu.
-                        </p>}
-                        {showDaysMessage && <Message 
-                            messages={messages}
-                            selectedDay={selectedDay}
-                            filteredMessage={filteredMessage}
-                            filteredAllDaysMessage={filteredAllDaysMessage}
-                        />}
+                        {showRecentMessage && 
+                            <p className="recentMessage">
+                                Your recently added courses. Continue to upper menu.
+                            </p>
+                        }
+                        {showDaysMessage && 
+                            <p className="message">
+                                {filteredMessage}{filteredAllDaysMessage}
+                            </p>
+                        }
                         {sortedMyTypes_1.map(myType_1 => (
                             <li className="my-compulsory-course" key={myType_1.id}>
                                 <h3>{myType_1.name}</h3>

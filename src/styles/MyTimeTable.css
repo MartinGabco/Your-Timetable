@@ -80,6 +80,11 @@
     background: #ffff80;
 }
 
+.message {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    background: #ffd699;   
+}
+
 .my-elective-courses {
     width: 30%;
     min-height: 50em;
