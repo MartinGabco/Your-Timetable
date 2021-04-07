@@ -3,9 +3,6 @@ import React from 'react';
 // Styles
 import '../styles/Elective.css';
 
-//Util-components
-import ElectiveLink from '../util-components/ElectiveLink.jsx';
-
 const Elective = props => {
     const { 
         filtered, 
@@ -19,11 +16,6 @@ const Elective = props => {
 
     return ( 
         <div className="elective-wrapper">
-            <ElectiveLink 
-                type_2={type_2}
-                selectedType_2={selectedType_2}
-                onTypeSelect_2={onTypeSelect_2}
-            />
             {!isHidden || <ul className="elective-course-list">
                 {filtered.map(course => (
                     <li key = {course.id} className="elective-course-item">

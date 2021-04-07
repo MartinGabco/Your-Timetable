@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import { navLink } from 'react-router-dom';
+
 // Components
 import CompulsoryLink from '../util-components/CompulsoryLink.jsx';
 import Pagination from '../util-components/Pagination.jsx';
@@ -62,30 +64,30 @@ const Compulsory = props => {
                         />
                     </div>
                 </div>
-                <div className = "col">
-                    <ul className = "compulsory-course-list">
-                        {filteredAndPaginated.map(course => ( 
-                            <li key = {course.id} className="compulsory-course-item">
-                                <h4>{course.name}</h4>
-                                <p>{course.day.name}</p>
-                                <p>{course.time}{course.place}</p>
-                                {removeAllAdds && <button 
-                                    className="add-button"
-                                    disabled = {course.value === 0 ? false : true}
-                                    onClick={() => {onAddMyTypes_1(course); onDisableOnClick_1(course);}}
-                                >
-                                    Add to your timetable
-                                </button>}
-                                {removeAllAdds && <button 
-                                    className="remove-button"
-                                    disabled = {course.value === 1 ? false : true}
-                                    onClick={() => {onRemoveMyTypes_1(course); onDisableOnClickRemove_1(course);}}                                
-                                >
-                                    Remove from your timetable
-                                </button>}
-                            </li>                     
-                        ))}                              
-                    </ul>
+                    <div className = "col">
+                        <ul className = "compulsory-course-list">
+                            {filteredAndPaginated.map(course => ( 
+                                <li key = {course.id} className="compulsory-course-item">
+                                    <h4>{course.name}</h4>
+                                    <p>{course.day.name}</p>
+                                    <p>{course.time}{course.place}</p>
+                                    {removeAllAdds && <button 
+                                        className="add-button"
+                                        disabled = {course.value === 0 ? false : true}
+                                        onClick={() => {onAddMyTypes_1(course); onDisableOnClick_1(course);}}
+                                    >
+                                        Add to your timetable
+                                    </button>}
+                                    {removeAllAdds && <button 
+                                        className="remove-button"
+                                        disabled = {course.value === 1 ? false : true}
+                                        onClick={() => {onRemoveMyTypes_1(course); onDisableOnClickRemove_1(course);}}                                
+                                    >
+                                        Remove from your timetable
+                                    </button>}
+                                </li>                     
+                            ))}                              
+                        </ul>
                     <Pagination
                         itemsCount={itemsCount}
                         pageSize={pageSize}    

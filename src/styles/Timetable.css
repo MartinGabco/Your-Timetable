@@ -8,3 +8,15 @@
     align-items: center;
     padding: 3em;
 }
+
+.first-wrapper {
+   width: 50em; 
+   height: 50em; 
+   background: red;
+}
+
+.second-wrapper {
+   width: 50em; 
+   height: 50em; 
+   background: blue;
+}

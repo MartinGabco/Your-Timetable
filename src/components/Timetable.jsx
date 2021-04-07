@@ -18,15 +18,17 @@ import { getMessages } from '../database/messages.js';
 import { getAllDaysMessage } from '../database/messages.js';
 
 //Components
-import Compulsory from './Compulsory.jsx';
-import Elective from './Elective.jsx';
-import MyTimeTable from './MyTimeTable.jsx';
+import Compulsory from './Compulsory';
+import Elective from './Elective';
+import MyTimeTable from './MyTimeTable';
 
 // Util components
 import Pagination from '../util-components/Pagination.jsx';
 
 // Export functions
 import { paginate } from '../util-components/paginate.js';
+
+import $ from 'jquery'
 
 class Timetable extends Component {
     state = {
@@ -294,7 +296,10 @@ class Timetable extends Component {
             removeAllAdds
         } = this.state;
 
-        let filtered = courses;
+        const courses_map_1 = this.state.courses.map(course => course);
+        const compulsory_courses_1 = courses_map_1.filter(c => c.id <= 13);
+
+        let filtered = compulsory_courses_1;
 
         if (selectedType_1 && selectedType_1.id_1)
             filtered = courses.filter(courses => courses.type.id_1 === selectedType_1.id_1);
@@ -332,18 +337,18 @@ class Timetable extends Component {
 
         const filteredAllDaysMessage = selectedDay && selectedDay.name
         ? this.state.allDaysMessage.filter(allDaysMessage => allDaysMessage.name === selectedDay.name).map(allDaysMessage => allDaysMessage.text)
-        : null;
+        : null;        
 
         return (
             <React.Fragment>
                 <div class="tabbable"> 
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs" id="myTab">
                         <li class="active"><a href="#tab1" data-toggle="tab">Compulsory courses</a></li>
                         <li><a href="#tab2" data-toggle="tab">Elective courses</a></li>
                         <li><a href="#tab3" data-toggle="tab">MyTimeTable</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="tab1">
+                        <div class="tab-pane active" id="tab1" href="first">
                             <Compulsory 
                                 filteredAndPaginated = {filteredAndPaginated}
                                 type_1={type_1}
@@ -359,8 +364,9 @@ class Timetable extends Component {
                                 show={show}
                                 onReset={this.handleReset}
                                 onDisableButton={this.handleDisableButton}
-                                onReturnButton={this.handleReturnButton} 
-                                onRefresh={this.handleRefresh}                               
+                                onRefresh={this.handleRefresh}
+                                onReturnButton={this.handleReturnButton}                                
+                                onFadeOut={this.handleFadeOut}
                                 onRefresh2={this.handleRefresh2}
                                 isHidden1={isHidden1}
                                 onRemoveMyTypes_1={this.handleRemoveMyTypes_1}
@@ -377,9 +383,9 @@ class Timetable extends Component {
                                 searchQuery={searchQuery}
                                 onChange={this.handleChange}
                                 removeAllAdds={removeAllAdds}
-                            />
+                            /> 
                         </div>
-                        <div class="tab-pane" id="tab2">
+                        <div class="tab-pane" id="tab2" href="second">                           
                             <Elective 
                                 filtered={filtered}
                                 type_2={type_2}
@@ -390,7 +396,7 @@ class Timetable extends Component {
                                 onDisableOnClick_2={this.handleDisableOnClick_2}                    
                             />
                         </div>
-                        <div class="tab-pane" id="tab3">
+                        <div class="tab-pane" id="tab3" href="third">
                             <MyTimeTable
                                 myTypes_1={myTypes_1}
                                 myTypes_2={myTypes_2}
@@ -412,6 +418,8 @@ class Timetable extends Component {
                                 filteredAllDaysMessage={filteredAllDaysMessage}     
                                 showRecentMessage={showRecentMessage}
                                 showDaysMessage={showDaysMessage}
+                                onShowPrevious={this.handleShowPrevious}
+                                onBack={this.handleBack}
                             />
                         </div>
                     </div>

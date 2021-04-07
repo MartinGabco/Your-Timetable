@@ -15,7 +15,8 @@ import '../styles/MyTimeTable.css';
 const MyTimeTable = props => {
     const { 
         myTypes_1, 
-        myTypes_2,
+        myTypes_2, 
+        onDeleteCourse_1,
         onRestartCourse,
         onDeleteCourse_2, 
         sortColumn,
