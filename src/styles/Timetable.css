@@ -9,6 +9,10 @@
     padding: 3em;
 }
 
+.badge {
+    margin-left: 0.35em;
+}
+
 .first-wrapper {
    width: 50em; 
    height: 50em; 

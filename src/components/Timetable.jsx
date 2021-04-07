@@ -343,13 +343,19 @@ class Timetable extends Component {
         //count of myTypes_1 rendered in my-compulsory-courses
         const messagesCount = sortedMyTypes_1.length; 
 
+        // count of added myTypes_1 for badge in tabbable
+        const badgeCount = myTypes_1.length;
+
         return (
             <React.Fragment>
                 <div class="tabbable"> 
                     <ul class="nav nav-tabs" id="myTab">
                         <li class="active"><a href="#tab1" data-toggle="tab">Compulsory courses</a></li>
                         <li><a href="#tab2" data-toggle="tab">Elective courses</a></li>
-                        <li><a href="#tab3" data-toggle="tab">MyTimeTable</a></li>
+                        <li><a href="#tab3" data-toggle="tab">
+                            MyTimeTable
+                            <span class="badge badge-primary badge-pill" style={{ background: "#1a1aff" }}>{badgeCount}</span>
+                        </a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1" href="first">
