@@ -85,14 +85,23 @@
     background: #ffd699;   
 }
 
-.my-elective-courses {
+.my-elective-courses-column {
     width: 30%;
     min-height: 50em;
-    padding-top: 1.85em;
-    padding-right: 3em;
-    padding-bottom: 1.5em;
+    background: #ffff66;
+}
+
+.my-elective-courses {
+    width: 100%;
+    min-height: 50em;
+    padding-right: 2.8em;
     list-style: none;
-    background: #ffff99;
+}
+
+.myElectiveCoursesPageNumbers,
+.myElectiveCoursesRemove,
+.myElectiveCoursesFilter {
+    width: 100%;
 }
 
 .my-elective-course {
@@ -101,6 +110,21 @@
     padding: 0.05em 0.4em 0.85em 0.4em;
     margin: 2em auto;
     background-color: #ffb3ff;
+}
+
+.myElectiveCoursesFilter {
+    width: 100%;
+    height: 26em;
+    background: #fff5cc;
+}
+
+.myElectiveCoursesPageNumbers {
+    min-height: 10em;
+    background: #66a3ff;   
+}
+
+.myElectiveCoursesRemove {
+    min-height: 10em;
 }
 
 .table {

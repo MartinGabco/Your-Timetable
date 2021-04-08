@@ -81,15 +81,20 @@ const MyTimeTable = props => {
                         <a className="remove-all" onClick={(event) => onRemoveArray_1(event)}>Remove all courses</a>                 
                     </div>
                 </div>
-                <ul className="my-elective-courses">
-                    {sorted_2.map(myType_2 => (
-                        <li className="my-elective-course" key={myType_2.id}>
-                            <h3>{myType_2.name}</h3>
-                            <p>{myType_2.day.name}</p>
-                            <p>{myType_2.time}{myType_2.place}</p>
-                        </li>
-                    ))}
-                </ul>
+                <div className="my-elective-courses-column">
+                    <div className="myElectiveCoursesFilter"></div> 
+                    <ul className="my-elective-courses">               
+                            {sorted_2.map(myType_2 => (
+                                <li className="my-elective-course" key={myType_2.id}>
+                                    <h3>{myType_2.name}</h3>
+                                    <p>{myType_2.day.name}</p>
+                                    <p>{myType_2.time}{myType_2.place}</p>
+                                </li>
+                            ))}
+                    </ul>
+                    <div className="myElectiveCoursesPageNumbers"></div>   
+                    <div className="myElectiveCoursesRemove"></div>                 
+                </div>
             </div>
             <div className="table">
                 {showRecentMessage && 
