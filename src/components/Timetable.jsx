@@ -386,7 +386,7 @@ class Timetable extends Component {
             showDaysMessage,
             removeAllAdds,
             removeAllAdds2,
-            countReal
+            countReal,
         } = this.state;
 
         // Extracting compulsory courses ( courses <= 13)
@@ -545,6 +545,7 @@ class Timetable extends Component {
                                 onDaysSelect2={this.handleDaysSelect2}
                                 searchQuery2={searchQuery2} 
                                 onChangeElective={this.handleChangeElective}
+                                myTypes_2={myTypes_2}
                             />
                         </div>
                         <div class="tab-pane" id="tab3" href="third">

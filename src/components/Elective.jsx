@@ -37,8 +37,11 @@ const Elective = props => {
         selectedDay2,
         onDaysSelect2,
         searchQuery2,
-        onChangeElective
+        onChangeElective,
+        myTypes_2
     } = props;
+
+    const countMyTypes_2 = myTypes_2.length;
 
     return ( 
         <div className = "row" > 
@@ -58,7 +61,21 @@ const Elective = props => {
                             onChangeElective={onChangeElective}
                         />
                     </div>
-                    <div className="items-message"></div>
+                    <div className="items-message">
+                        <section className="head">
+                            <p>List of actually added elective courses</p>
+                        </section>
+                        <section className="count-box">
+                            <p><b>Count: {countMyTypes_2}</b></p>
+                        </section>
+                        <section className="body">
+                            <ol className="course-items-list" type="number">
+                                {myTypes_2.map(myType_2 => (
+                                    <li key={myType_2.id} className="list-item">{myType_2.name}</li>
+                                ))}
+                            </ol> 
+                        </section>                    
+                    </div>
                 </div>
                 <div className = "col">
                     <div className="elective-wrapper">
