@@ -5,6 +5,7 @@ import '../styles/Elective.css';
 
 // Util components
 import PaginationElective from '../util-components/PaginationElective';
+import ListGroupElective from '../util-components/ListGroupElective';
 
 const Elective = props => {
     const { 
@@ -31,13 +32,22 @@ const Elective = props => {
         pageSize2,
         currentPage2,
         onElectivePageChange,
+        items,
+        selectedDay2,
+        onDaysSelect2
     } = props;
 
     return ( 
         <div className = "row" > 
             <div className="main-content">
                 <div className = "col">
-                    <div className="listGroup-wrapper"></div>
+                    <div className="listGroup-wrapper">
+                        <ListGroupElective 
+                            items={items}
+                            selectedDay2={selectedDay2}
+                            onDaysSelect2={onDaysSelect2} 
+                        />
+                    </div>
                     <div className="namesSearchWrapper"></div>
                     <div className="items-message"></div>
                 </div>

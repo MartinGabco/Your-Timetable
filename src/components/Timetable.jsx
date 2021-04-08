@@ -33,7 +33,7 @@ import $ from 'jquery'
 class Timetable extends Component {
     state = {
         courses: [],
-        days: [],
+        days: [],        
         type_1: [],
         type_2: [],
         selectedType_1: null,
@@ -53,6 +53,7 @@ class Timetable extends Component {
         currentPage: 1,
         currentPage2: 1,
         selectedDay: null,
+        selectedDay2: null,
         searchQuery: '',
         messages: [],
         allDaysMessage: [],
@@ -330,6 +331,11 @@ class Timetable extends Component {
         this.setState({ selectedDay: day, searchQuery: '', currentPage: 1 });
     }
 
+    handleDaysSelect2 = day => {
+        this.setState({ selectedDay2: day, currentPage2: 1 });
+        console.log(day)
+    }
+
     handleChange = query => {
         this.setState({ selectedDay: null, searchQuery: query, currentPage: 1 });
     }
@@ -368,6 +374,7 @@ class Timetable extends Component {
             currentPage2,
             days,
             selectedDay,
+            selectedDay2,
             searchQuery,
             messages,
             showRecentMessage,
@@ -393,6 +400,7 @@ class Timetable extends Component {
         else if (selectedType_2 && selectedType_2.id_2)
             filtered_elective = courses.filter(courses => courses.type.id_2 === selectedType_2.id_2);
 
+        // Compulsory courses filtrating
         let filteredSecond = filtered;
 
         if (searchQuery)
@@ -402,11 +410,19 @@ class Timetable extends Component {
             filteredSecond = filteredSecond.filter(course => course.day.id === selectedDay.id);
 
         const { length: count } = filteredSecond;
-        const { length: countElective } = filtered_elective;
+
+        // Elective courses filtrating
+        const filtered_elective_second = selectedDay2 && selectedDay2.id
+        ? filtered_elective.filter(course => course.day.id === selectedDay2.id)
+        : filtered_elective;
+       
+        const { length: countElective } = filtered_elective_second;
 
         // General pagination
         const filteredAndPaginatedCompulsory = paginate(filteredSecond, currentPage, pageSize);
-        const filteredAndPaginatedElective = paginate(filtered_elective, currentPage2, pageSize2);        
+        const filteredAndPaginatedElective = paginate(filtered_elective_second, currentPage2, pageSize2);  
+
+         console.log(filteredAndPaginatedElective)     
 
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
         const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);
@@ -514,7 +530,10 @@ class Timetable extends Component {
                                 countElective={countElective}
                                 pageSize2={pageSize2}
                                 currentPage2={currentPage2}
-                                onElectivePageChange={this.handleElectivePageChange}                                
+                                onElectivePageChange={this.handleElectivePageChange} 
+                                items={days}                            
+                                selectedDay2={selectedDay2}   
+                                onDaysSelect2={this.handleDaysSelect2} 
                             />
                         </div>
                         <div class="tab-pane" id="tab3" href="third">
