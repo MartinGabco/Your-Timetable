@@ -404,8 +404,9 @@ class Timetable extends Component {
         const { length: count } = filteredSecond;
         const { length: countElective } = filtered_elective;
 
-        const filteredAndPaginated = paginate(filteredSecond, currentPage, pageSize);
-        const filteredAndPaginatedCompulsory = paginate(filtered_elective, currentPage2, pageSize2);        
+        // General pagination
+        const filteredAndPaginatedCompulsory = paginate(filteredSecond, currentPage, pageSize);
+        const filteredAndPaginatedElective = paginate(filtered_elective, currentPage2, pageSize2);        
 
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
         const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);
@@ -454,7 +455,7 @@ class Timetable extends Component {
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1" href="first">
                             <Compulsory 
-                                filteredAndPaginated = {filteredAndPaginated}
+                                filteredAndPaginatedCompulsory = {filteredAndPaginatedCompulsory}
                                 type_1={type_1}
                                 selectedType_1={selectedType_1}
                                 onTypeSelect_1={this.handleTypeSelect_1}
@@ -492,7 +493,7 @@ class Timetable extends Component {
                         </div>
                         <div class="tab-pane" id="tab2" href="second">                           
                             <Elective 
-                                filteredAndPaginatedCompulsory={filteredAndPaginatedCompulsory}
+                                filteredAndPaginatedElective={filteredAndPaginatedElective}
                                 type_2={type_2}
                                 selectedType_2={selectedType_2}
                                 onTypeSelect_2={this.handleTypeSelect_2}

@@ -8,7 +8,7 @@ import PaginationElective from '../util-components/PaginationElective';
 
 const Elective = props => {
     const { 
-        filteredAndPaginatedCompulsory,
+        filteredAndPaginatedElective,
         type_2, 
         selectedType_2, 
         onTypeSelect_2, 
@@ -44,7 +44,7 @@ const Elective = props => {
                 <div className = "col">
                     <div className="elective-wrapper">
                         <ul className="elective-course-list">
-                            {filteredAndPaginatedCompulsory.map(course => (
+                            {filteredAndPaginatedElective.map(course => (
                                 <li key = {course.id} className="elective-course-item">
                                     <h4>{course.name}</h4>
                                     <p>{course.day.name}</p>

@@ -13,7 +13,7 @@ import '../styles/Compulsory.css';
 
 const Compulsory = props => {
     const { 
-        filteredAndPaginated,
+        filteredAndPaginatedCompulsory,
         type_1, 
         selectedType_1, 
         onTypeSelect_1, 
@@ -85,7 +85,7 @@ const Compulsory = props => {
                 </div>
                 <div className = "col">
                     <ul className = "compulsory-course-list">
-                        {filteredAndPaginated.map(course => ( 
+                        {filteredAndPaginatedCompulsory.map(course => ( 
                             <li key = {course.id} className="compulsory-course-item">
                                 <h4>{course.name}</h4>
                                 <p>{course.day.name}</p>
