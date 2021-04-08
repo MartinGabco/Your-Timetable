@@ -49,7 +49,9 @@ class Timetable extends Component {
         show2: false,
         helpVariable: true,
         pageSize: 3,
+        pageSize2: 3,
         currentPage: 1,
+        currentPage2: 1,
         selectedDay: null,
         searchQuery: '',
         messages: [],
@@ -320,6 +322,10 @@ class Timetable extends Component {
         this.setState({ currentPage: page });
     }
 
+    handleElectivePageChange = page => {
+        this.setState({ currentPage2: page });
+    }
+
     handleDaysSelect = day => {
         this.setState({ selectedDay: day, searchQuery: '', currentPage: 1 });
     }
@@ -357,7 +363,9 @@ class Timetable extends Component {
             show2,
             helpVariable,
             pageSize,
+            pageSize2,
             currentPage,
+            currentPage2,
             days,
             selectedDay,
             searchQuery,
@@ -394,8 +402,10 @@ class Timetable extends Component {
             filteredSecond = filteredSecond.filter(course => course.day.id === selectedDay.id);
 
         const { length: count } = filteredSecond;
+        const { length: countElective } = filtered_elective;
 
         const filteredAndPaginated = paginate(filteredSecond, currentPage, pageSize);
+        const filteredAndPaginatedCompulsory = paginate(filtered_elective, currentPage2, pageSize2);        
 
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
         const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);
@@ -482,7 +492,7 @@ class Timetable extends Component {
                         </div>
                         <div class="tab-pane" id="tab2" href="second">                           
                             <Elective 
-                                filtered_elective={filtered_elective}
+                                filteredAndPaginatedCompulsory={filteredAndPaginatedCompulsory}
                                 type_2={type_2}
                                 selectedType_2={selectedType_2}
                                 onTypeSelect_2={this.handleTypeSelect_2}
@@ -500,6 +510,10 @@ class Timetable extends Component {
                                 onRefresh2_2={this.handleRefresh2_2}
                                 onRefresh2_2_2={this.handleRefresh2_2_2}
                                 removeAllAdds2={removeAllAdds2}
+                                countElective={countElective}
+                                pageSize2={pageSize2}
+                                currentPage2={currentPage2}
+                                onElectivePageChange={this.handleElectivePageChange}                                
                             />
                         </div>
                         <div class="tab-pane" id="tab3" href="third">

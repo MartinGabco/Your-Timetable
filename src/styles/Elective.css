@@ -14,7 +14,7 @@
 .elective-course-list {
     list-style: none;
     width: 50em;
-    height: auto;
+    min-height: 60em;
     margin-top: 5em;
     padding: 2em 2em 2em 13em;
     background: #ffa64d;
