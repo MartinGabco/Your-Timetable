@@ -1,10 +1,10 @@
 import React from 'react';
 import _ from 'lodash';
 
-const PaginationComponent = props => {
-    const { items, pageSize, currentPage, onCompulsoryPageChange } = props;
+const PaginationMyElective = props => {
+    const { items_elective, pageSize2, currentPage2, onElectivePageChange } = props;
     
-    const pageNumber = Math.ceil(items/pageSize);
+    const pageNumber = Math.ceil(items_elective/pageSize2);
         if (pageNumber === 0) return null;
 
     const pages = _.range(1, pageNumber + 1);
@@ -15,12 +15,12 @@ const PaginationComponent = props => {
                 {pages.map(page => (
                     <li 
                         className={
-                            page === currentPage 
+                            page === currentPage2
                             ? "page-item active" 
                             : "page-item"}
                         style={{ cursor: "pointer"}}
                     >
-                        <a className="page-link" onClick={() => onCompulsoryPageChange(page)}>{page}</a>
+                        <a className="page-link" onClick={() => onElectivePageChange(page)}>{page}</a>
                     </li>
                 ))}
             </ul>
@@ -28,4 +28,4 @@ const PaginationComponent = props => {
     );
 }
  
-export default PaginationComponent;
+export default PaginationMyElective;

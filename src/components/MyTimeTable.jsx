@@ -5,7 +5,8 @@ import _ from 'lodash';
 import BorderedTable from './BorderedTable.jsx';
 
 // util components
-import PaginationCompulsory from '../util-components/PaginationCompulsory';
+import PaginationMyCompulsory from '../util-components/PaginationMyCompulsory';
+import PaginationMyElective from '../util-components/PaginationMyElective';
 import DropdownListGroup from '../util-components/DropdownListGroup';
 
 //styles
@@ -20,14 +21,19 @@ const MyTimeTable = props => {
         onDeleteCourse_2, 
         sortColumn,
         sortedMyTypes_1,
+        sortedMyTypes_2,
         sorted_time,
         sorted_1,
         sorted_2,
         onRemoveArray_1,
         items,
+        items_elective,
         pageSize,
         currentPage,
+        pageSize2,
+        currentPage2,      
         onCompulsoryPageChange,
+        onElectivePageChange,
         days,
         selectedDay,
         onCompulsoryDayChange,
@@ -70,7 +76,7 @@ const MyTimeTable = props => {
                         ))}
                     </ul>
                     <div className="myCompulsoryCoursesPageNumbers">
-                        <PaginationCompulsory 
+                        <PaginationMyCompulsory 
                             items={items}
                             pageSize={pageSize}
                             currentPage={currentPage}
@@ -84,7 +90,7 @@ const MyTimeTable = props => {
                 <div className="my-elective-courses-column">
                     <div className="myElectiveCoursesFilter"></div> 
                     <ul className="my-elective-courses">               
-                            {sorted_2.map(myType_2 => (
+                            {sortedMyTypes_2.map(myType_2 => (
                                 <li className="my-elective-course" key={myType_2.id}>
                                     <h3>{myType_2.name}</h3>
                                     <p>{myType_2.day.name}</p>
@@ -92,7 +98,14 @@ const MyTimeTable = props => {
                                 </li>
                             ))}
                     </ul>
-                    <div className="myElectiveCoursesPageNumbers"></div>   
+                    <div className="myElectiveCoursesPageNumbers">
+                        <PaginationMyElective 
+                            items_elective={items_elective}
+                            pageSize2={pageSize2}
+                            currentPage2={currentPage2}
+                            onElectivePageChange={onElectivePageChange}
+                        />
+                    </div>   
                     <div className="myElectiveCoursesRemove"></div>                 
                 </div>
             </div>

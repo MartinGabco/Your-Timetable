@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-
-import { navLink } from 'react-router-dom';
+import React from 'react';
 
 // Components
 import CompulsoryLink from '../util-components/CompulsoryLink.jsx';

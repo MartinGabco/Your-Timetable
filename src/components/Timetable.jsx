@@ -349,6 +349,10 @@ class Timetable extends Component {
         this.setState({ hide: this.state.hide = true });
     }
 
+    handleElectivePageChange = page => {
+        this.setState({ currentPage2: page });    
+    }
+
     handleCompulsoryDayChange = day => {
         this.setState({ selectedDay: day, currentPage: 1 });
         this.setState({ showRecentMessage: this.state.showRecentMessage = false })
@@ -431,20 +435,25 @@ class Timetable extends Component {
         const filteredAndPaginatedCompulsory = paginate(filteredSecond, currentPage, pageSize);
         const filteredAndPaginatedElective = paginate(filtered_elective_second, currentPage2, pageSize2);  
 
-         console.log(filteredAndPaginatedElective)     
-
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
         const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);
 
-        const filteredSorted_1 = selectedDay && selectedDay.id ?
-            sorted_1.filter(course => course.day.id === selectedDay.id) :
-            sorted_1;
+        const filteredSorted_1 = selectedDay && selectedDay.id 
+            ? sorted_1.filter(course => course.day.id === selectedDay.id) 
+            : sorted_1;
+
+        const filteredSorted_2 = selectedDay && selectedDay.id 
+            ? sorted_2.filter(course => course.day.id === selectedDay.id) 
+            : sorted_2;
 
         const sorted_time = _.orderBy(filteredSorted_1, [this.state.timeSorted.path]);
+        const sorted_time_2= _.orderBy(filteredSorted_2, [this.state.timeSorted.path]);
 
         const sorted1Count = sorted_time.length;
+        const sorted2Count = sorted_time_2.length;
 
         const sortedMyTypes_1 = paginate(sorted_time, currentPage, pageSize);
+        const sortedMyTypes_2 = paginate(sorted_time_2, currentPage2, pageSize2);
 
         const filteredMessage = selectedDay && selectedDay.id ?
             this.state.messages.filter(m => m.id === selectedDay.id).map(message => message.text) :
@@ -559,13 +568,16 @@ class Timetable extends Component {
                                 onDeleteCourse_2={this.handleDeleteCourse_2}
                                 sortColumn={sortColumn}
                                 sortedMyTypes_1={sortedMyTypes_1}
+                                sortedMyTypes_2={sortedMyTypes_2}
                                 sorted_2={sorted_2}
                                 sorted_time={sorted_time}
                                 onRemoveArray_1={this.handleRemoveArray_1}
                                 items={sorted1Count}
+                                items_elective={sorted2Count}
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onCompulsoryPageChange={this.handleCompulsoryPageChange}
+                                onElectivePageChange={this.handleElectivePageChange}
                                 days={days}
                                 selectedItem={selectedDay}
                                 onCompulsoryDayChange={this.handleCompulsoryDayChange}
@@ -576,6 +588,8 @@ class Timetable extends Component {
                                 showDaysMessage={showDaysMessage}
                                 onShowPrevious={this.handleShowPrevious}
                                 messagesCount={messagesCount}
+                                pageSize2={pageSize2}
+                                currentPage2={currentPage2}
                             />
                         </div>
                     </div>
