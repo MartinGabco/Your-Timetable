@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../styles/ListGroup.css';
 
-const ListGroup = props => {
+const ListGroupElective = props => {
     const { items, selectedDay2, onDaysSelect2, countElective } = props;
 
     return ( 
@@ -26,4 +26,4 @@ const ListGroup = props => {
     );        
 }
  
-export default ListGroup;
+export default ListGroupElective;

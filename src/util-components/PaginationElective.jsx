@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-const PaginationComponent = props => {
+const PaginationElective = props => {
     const { items, pageSize2, currentPage2, onElectivePageChange } = props;
     
     const pageNumber = Math.ceil(items/pageSize2);
@@ -26,4 +26,4 @@ const PaginationComponent = props => {
     );
 }
  
-export default PaginationComponent;
+export default PaginationElective;

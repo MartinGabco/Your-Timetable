@@ -55,6 +55,7 @@ class Timetable extends Component {
         selectedDay: null,
         selectedDay2: null,
         searchQuery: '',
+        searchQuery2: '',
         messages: [],
         allDaysMessage: [],
         showRecentMessage: false,
@@ -331,13 +332,16 @@ class Timetable extends Component {
         this.setState({ selectedDay: day, searchQuery: '', currentPage: 1 });
     }
 
-    handleDaysSelect2 = day => {
-        this.setState({ selectedDay2: day, currentPage2: 1 });
-        console.log(day)
-    }
-
     handleChange = query => {
         this.setState({ selectedDay: null, searchQuery: query, currentPage: 1 });
+    }
+
+    handleDaysSelect2 = day => {
+        this.setState({ selectedDay2: day, searchQuery2: '', currentPage2: 1 });    
+    }
+
+    handleChangeElective = query => {
+        this.setState({ selectedDay2: null, searchQuery2: query, currentPage2: 1 });
     }
 
     handleCompulsoryPageChange = page => {
@@ -376,6 +380,7 @@ class Timetable extends Component {
             selectedDay,
             selectedDay2,
             searchQuery,
+            searchQuery2,
             messages,
             showRecentMessage,
             showDaysMessage,
@@ -407,15 +412,19 @@ class Timetable extends Component {
             filteredSecond = filteredSecond.filter(course =>
                 course.name.toLowerCase().startsWith(searchQuery.toLowerCase()));
         else if (selectedDay && selectedDay.id)
-            filteredSecond = filteredSecond.filter(course => course.day.id === selectedDay.id);
+            filteredSecond = filteredSecond.filter(course => course.day.id === selectedDay.id)
 
         const { length: count } = filteredSecond;
 
-        // Elective courses filtrating
-        const filtered_elective_second = selectedDay2 && selectedDay2.id
-        ? filtered_elective.filter(course => course.day.id === selectedDay2.id)
-        : filtered_elective;
-       
+        // Elective courses filtration
+        let filtered_elective_second = filtered_elective;
+        
+        if (searchQuery2)
+            filtered_elective_second = filtered_elective.filter(course =>
+                course.name.toLowerCase().startsWith(searchQuery2.toLowerCase()));
+        else if (selectedDay2 && selectedDay2.id)
+            filtered_elective_second = filtered_elective.filter(course => course.day.id === selectedDay2.id);
+
         const { length: countElective } = filtered_elective_second;
 
         // General pagination
@@ -533,7 +542,9 @@ class Timetable extends Component {
                                 onElectivePageChange={this.handleElectivePageChange} 
                                 items={days}                            
                                 selectedDay2={selectedDay2}   
-                                onDaysSelect2={this.handleDaysSelect2} 
+                                onDaysSelect2={this.handleDaysSelect2}
+                                searchQuery2={searchQuery2} 
+                                onChangeElective={this.handleChangeElective}
                             />
                         </div>
                         <div class="tab-pane" id="tab3" href="third">

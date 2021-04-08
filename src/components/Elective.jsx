@@ -6,6 +6,7 @@ import '../styles/Elective.css';
 // Util components
 import PaginationElective from '../util-components/PaginationElective';
 import ListGroupElective from '../util-components/ListGroupElective';
+import SearchBoxElective from '../util-components/SearchBoxElective';
 
 const Elective = props => {
     const { 
@@ -34,7 +35,9 @@ const Elective = props => {
         onElectivePageChange,
         items,
         selectedDay2,
-        onDaysSelect2
+        onDaysSelect2,
+        searchQuery2,
+        onChangeElective
     } = props;
 
     return ( 
@@ -49,7 +52,12 @@ const Elective = props => {
                             countElective={countElective} 
                         />
                     </div>
-                    <div className="namesSearchWrapper"></div>
+                    <div className="namesSearchWrapper">
+                        <SearchBoxElective 
+                            value={searchQuery2}
+                            onChangeElective={onChangeElective}
+                        />
+                    </div>
                     <div className="items-message"></div>
                 </div>
                 <div className = "col">
