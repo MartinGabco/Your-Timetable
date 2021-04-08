@@ -46,6 +46,7 @@ const Elective = props => {
                             items={items}
                             selectedDay2={selectedDay2}
                             onDaysSelect2={onDaysSelect2} 
+                            countElective={countElective} 
                         />
                     </div>
                     <div className="namesSearchWrapper"></div>
@@ -79,7 +80,7 @@ const Elective = props => {
                             items={countElective}
                             pageSize2={pageSize2}    
                             currentPage2={currentPage2}
-                            onElectivePageChange={onElectivePageChange}                               
+                            onElectivePageChange={onElectivePageChange}                              
                         />
                         <div className="buttonsWrapper2">
                             <section className="section1_2">

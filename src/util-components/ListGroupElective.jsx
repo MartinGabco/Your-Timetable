@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/ListGroup.css';
 
 const ListGroup = props => {
-    const { items, selectedDay2, onDaysSelect2 } = props;
+    const { items, selectedDay2, onDaysSelect2, countElective } = props;
 
     return ( 
         <ul className="list-group">
@@ -19,6 +19,7 @@ const ListGroup = props => {
                         } 
                 >
                     {item.name}
+                    <span className="badge badge-primary badge-pill">{(item === selectedDay2) ? countElective : null}</span>
                 </li>                       
             ))}               
         </ul>
