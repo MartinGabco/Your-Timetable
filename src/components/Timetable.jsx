@@ -458,7 +458,10 @@ class Timetable extends Component {
         const messagesCount = sortedMyTypes_1.length;
 
         // count of added myTypes_1 for badge in tabbable
-        const badgeCount = myTypes_1.length;
+        const badgeCountComplusory = myTypes_1.length;
+
+        // count of added myTypes_2 for badge in tabbable
+        const badgeCountElective = myTypes_2.length;
 
         return ( 
             <React.Fragment>
@@ -473,7 +476,8 @@ class Timetable extends Component {
                         <li>
                             <a href="#tab3" data-toggle="tab">
                                 MyTimeTable 
-                                <span class="badge badge-primary badge-pill" style={{background: "#1a1aff" }}>{badgeCount}</span> 
+                                <span class="badge badge-primary badge-pill" style={{background: "#1a1aff" }}>{badgeCountComplusory}</span>
+                                <span class="badge badge-primary badge-pill" style={{background: "#FF5733" }}>{badgeCountElective}</span>
                             </a>
                         </li>
                     </ul> 
