@@ -46,6 +46,7 @@ class Timetable extends Component {
         timeSorted: { path: 'id', order: 'asc' },
         disabled: false,
         show: false,
+        show2: false,
         helpVariable: true,
         pageSize: 3,
         currentPage: 1,
@@ -55,7 +56,8 @@ class Timetable extends Component {
         allDaysMessage: [],
         showRecentMessage: false,
         showDaysMessage: false,
-        removeAllAdds: true
+        removeAllAdds: true,
+        removeAllAdds2: true
     }
 
     componentDidMount() {
@@ -71,16 +73,6 @@ class Timetable extends Component {
         this.setState({ days: getDays() });
         this.setState({ messages: getMessages() });
         this.setState({ allDaysMessage: getAllDaysMessage() });
-    }
-
-    handleTypeSelect_1 = type_1 => {
-        this.setState({ selctedType_1: type_1, selectedType_2: null });
-        this.setState({ isHidden: !this.state.isHidden });
-    }
-
-    handleTypeSelect_2 = type_2 => {
-        this.setState({ selectedType_2: type_2, selectedType_1: null });
-        this.setState({ isHidden: !this.state.isHidden });
     }
 
     handleAddMyTypes_1 = course => {
@@ -99,8 +91,8 @@ class Timetable extends Component {
             myTypes_1: [...this.state.myTypes_1, newMyType_1]
         });
 
-        this.setState({ showRecentMessage: this.state.showRecentMessage = true})
-        this.setState({ showDaysMessage: this.state.showDaysMessage = false})
+        this.setState({ showRecentMessage: this.state.showRecentMessage = true })
+        this.setState({ showDaysMessage: this.state.showDaysMessage = false })
     }
 
     function(myTypes_1) {
@@ -154,10 +146,23 @@ class Timetable extends Component {
             myTypes_1: [...this.state.myTypes_1, ...compulsory_courses_1]
         });
 
-        this.setState({ showRecentMessage: this.state.showRecentMessage = true})
-        this.setState({ showDaysMessage: this.state.showDaysMessage = false})
-        this.setState({ removeAllAdds: this.state.removeAllAdds = false})
-        this.setState({ isRemoved: this.state.isRemoved = false})
+        this.setState({ showRecentMessage: this.state.showRecentMessage = true })
+        this.setState({ showDaysMessage: this.state.showDaysMessage = false })
+        this.setState({ removeAllAdds: this.state.removeAllAdds = false })
+        this.setState({ isRemoved: this.state.isRemoved = false })
+    }
+
+    handleAddAll2 = event => {
+        event.preventDefault();
+
+        const courses_map_2 = this.state.courses.map(course => course);
+        const elective_courses = courses_map_2.filter(c => c.id >= 14);
+
+        this.setState({
+            myTypes_2: [...this.state.myTypes_2, ...elective_courses]
+        });
+
+        this.setState({ removeAllAdds2: this.state.removeAllAdds2 = false })
     }
 
     handleRemoveArray_1 = event => {
@@ -174,6 +179,11 @@ class Timetable extends Component {
         this.setState({ helpVariable: this.state.helpVariable = false });
     }
 
+    handleDisableAll2 = event => {
+        event.preventDefault();
+        this.setState({ helpVariable: this.state.helpVariable = false });
+    }
+
     handleReset = event => {
         event.preventDefault();
         const courses_map_1 = this.state.courses.map(course => course);
@@ -183,20 +193,33 @@ class Timetable extends Component {
         this.setState({ myTypes_1: unique });
     }
 
+    handleReset2 = event => {
+        event.preventDefault();
+        const courses_map_2 = this.state.courses.map(course => course);
+        const elective_courses = courses_map_2.filter(c => c.id >= 14);
+
+        const unique2 = elective_courses.filter((item, index) => elective_courses.indexOf(item) === index);
+        this.setState({ myTypes_2: unique2 });
+    }
+
     handleDisableButton = event => {
+        event.preventDefault();
+    }
+
+    handleDisableButton2 = event => {
         event.preventDefault();
     }
 
     handleRefresh = event => {
         event.preventDefault();
-        this.setState({ disabled: !this.state.disabled }); 
+        this.setState({ disabled: !this.state.disabled });
 
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
         this.setState({ removed_1 })
 
-        this.setState({ removeAllAdds: this.state.removeAllAdds = true})
-        this.setState({ isRemoved: this.state.isRemoved = true})
+        this.setState({ removeAllAdds: this.state.removeAllAdds = true })
+        this.setState({ isRemoved: this.state.isRemoved = true })
 
         window.location.reload(false);
 
@@ -204,22 +227,55 @@ class Timetable extends Component {
         this.setState({ show: false })
     }
 
-    handleReturnButton = event => { 
-        event.preventDefault();
-        this.setState({ show: true })
-    }
-
     handleRefresh2 = event => {
         event.preventDefault();
-        this.handleTypeSelect_1();
 
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
         this.setState({ removed_1 })
 
-        this.setState({ remove: this.state.remove = true});
+        this.setState({ remove: this.state.remove = true });
 
         window.location.reload(false);
+    }
+
+    handleRefresh2_2 = event => {
+        event.preventDefault();
+        this.setState({ disabled: !this.state.disabled });
+
+        const removed_2 = this.state.myTypes_2;
+        removed_2.length = 0;
+        this.setState({ removed_2 })
+
+        this.setState({ removeAllAdds2: this.state.removeAllAdds2 = true })
+        this.setState({ isRemoved: this.state.isRemoved = true })
+
+        window.location.reload(false);
+
+        event.preventDefault();
+        this.setState({ show2: false })
+    }
+
+    handleRefresh2_2_2 = event => {
+        event.preventDefault();
+
+        const removed_2 = this.state.myTypes_2;
+        removed_2.length = 0;
+        this.setState({ removed_2 })
+
+        this.setState({ remove: this.state.remove = true });
+
+        window.location.reload(false);
+    }
+
+    handleReturnButton = event => {
+        event.preventDefault();
+        this.setState({ show: true })
+    }
+
+    handleReturnButton2 = event => {
+        event.preventDefault();
+        this.setState({ show2: true })
     }
 
     handleRemoveMyTypes_1 = course => {
@@ -232,7 +288,7 @@ class Timetable extends Component {
         const mapped_2 = this.state.myTypes_2.map(myType_2 => myType_2);
         const filtered2_elective = mapped_2.filter(m => m.id !== course.id);
         this.setState({ myTypes_2: filtered2_elective });
-    }    
+    }
 
     handleDisableOnClick_1 = course => {
         const courses = [...this.state.courses];
@@ -258,7 +314,7 @@ class Timetable extends Component {
         courses[index] = {...course };
         courses[index].value--;
         this.setState({ courses });
-    }    
+    }
 
     handlePageChange = page => {
         this.setState({ currentPage: page });
@@ -270,7 +326,7 @@ class Timetable extends Component {
 
     handleChange = query => {
         this.setState({ selectedDay: null, searchQuery: query, currentPage: 1 });
-    } 
+    }
 
     handleCompulsoryPageChange = page => {
         this.setState({ currentPage: page });
@@ -279,8 +335,8 @@ class Timetable extends Component {
 
     handleCompulsoryDayChange = day => {
         this.setState({ selectedDay: day, currentPage: 1 });
-        this.setState({ showRecentMessage: this.state.showRecentMessage = false})   
-        this.setState({ showDaysMessage: this.state.showDaysMessage = true})     
+        this.setState({ showRecentMessage: this.state.showRecentMessage = false })
+        this.setState({ showDaysMessage: this.state.showDaysMessage = true })
     }
 
     render() {
@@ -298,6 +354,7 @@ class Timetable extends Component {
             onDisableAll,
             disabled,
             show,
+            show2,
             helpVariable,
             pageSize,
             currentPage,
@@ -308,6 +365,7 @@ class Timetable extends Component {
             showRecentMessage,
             showDaysMessage,
             removeAllAdds,
+            removeAllAdds2,
             countReal
         } = this.state;
 
@@ -340,43 +398,49 @@ class Timetable extends Component {
         const filteredAndPaginated = paginate(filteredSecond, currentPage, pageSize);
 
         const sorted_1 = _.orderBy(myTypes_1, [sortColumn.path]);
-        const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);   
+        const sorted_2 = _.orderBy(myTypes_2, [sortColumn.path]);
 
-        const filteredSorted_1 = selectedDay && selectedDay.id
-        ? sorted_1.filter(course => course.day.id === selectedDay.id)
-        : sorted_1; 
+        const filteredSorted_1 = selectedDay && selectedDay.id ?
+            sorted_1.filter(course => course.day.id === selectedDay.id) :
+            sorted_1;
 
-        const sorted_time = _.orderBy(filteredSorted_1, [this.state.timeSorted.path]); 
+        const sorted_time = _.orderBy(filteredSorted_1, [this.state.timeSorted.path]);
 
-        const sorted1Count = sorted_time.length;         
-        
+        const sorted1Count = sorted_time.length;
+
         const sortedMyTypes_1 = paginate(sorted_time, currentPage, pageSize);
 
-        const filteredMessage = selectedDay && selectedDay.id
-        ? this.state.messages.filter(m => m.id === selectedDay.id).map(message => message.text)
-        : null;
+        const filteredMessage = selectedDay && selectedDay.id ?
+            this.state.messages.filter(m => m.id === selectedDay.id).map(message => message.text) :
+            null;
 
-        const filteredAllDaysMessage = selectedDay && selectedDay.name
-        ? this.state.allDaysMessage.filter(allDaysMessage => allDaysMessage.name === selectedDay.name).map(allDaysMessage => allDaysMessage.text)
-        : null;       
+        const filteredAllDaysMessage = selectedDay && selectedDay.name ?
+            this.state.allDaysMessage.filter(allDaysMessage => allDaysMessage.name === selectedDay.name).map(allDaysMessage => allDaysMessage.text) :
+            null;
 
         //count of myTypes_1 rendered in my-compulsory-courses
-        const messagesCount = sortedMyTypes_1.length; 
+        const messagesCount = sortedMyTypes_1.length;
 
         // count of added myTypes_1 for badge in tabbable
         const badgeCount = myTypes_1.length;
 
-        return (
+        return ( 
             <React.Fragment>
-                <div class="tabbable"> 
-                    <ul class="nav nav-tabs" id="myTab">
-                        <li class="active"><a href="#tab1" data-toggle="tab">Compulsory courses</a></li>
-                        <li><a href="#tab2" data-toggle="tab">Elective courses</a></li>
-                        <li><a href="#tab3" data-toggle="tab">
-                            MyTimeTable
-                            <span class="badge badge-primary badge-pill" style={{ background: "#1a1aff" }}>{badgeCount}</span>
-                        </a></li>
-                    </ul>
+                <div class="tabbable">
+                    <ul class="nav nav-tabs" id = "myTab">
+                        <li class="active"> 
+                            <a href="#tab1" data-toggle="tab">Compulsory courses</a>
+                        </li>
+                        <li>
+                            <a href="#tab2" data-toggle="tab">Elective courses</a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab">
+                                MyTimeTable 
+                                <span class="badge badge-primary badge-pill" style={{background: "#1a1aff" }}>{badgeCount}</span> 
+                            </a>
+                        </li>
+                    </ul> 
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1" href="first">
                             <Compulsory 
@@ -413,8 +477,8 @@ class Timetable extends Component {
                                 searchQuery={searchQuery}
                                 onChange={this.handleChange}
                                 removeAllAdds={removeAllAdds}
-                                myTypes_1={myTypes_1}
-                            /> 
+                                myTypes_1={myTypes_1}     
+                            />
                         </div>
                         <div class="tab-pane" id="tab2" href="second">                           
                             <Elective 
@@ -422,17 +486,27 @@ class Timetable extends Component {
                                 type_2={type_2}
                                 selectedType_2={selectedType_2}
                                 onTypeSelect_2={this.handleTypeSelect_2}
-                                isHidden={isHidden}  
-                                onAddMyTypes_2={this.handleAddMyTypes_2}  
-                                onDisableOnClick_2={this.handleDisableOnClick_2} 
+                                isHidden={isHidden}
+                                onAddMyTypes_2={this.handleAddMyTypes_2}
+                                onDisableOnClick_2={this.handleDisableOnClick_2}
                                 onRemoveMyTypes_2={this.handleRemoveMyTypes_2}
-                                onDisableOnClickRemove_2={this.handleDisableOnClickRemove_2}                   
+                                onDisableOnClickRemove_2={this.handleDisableOnClickRemove_2}
+                                show2={show2}
+                                onAddAll2={this.handleAddAll2}
+                                onDisableAll2={this.handleDisableAll2}
+                                onDisableButton2={this.handleDisableButton2}
+                                onReset2={this.handleReset2}
+                                onReturnButton2={this.handleReturnButton2}
+                                onRefresh2_2={this.handleRefresh2_2}
+                                onRefresh2_2_2={this.handleRefresh2_2_2}
+                                removeAllAdds2={removeAllAdds2}
                             />
                         </div>
                         <div class="tab-pane" id="tab3" href="third">
                             <MyTimeTable
                                 myTypes_1={myTypes_1}
                                 myTypes_2={myTypes_2}
+                                onDeleteCourse_2={this.handleDeleteCourse_2}
                                 sortColumn={sortColumn}
                                 sortedMyTypes_1={sortedMyTypes_1}
                                 sorted_2={sorted_2}

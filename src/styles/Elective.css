@@ -35,3 +35,87 @@
     width: 60%;
     margin: 0.75em auto 1.5em auto;
 }
+
+.remove-button {
+    width: 60%;
+    margin: 0.75em auto 1.5em auto;
+    border: none;  
+}
+
+.buttonsWrapper2 {
+    width: 100%;
+    height: 15em;
+    margin-top: 3em;
+    background-color: yellow;
+}
+
+.section1_2 {
+    width: 100%;
+    height: 50%;
+    padding-top: 3.1em;
+}
+
+.add-all2 {
+    width: 15em;
+    font-size: 1.25em;
+    padding: 0.35em 1.5em 0.5em 1.5em;    
+    text-decoration: none;
+    color: white;
+    background-color: #ff8c1a;
+    cursor: pointer;
+    border: none;
+}
+
+.add-all2:hover,
+.add-all2:focus{
+    color: #ff0066;
+    background-color: #ffe6cc;
+}
+
+ .backToStart2 {
+    width: 15em;
+    font-size: 1.25em;
+    padding: 0.35em 1.5em 0.5em 1.5em; 
+    margin-left: 2em;   
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #ff3333;
+    cursor: pointer;
+    border: none;
+}
+
+.backToStart2:hover,
+.backToStart2:focus {
+    color: #ff3333;
+    background-color: #ffffff;   
+}
+
+.section2_2 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; 
+    padding-bottom: 1.5em;   
+}
+
+.start2 {
+    width: 15em;
+    font-size: 1.25em;
+    padding: 0.35em 1.5em 0.5em 1.5em;   
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #1a1aff;
+    cursor: pointer;
+    border: none;
+}
+
+.start2:hover,
+.start2:focus {
+    color: #1a1aff;
+    background-color: #ffffff;   
+}
+
+
+
