@@ -75,9 +75,9 @@
     background-color: #ffffff;
 }
 
-.recentMessage {
+.recentMessageCompulsory {
     padding: 0.5em 0.5em 0.5em 0.5em;
-    background: #ffff80;
+    background: #b3ffb3;
 }
 
 .message {
@@ -94,7 +94,7 @@
 .my-elective-courses {
     width: 100%;
     min-height: 45em;
-    padding-top: 4.25em;
+    padding-top: 2em;
     padding-right: 2.8em;
     list-style: none;
 }
@@ -111,6 +111,16 @@
     padding: 0.05em 0.4em 0.85em 0.4em;
     margin: 2em auto;
     background-color: #ffb3ff;
+}
+
+.recentMessageElective {
+    padding: 0.5em 0.5em 0.75em 0.5em;
+    background: #ecffb3;
+}
+
+.messageElective {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    background: #4dffff;   
 }
 
 .myElectiveCoursesFilter {

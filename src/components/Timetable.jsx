@@ -14,8 +14,10 @@ import config from '../config.json';
 import { getType_1 } from '../database/types.js';
 import { getType_2 } from '../database/types.js';
 import { getDays } from '../database/days.js';
-import { getMessages } from '../database/messages.js';
-import { getAllDaysMessage } from '../database/messages.js';
+import { getCompulsoryMessages } from '../database/messages.js';
+import { getElectiveMessages } from '../database/messages.js';
+import { getAllCompulsoryDaysMessage } from '../database/messages.js';
+import { getAllElectiveDaysMessage } from '../database/messages.js';
 
 //Components
 import Compulsory from './Compulsory';
@@ -56,10 +58,14 @@ class Timetable extends Component {
         selectedDay2: null,
         searchQuery: '',
         searchQuery2: '',
-        messages: [],
-        allDaysMessage: [],
+        compulsoryMessages: [],
+        electiveMessages: [],
+        allCompulsoryDaysMessage: [],
+        allElectiveDaysMessage: [],
         showRecentMessage: false,
+        showRecentMessage2: false,
         showDaysMessage: false,
+        showDaysMessage2: false,
         removeAllAdds: true,
         removeAllAdds2: true
     }
@@ -75,8 +81,10 @@ class Timetable extends Component {
         this.setState({ type_2: getType_2() });
         const days = [{ name: 'All days' }, ...getDays()]
         this.setState({ days: getDays() });
-        this.setState({ messages: getMessages() });
-        this.setState({ allDaysMessage: getAllDaysMessage() });
+        this.setState({ compulsoryMessages: getCompulsoryMessages() });
+        this.setState({ electiveMessages: getElectiveMessages() });
+        this.setState({ allCompulsoryDaysMessage: getAllCompulsoryDaysMessage() });
+        this.setState({ allElectiveDaysMessage: getAllElectiveDaysMessage() });
     }
 
     handleAddMyTypes_1 = course => {
@@ -119,6 +127,9 @@ class Timetable extends Component {
         this.setState({
             myTypes_2: [...this.state.myTypes_2, newMyType_2]
         })
+
+        this.setState({ showRecentMessage2: this.state.showRecentMessage2 = true });
+        this.setState({ showDaysMessage2: this.state.showDaysMessage2 = false});
     }
 
     function(myTypes_2) {
@@ -150,10 +161,10 @@ class Timetable extends Component {
             myTypes_1: [...this.state.myTypes_1, ...compulsory_courses_1]
         });
 
-        this.setState({ showRecentMessage: this.state.showRecentMessage = true })
-        this.setState({ showDaysMessage: this.state.showDaysMessage = false })
-        this.setState({ removeAllAdds: this.state.removeAllAdds = false })
-        this.setState({ isRemoved: this.state.isRemoved = false })
+        this.setState({ showRecentMessage: this.state.showRecentMessage = true });
+        this.setState({ showDaysMessage: this.state.showDaysMessage = false });     
+        this.setState({ removeAllAdds: this.state.removeAllAdds = false });
+        this.setState({ isRemoved: this.state.isRemoved = false });
     }
 
     handleAddAll2 = event => {
@@ -167,6 +178,8 @@ class Timetable extends Component {
         });
 
         this.setState({ removeAllAdds2: this.state.removeAllAdds2 = false })
+        this.setState({ showRecentMessage2: this.state.showRecentMessage2 = true });
+        this.setState({ showDaysMessage2: this.state.showDaysMessage2 = false });     
     }
 
     handleRemoveArray_1 = event => {
@@ -350,7 +363,8 @@ class Timetable extends Component {
     }
 
     handleElectivePageChange = page => {
-        this.setState({ currentPage2: page });    
+        this.setState({ currentPage2: page }); 
+        this.setState({ hide: this.state.hide = true });           
     }
 
     handleCompulsoryDayChange = day => {
@@ -361,7 +375,8 @@ class Timetable extends Component {
 
     handleElectiveDayChange = day => {
         this.setState ({ selectedDay2: day, currentPage2: 1 })
-        console.log(this.state.selectedDay2);
+        this.setState({ showRecentMessage2: this.state.showRecentMessage2 = false })
+        this.setState({ showDaysMessage2: this.state.showDaysMessage2 = true })
     }
 
     render() {
@@ -390,9 +405,12 @@ class Timetable extends Component {
             selectedDay2,
             searchQuery,
             searchQuery2,
-            messages,
+            compulsoryMessages,
+            electiveMessages,
             showRecentMessage,
+            showRecentMessage2,
             showDaysMessage,
+            showDaysMessage2,
             removeAllAdds,
             removeAllAdds2,
             countReal,
@@ -460,13 +478,21 @@ class Timetable extends Component {
         const sortedMyTypes_1 = paginate(sorted_time, currentPage, pageSize);
         const sortedMyTypes_2 = paginate(sorted_time_2, currentPage2, pageSize2);
 
-        const filteredMessage = selectedDay && selectedDay.id ?
-            this.state.messages.filter(m => m.id === selectedDay.id).map(message => message.text) :
-            null;
+        const filteredMessageCompulsory = selectedDay && selectedDay.id 
+        ? this.state.compulsoryMessages.filter(m => m.id === selectedDay.id).map(compulsoryMessage => compulsoryMessage.text) 
+        : null; 
 
-        const filteredAllDaysMessage = selectedDay && selectedDay.name ?
-            this.state.allDaysMessage.filter(allDaysMessage => allDaysMessage.name === selectedDay.name).map(allDaysMessage => allDaysMessage.text) :
-            null;
+        const filteredMessageElective = selectedDay2 && selectedDay2.id 
+        ? this.state.electiveMessages.filter(m => m.id === selectedDay2.id).map(electiveMessages => electiveMessages.text) 
+        : null; 
+
+        const filteredAllDaysMessage1 = selectedDay && selectedDay.name 
+        ? this.state.allCompulsoryDaysMessage.filter(allCompulsoryDaysMessage => allCompulsoryDaysMessage.name === selectedDay.name).map(allCompulsoryDaysMessage => allCompulsoryDaysMessage.text) 
+        : null;
+
+        const filteredAllDaysMessage2 = selectedDay2 && selectedDay2.name 
+        ? this.state.allElectiveDaysMessage.filter(allElectiveDaysMessage => allElectiveDaysMessage.name === selectedDay2.name).map(allElectiveDaysMessage => allElectiveDaysMessage.text) 
+        : null;        
 
         //count of myTypes_1 rendered in my-compulsory-courses
         const messagesCount = sortedMyTypes_1.length;
@@ -576,6 +602,7 @@ class Timetable extends Component {
                                 sortedMyTypes_2={sortedMyTypes_2}
                                 sorted_2={sorted_2}
                                 sorted_time={sorted_time}
+                                sorted_time_2={sorted_time_2}
                                 onRemoveArray_1={this.handleRemoveArray_1}
                                 items={sorted1Count}
                                 items_elective={sorted2Count}
@@ -587,11 +614,16 @@ class Timetable extends Component {
                                 onElectiveDayChange={this.handleElectiveDayChange}                                
                                 days={days}
                                 selectedItem={selectedDay}
-                                messages={messages}
-                                filteredMessage={filteredMessage}
-                                filteredAllDaysMessage={filteredAllDaysMessage}     
-                                showRecentMessage={showRecentMessage}
+                                compulsoryMessages={compulsoryMessages}
+                                electiveMessages={electiveMessages}
+                                filteredMessageCompulsory={filteredMessageCompulsory}
+                                filteredMessageElective={filteredMessageElective}
+                                filteredAllDaysMessage1={filteredAllDaysMessage1}  
+                                filteredAllDaysMessage2={filteredAllDaysMessage2}
+                                showRecentMessage={showRecentMessage}                                
+                                showRecentMessage2={showRecentMessage2}
                                 showDaysMessage={showDaysMessage}
+                                showDaysMessage2={showDaysMessage2}
                                 onShowPrevious={this.handleShowPrevious}
                                 messagesCount={messagesCount}
                                 pageSize2={pageSize2}

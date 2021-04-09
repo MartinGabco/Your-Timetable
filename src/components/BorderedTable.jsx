@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/BorderedTable.css';
 
 const BorderedTable = props => {
-    const { sorted_time, myTypes_2 } = props;
+    const { sorted_time, sorted_time_2 } = props;
 
     return (  
         <table class="table table-bordered">
@@ -42,7 +42,7 @@ const BorderedTable = props => {
                          </div>
                     ))}</td>
                     <td></td>
-                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 14).map(myType_2 => (
+                    <td>{sorted_time_2.filter(myType_2 => myType_2.id === 14).map(myType_2 => (
                          <div className="first" style={{ background: myType_2.color }}>
                             <p><b>{myType_2.name}</b></p>
                             <p>{myType_2.place}</p>
@@ -72,7 +72,7 @@ const BorderedTable = props => {
                     ))}</td>                    
                     <td></td>  
                     <td></td>
-                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 15).map(myType_2 => (
+                    <td>{sorted_time_2.filter(myType_2 => myType_2.id === 15).map(myType_2 => (
                          <div className="first" style={{ background: myType_2.color }}>
                             <p><b>{myType_2.name}</b></p>
                             <p>{myType_2.place}</p>
@@ -102,7 +102,7 @@ const BorderedTable = props => {
                         </div>
                     ))}</td>
                     <td></td>      
-                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 16).map(myType_2 => (
+                    <td>{sorted_time_2.filter(myType_2 => myType_2.id === 16).map(myType_2 => (
                          <div className="first" style={{ background: myType_2.color }}>
                             <p><b>{myType_2.name}</b></p>
                             <p>{myType_2.place}</p>
@@ -125,7 +125,7 @@ const BorderedTable = props => {
                             <p>{myType_1.place}</p>
                         </div>
                     ))}</td>
-                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 17).map(myType_2 => (
+                    <td>{sorted_time_2.filter(myType_2 => myType_2.id === 17).map(myType_2 => (
                          <div className="first" style={{ background: myType_2.color }}>
                             <p><b>{myType_2.name}</b></p>
                             <p>{myType_2.place}</p>
@@ -150,7 +150,7 @@ const BorderedTable = props => {
                             <p>{myType_1.place}</p>                        
                         </div>
                     ))}</td>  
-                    <td>{myTypes_2.filter(myType_2 => myType_2.id === 18).map(myType_2 => (
+                    <td>{sorted_time_2.filter(myType_2 => myType_2.id === 18).map(myType_2 => (
                          <div className="first" style={{ background: myType_2.color }}>
                             <p><b>{myType_2.name}</b></p>
                             <p>{myType_2.place}</p>

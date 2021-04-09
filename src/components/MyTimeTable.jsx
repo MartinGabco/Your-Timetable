@@ -24,6 +24,7 @@ const MyTimeTable = props => {
         sortedMyTypes_1,
         sortedMyTypes_2,
         sorted_time,
+        sorted_time_2,
         sorted_1,
         sorted_2,
         onRemoveArray_1,
@@ -40,11 +41,16 @@ const MyTimeTable = props => {
         days,
         selectedDay,
         selectedDay2,
-        messages,
-        filteredMessage,
-        filteredAllDaysMessage,
+        compulsoryMessages,
+        electiveMessages,
+        filteredMessageCompulsory,
+        filteredMessageElective,
+        filteredAllDaysMessage1,
+        filteredAllDaysMessage2,
         showRecentMessage,
+        showRecentMessage2,
         showDaysMessage,
+        showDaysMessage2,
         messagesCount
     } = props;
 
@@ -61,15 +67,15 @@ const MyTimeTable = props => {
                     </div>
                     <ul className="my-compulsory-courses">
                         {showRecentMessage && 
-                            <p className="recentMessage">
-                                Your recently added courses. Continue to upper menu.
+                            <p className="recentMessageCompulsory">
+                                Your recently added compulsory courses. Continue to upper menu.
                             </p>
-                        }
+                        }     
                         {showDaysMessage && 
                             <p className="message">
-                                {filteredMessage}{filteredAllDaysMessage}
+                                {filteredMessageCompulsory}{filteredAllDaysMessage1}
                             </p>
-                        }
+                        }                      
                         {sortedMyTypes_1.map(myType_1 => (
                             <li className="my-compulsory-course" key={myType_1.id}>
                                 <h3>{myType_1.name}</h3>
@@ -90,7 +96,7 @@ const MyTimeTable = props => {
                         <a className="remove-all" onClick={(event) => onRemoveArray_1(event)}>Remove all courses</a>                 
                     </div>
                 </div>
-                <div className="my-elective-courses-column">
+                <div className="my-elective-courses-column">                
                     <div className="myElectiveCoursesFilter">
                         <DropdownListGroupElective 
                             days={days}
@@ -98,14 +104,24 @@ const MyTimeTable = props => {
                             onElectiveDayChange={onElectiveDayChange}
                         />
                     </div>  
-                    <ul className="my-elective-courses">               
-                            {sortedMyTypes_2.map(myType_2 => (
-                                <li className="my-elective-course" key={myType_2.id}>
-                                    <h3>{myType_2.name}</h3>
-                                    <p>{myType_2.day.name}</p>
-                                    <p>{myType_2.time}{myType_2.place}</p>
-                                </li>
-                            ))}
+                    <ul className="my-elective-courses">
+                        {showRecentMessage2 && 
+                            <p className="recentMessageElective">
+                                Your recently added elective courses. Continue to upper menu.
+                            </p>
+                        }         
+                        {showDaysMessage2 && 
+                            <p className="messageElective">
+                                {filteredMessageElective} {filteredAllDaysMessage2}
+                            </p>
+                        }                                                                                                
+                        {sortedMyTypes_2.map(myType_2 => (
+                            <li className="my-elective-course" key={myType_2.id}>
+                                <h3>{myType_2.name}</h3>
+                                <p>{myType_2.day.name}</p>
+                                <p>{myType_2.time}{myType_2.place}</p>
+                            </li>
+                        ))}
                     </ul>
                     <div className="myElectiveCoursesPageNumbers">
                         <PaginationMyElective 
@@ -120,20 +136,31 @@ const MyTimeTable = props => {
             </div>
             <div className="table">
                 {showRecentMessage && 
-                    <p className="recentMessage">
-                        Your recently added courses. Continue to upper menu.
+                    <p className="recentMessageCompulsory">
+                        Your recently added compulsory courses. Continue to upper menu.
                     </p>
                 }
                 {showDaysMessage && 
                     <p className="message">
-                        {filteredMessage}{filteredAllDaysMessage}
+                        {filteredMessageCompulsory}{filteredAllDaysMessage1}
                     </p>
                 }
+                {showRecentMessage2 && 
+                    <p className="recentMessageElective">
+                        Your recently added elective courses. Continue to upper menu.
+                    </p>
+                }         
+                {showDaysMessage2 && 
+                    <p className="messageElective">
+                        {filteredMessageElective}{filteredAllDaysMessage2}
+                    </p>
+                }                 
                 <BorderedTable
                     myTypes_1={myTypes_1}
                     myTypes_2={myTypes_2}
                     sortColumn={sortColumn}
                     sorted_time={sorted_time}
+                    sorted_time_2={sorted_time_2}
                 />
             </div>
         </div>
