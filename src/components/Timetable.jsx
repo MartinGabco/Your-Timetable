@@ -517,13 +517,16 @@ class Timetable extends Component {
                 <div class="tabbable">
                     <ul class="nav nav-tabs" id = "myTab">
                         <li class="active"> 
-                            <a href="#tab1" data-toggle="tab">Compulsory courses</a>
+                            <a href="#tab1" data-toggle="tab">Timetable</a>
+                        </li>
+                        <li> 
+                            <a href="#tab2" data-toggle="tab">Compulsory courses</a>
                         </li>
                         <li>
-                            <a href="#tab2" data-toggle="tab">Elective courses</a>
+                            <a href="#tab3" data-toggle="tab">Elective courses</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab">
+                            <a href="#tab4" data-toggle="tab">
                                 MyTimeTable 
                                 <span class="badge badge-primary badge-pill" style={{background: "#1a1aff" }}>{badgeCountComplusory}</span>
                                 <span class="badge badge-primary badge-pill" style={{background: "#FF5733" }}>{badgeCountElective}</span>
@@ -531,7 +534,10 @@ class Timetable extends Component {
                         </li>
                     </ul> 
                     <div class="tab-content">
-                        <div class="tab-pane active" id="tab1" href="first">
+                        <div className="tab-pane active" id="tab1" href="first">
+                            <h1>Welcome in Your Timetable</h1>
+                        </div>
+                        <div class="tab-pane" id="tab2" href="second">
                             <Compulsory 
                                 filteredAndPaginatedCompulsory = {filteredAndPaginatedCompulsory}
                                 type_1={type_1}
@@ -569,7 +575,7 @@ class Timetable extends Component {
                                 myTypes_1={myTypes_1}     
                             />
                         </div>
-                        <div class="tab-pane" id="tab2" href="second">                           
+                        <div class="tab-pane" id="tab3" href="third">                           
                             <Elective 
                                 filteredAndPaginatedElective={filteredAndPaginatedElective}
                                 type_2={type_2}
@@ -601,7 +607,7 @@ class Timetable extends Component {
                                 myTypes_2={myTypes_2}
                             />
                         </div>
-                        <div class="tab-pane" id="tab3" href="third">
+                        <div class="tab-pane" id="tab4" href="fourth">
                             <MyTimeTable
                                 myTypes_1={myTypes_1}
                                 myTypes_2={myTypes_2}
