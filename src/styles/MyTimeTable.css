@@ -138,6 +138,24 @@
 
 .myElectiveCoursesRemove {
     min-height: 10em;
+    padding-top: 3.25em;
+}
+
+.myElectiveCoursesRemove .remove-all-elective {
+    width: 10em;
+    font-size: 1.25em;
+    padding: 0.35em 1.5em 0.5em 1.5em;  
+    margin-bottom: 2.5em; 
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #0000e6;
+    cursor: pointer;
+}
+
+.remove-all-elective:hover,
+.remove-all-elective:focus{
+    color: #0000e6;
+    background-color: #ccccff;
 }
 
 .table {

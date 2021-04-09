@@ -28,6 +28,7 @@ const MyTimeTable = props => {
         sorted_1,
         sorted_2,
         onRemoveArray_1,
+        onRemoveArray_2,
         items,
         items_elective,
         pageSize,
@@ -131,7 +132,9 @@ const MyTimeTable = props => {
                             onElectivePageChange={onElectivePageChange}
                         />
                     </div>   
-                    <div className="myElectiveCoursesRemove"></div>                 
+                    <div className="myElectiveCoursesRemove">
+                        <a className="remove-all-elective" onClick={(event) => onRemoveArray_2(event)}>Remove all courses</a>                 
+                    </div>                 
                 </div>
             </div>
             <div className="table">

@@ -191,6 +191,15 @@ class Timetable extends Component {
         window.location.reload(false)
     }
 
+    handleRemoveArray_2 = event => {
+        event.preventDefault();
+        const removed_2 = this.state.myTypes_2;
+        removed_2.length = 0;
+        this.setState({ removed_2 })
+
+        window.location.reload(false)
+    }    
+
     handleDisableAll = event => {
         event.preventDefault();
         this.setState({ helpVariable: this.state.helpVariable = false });
@@ -604,6 +613,7 @@ class Timetable extends Component {
                                 sorted_time={sorted_time}
                                 sorted_time_2={sorted_time_2}
                                 onRemoveArray_1={this.handleRemoveArray_1}
+                                onRemoveArray_2={this.handleRemoveArray_2}
                                 items={sorted1Count}
                                 items_elective={sorted2Count}
                                 pageSize={pageSize}
