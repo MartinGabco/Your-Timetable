@@ -359,6 +359,11 @@ class Timetable extends Component {
         this.setState({ showDaysMessage: this.state.showDaysMessage = true })
     }
 
+    handleElectiveDayChange = day => {
+        this.setState ({ selectedDay2: day, currentPage2: 1 })
+        console.log(this.state.selectedDay2);
+    }
+
     render() {
         const {
             courses,
@@ -442,8 +447,8 @@ class Timetable extends Component {
             ? sorted_1.filter(course => course.day.id === selectedDay.id) 
             : sorted_1;
 
-        const filteredSorted_2 = selectedDay && selectedDay.id 
-            ? sorted_2.filter(course => course.day.id === selectedDay.id) 
+        const filteredSorted_2 = selectedDay2 && selectedDay2.id 
+            ? sorted_2.filter(course => course.day.id === selectedDay2.id) 
             : sorted_2;
 
         const sorted_time = _.orderBy(filteredSorted_1, [this.state.timeSorted.path]);
@@ -577,10 +582,11 @@ class Timetable extends Component {
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onCompulsoryPageChange={this.handleCompulsoryPageChange}
+                                onCompulsoryDayChange={this.handleCompulsoryDayChange}                                
                                 onElectivePageChange={this.handleElectivePageChange}
+                                onElectiveDayChange={this.handleElectiveDayChange}                                
                                 days={days}
                                 selectedItem={selectedDay}
-                                onCompulsoryDayChange={this.handleCompulsoryDayChange}
                                 messages={messages}
                                 filteredMessage={filteredMessage}
                                 filteredAllDaysMessage={filteredAllDaysMessage}     
@@ -590,6 +596,7 @@ class Timetable extends Component {
                                 messagesCount={messagesCount}
                                 pageSize2={pageSize2}
                                 currentPage2={currentPage2}
+                                selectedDay2={selectedDay2}
                             />
                         </div>
                     </div>

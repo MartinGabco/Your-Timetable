@@ -8,6 +8,7 @@ import BorderedTable from './BorderedTable.jsx';
 import PaginationMyCompulsory from '../util-components/PaginationMyCompulsory';
 import PaginationMyElective from '../util-components/PaginationMyElective';
 import DropdownListGroup from '../util-components/DropdownListGroup';
+import DropdownListGroupElective from '../util-components/DropdownListGroupElective';
 
 //styles
 import '../styles/MyTimeTable.css';
@@ -33,10 +34,12 @@ const MyTimeTable = props => {
         pageSize2,
         currentPage2,      
         onCompulsoryPageChange,
+        onCompulsoryDayChange,        
         onElectivePageChange,
+        onElectiveDayChange,
         days,
         selectedDay,
-        onCompulsoryDayChange,
+        selectedDay2,
         messages,
         filteredMessage,
         filteredAllDaysMessage,
@@ -88,7 +91,13 @@ const MyTimeTable = props => {
                     </div>
                 </div>
                 <div className="my-elective-courses-column">
-                    <div className="myElectiveCoursesFilter"></div> 
+                    <div className="myElectiveCoursesFilter">
+                        <DropdownListGroupElective 
+                            days={days}
+                            selectedDay2={selectedDay2}
+                            onElectiveDayChange={onElectiveDayChange}
+                        />
+                    </div>  
                     <ul className="my-elective-courses">               
                             {sortedMyTypes_2.map(myType_2 => (
                                 <li className="my-elective-course" key={myType_2.id}>
