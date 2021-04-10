@@ -24,6 +24,9 @@ import Compulsory from './Compulsory';
 import Elective from './Elective';
 import MyTimeTable from './MyTimeTable';
 
+// Authentication components
+import RegisterForm from '../authentication-components/RegisterForm';
+
 // Util components
 import Pagination from '../util-components/Pagination.jsx';
 
@@ -535,7 +538,10 @@ class Timetable extends Component {
                     </ul> 
                     <div class="tab-content">
                         <div className="tab-pane active" id="tab1" href="first">
-                            <h1>Welcome in Your Timetable</h1>
+                            <div className="first-tab-pane-holder">
+                                <h1>Welcome in Your Timetable</h1>
+                                <div><RegisterForm /></div>
+                            </div>
                         </div>
                         <div class="tab-pane" id="tab2" href="second">
                             <Compulsory 

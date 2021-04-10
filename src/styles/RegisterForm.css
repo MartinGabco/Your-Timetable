@@ -1,0 +1,40 @@
+.RegisterForm {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+    padding: 1.5em 0 4em 0;
+    background-color: #99ffff;
+}
+
+h2 {
+    padding-bottom: 1em;
+}
+
+.form-column {
+    padding: 1em 0 1.25em 0;
+}
+
+.form-column-name-password {
+    padding-bottom: 1em;
+}
+
+.input-group {
+    width: 18em;
+}
+
+.form-text p {
+    width: 15em;
+    padding-top: 1em;
+}
+
+.form-check {
+    padding: 1.25em 0 1.25em 0;
+}
+
+
+.btn {
+    margin-top: 1.5em;
+}

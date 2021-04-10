@@ -9,6 +9,20 @@
     padding: 3em;
 }
 
+.first-tab-pane-holder {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.first-tab-pane-holder h1 {
+    padding-bottom: 2em;
+}
+
+.tab1 {
+    width: 100%;
+}
+
 .badge {
     margin-left: 0.35em;
 }
