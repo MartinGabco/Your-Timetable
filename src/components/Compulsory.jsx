@@ -4,7 +4,7 @@ import React from 'react';
 import CompulsoryLink from '../util-components/CompulsoryLink.jsx';
 import Pagination from '../util-components/Pagination.jsx';
 import ListGroup from '../util-components/ListGroup.jsx';
-import SearchBox from '../util-components/SearchBox.jsx';
+import SearchBoxCompulsory from '../util-components/SearchBoxCompulsory.jsx';
 
 //Styles
 import '../styles/Compulsory.css';
@@ -38,7 +38,7 @@ const Compulsory = props => {
         onDaysSelect,
         selectedItem,
         searchQuery,
-        onChange,
+        onChangeCompulsory,
         count,
         removeAllAdds,
         myTypes_1
@@ -60,9 +60,9 @@ const Compulsory = props => {
                         />
                     </div>
                     <div className="namesSearchWrapper">
-                        <SearchBox 
+                        <SearchBoxCompulsory
                             value={searchQuery}
-                            onChange={onChange}
+                            onChangeCompulsory={onChangeCompulsory}
                         />
                     </div>
                     <div className="items-message">

@@ -25,15 +25,16 @@ import Elective from './Elective';
 import MyTimeTable from './MyTimeTable';
 
 // Authentication components
-import RegisterForm from '../authentication-components/RegisterForm';
+import InputFirstName from '../authentication-components/InputFirstName';
+import InputLastName from '../authentication-components/InputLastName';
+import InputEmail from '../authentication-components/InputEmail';
+import InputPassword from '../authentication-components/InputPassword';
 
 // Util components
 import Pagination from '../util-components/Pagination.jsx';
 
 // Export functions
 import { paginate } from '../util-components/paginate.js';
-
-import $ from 'jquery'
 
 class Timetable extends Component {
     state = {
@@ -70,7 +71,13 @@ class Timetable extends Component {
         showDaysMessage: false,
         showDaysMessage2: false,
         removeAllAdds: true,
-        removeAllAdds2: true
+        removeAllAdds2: true,
+        account: {
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: ''
+        }
     }
 
     componentDidMount() {
@@ -88,6 +95,18 @@ class Timetable extends Component {
         this.setState({ electiveMessages: getElectiveMessages() });
         this.setState({ allCompulsoryDaysMessage: getAllCompulsoryDaysMessage() });
         this.setState({ allElectiveDaysMessage: getAllElectiveDaysMessage() });
+    }
+
+    //Register form
+    handleChange = ({ currentTarget: input }) => {
+        const account = {...this.state.account};
+        account[input.name]=input.value;
+        this.setState({ account });
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        console.log('Submitted!')
     }
 
     handleAddMyTypes_1 = course => {
@@ -357,7 +376,7 @@ class Timetable extends Component {
         this.setState({ selectedDay: day, searchQuery: '', currentPage: 1 });
     }
 
-    handleChange = query => {
+    handleChangeCompulsory = query => {
         this.setState({ selectedDay: null, searchQuery: query, currentPage: 1 });
     }
 
@@ -426,6 +445,7 @@ class Timetable extends Component {
             removeAllAdds,
             removeAllAdds2,
             countReal,
+            account
         } = this.state;
 
         // Extracting compulsory courses ( courses <= 13)
@@ -540,7 +560,70 @@ class Timetable extends Component {
                         <div className="tab-pane active" id="tab1" href="first">
                             <div className="first-tab-pane-holder">
                                 <h1>Welcome in Your Timetable</h1>
-                                <div><RegisterForm /></div>
+                                <div>
+                                    <form className="RegisterForm" onSubmit={this.handleSubmit}>
+                                        <div className="form-column-name-password">
+                                            <h2>Register here</h2>
+                                            <div className="col-md-6 mb-8">
+                                                <label htmlFor="validationCustom01">First name</label>
+                                                <InputFirstName
+                                                    value={account.firstName}
+                                                    onChange={this.handleChange}
+                                                    name="firstName"
+                                                />
+                                            </div>
+                                            <div className="col-md-6 mb-8">
+                                                <label htmlFor="validationCustom02">Last name</label>
+                                                <InputLastName
+                                                    value={account.lastName}
+                                                    onChange={this.handleChange}
+                                                    name="lastName"                                                
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="form-column">
+                                            <div className="col-sm mb-8">
+                                                <label htmlFor="validationServerUsername">Mail</label>
+                                                    <div className="input-group">
+                                                        <InputEmail 
+                                                            value={account.email}
+                                                            onChange={this.handleChange}
+                                                            name="email"                                                               
+                                                        />
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div className="form-column">
+                                            <label for="validationTooltip05">Pasword</label>
+                                                <InputPassword
+                                                    value={account.password}
+                                                    onChange={this.handleChange}
+                                                    name="password"                                                    
+                                                />
+                                            <small id="passwordHelpBlock" className="form-text text-muted">
+                                                <p>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</p> 
+                                            </small>
+                                        </div>
+                                        <div className="form-column">            
+                                            <div className="form-check">
+                                                <input 
+                                                    className="form-check-input is-invalid" 
+                                                    type="checkbox" 
+                                                    value=""
+                                                    id="invalidCheck3" 
+                                                    required
+                                                />
+                                                <label className="form-check-label" for="invalidCheck3">
+                                                    Agree to terms and conditions
+                                                </label>
+                                                <div className="invalid-feedback">
+                                                    You must agree before submitting.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button className="btn btn-primary" type="submit">Submit form</button>
+                                    </form>   
+                                </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="tab2" href="second">
@@ -576,7 +659,7 @@ class Timetable extends Component {
                                 onDaysSelect={this.handleDaysSelect}
                                 selectedItem={selectedDay}
                                 searchQuery={searchQuery}
-                                onChange={this.handleChange}
+                                onChangeCompulsory={this.handleChangeCompulsory}
                                 removeAllAdds={removeAllAdds}
                                 myTypes_1={myTypes_1}     
                             />

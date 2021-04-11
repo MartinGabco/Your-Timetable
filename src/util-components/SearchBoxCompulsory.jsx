@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SearchBox = props => {
-    const { value, onChange } = props;
+const SearchBoxCompulsory = props => {
+    const { value, onChangeCompulsory } = props;
 
     return ( 
         <input 
@@ -10,9 +10,9 @@ const SearchBox = props => {
             value={value}
             type="text"
             placeholder="Search courses by name ..."
-            onChange={e => {onChange(e.currentTarget.value)}}
+            onChange={e => {onChangeCompulsory(e.currentTarget.value)}}
         />
     );
 }
  
-export default SearchBox;
+export default SearchBoxCompulsory;

@@ -13,6 +13,7 @@ const PaginationElective = props => {
         <ul className="pagination">
             {pages.map(page => (
                 <li 
+                    key={page}
                     className={
                         page === currentPage2
                         ? "page-item active" 
