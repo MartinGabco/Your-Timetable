@@ -7,8 +7,10 @@ import '../styles/Timetable.css';
 import _ from 'lodash';
 
 //Server connection
-import axios from 'axios';
-import config from '../config.json';
+import http from '../services/httpService.js';
+import { apiEndpoint } from '../config.json';
+import * as userService from '../services/userService.js';
+import { register } from '../services/userService.js';
 
 //Help database connection
 import { getType_1 } from '../database/types.js';
@@ -77,11 +79,12 @@ class Timetable extends Component {
             lastName: '',
             email: '',
             password: ''
-        }
+        },
+        errors: {}
     }
 
     componentDidMount() {
-        axios.get(config.apiEndpoint)
+        http.get('http://localhost:3000/courses')
             .then(res => {
                 const courses = res.data;
                 this.setState({ courses, days });
@@ -104,15 +107,8 @@ class Timetable extends Component {
         this.setState({ account });
     }
 
-    handleSubmit = event => {
-        const user = {
-            firstName: this.state.account.firstName,
-            lastName: this.state.account.lastName,
-            email: this.state.account.email,
-            password: this.state.account.password
-        }
-        const promise = axios.post('https://yourtimetableusers-default-rtdb.europe-west1.firebasedatabase.app/user.json', user)
-        console.log(promise);        
+    handleSubmit = async () => {
+        await userService.register(this.state.account)
     }
 
     handleAddMyTypes_1 = course => {

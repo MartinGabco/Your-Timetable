@@ -1,3 +1,3 @@
 {
-    "apiEndpoint":"http://localhost:3000/courses"
+    "apiEndpoint":"https://yourtimetableusers-default-rtdb.europe-west1.firebasedatabase.app/user.json"
 }
