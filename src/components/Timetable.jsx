@@ -105,8 +105,14 @@ class Timetable extends Component {
     }
 
     handleSubmit = event => {
-        event.preventDefault();
-        console.log('Submitted!')
+        const user = {
+            firstName: this.state.account.firstName,
+            lastName: this.state.account.lastName,
+            email: this.state.account.email,
+            password: this.state.account.password
+        }
+        const promise = axios.post('https://yourtimetableusers-default-rtdb.europe-west1.firebasedatabase.app/user.json', user)
+        console.log(promise);        
     }
 
     handleAddMyTypes_1 = course => {
