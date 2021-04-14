@@ -1,15 +1,15 @@
 import React from 'react';
 
-const InputFirstNameLogin = ({ name, value, onChange }) => {
+const InputEmailLogin = ({ name ,value, onChange }) => {
     return (
         <div className="form-group">
-            <input
+            <input 
                 name={name}
                 value={value}
-                onChange={onChange}
+                onChange={onChange}                
                 className="form-control" 
-                id="validationCustom04" 
-                placeholder="First name" 
+                id="validationCustom01" 
+                placeholder="Email" 
                 type="text"
                 autoFocus 
                 required                 
@@ -18,4 +18,4 @@ const InputFirstNameLogin = ({ name, value, onChange }) => {
     );
 }
  
-export default InputFirstNameLogin;
+export default InputEmailLogin;

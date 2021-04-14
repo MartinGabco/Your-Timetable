@@ -4,16 +4,17 @@ import React,{Component} from 'react';
 import '../styles/LoginForm.css';
 
 // Authentication components - Login form
-import InputFirstNameLogin from '../authentication-components/login-components/InputFirstNameLogin';
-import InputLastNameLogin from '../authentication-components/login-components/InputLastNameLogin';
+import InputEmailLogin from '../authentication-components/login-components/InputEmailLogin';
 import InputPasswordLogin from '../authentication-components/login-components/InputPasswordLogin';
+
+import { login } from '../services/authService';
 
 class LoginForm extends Component {
     state = {
         data: {
-            firstNameLogin: '',
-            lastNameLogin: '',
-            passwordLogin: ''
+            email: '',
+            password: '',
+            returnSecureToken: true
         }    
     }
 
@@ -24,8 +25,7 @@ class LoginForm extends Component {
         this.setState({ data });
     }
 
-    handleSubmit = event => {
-        console.log('Funguje LoginForm!');
+    handleSubmit = async () => {
     }
 
     render() {
@@ -36,29 +36,23 @@ class LoginForm extends Component {
                 <form className="LoginForm" onSubmit={this.handleSubmit}>
                     <div className="form-column-name-password">
                         <h2>Log in here</h2>
-                        <div className="col-md-6 mb-8">
-                            <label htmlFor="validationCustom04">First name</label>
-                            <InputFirstNameLogin  
-                                value={data.firstNameLogin}    
-                                onChange={this.handleChange}                                          
-                                name="firstNameLogin"
-                            />
-                        </div>
-                        <div className="col-md-6 mb-8">
-                            <label htmlFor="validationCustom05">Last name</label>
-                            <InputLastNameLogin
-                                value={data.lastNameLogin}    
-                                onChange={this.handleChange}                             
-                                name="lastNameLogin"                                                
-                            />
+                        <div className="col-sm mb-8">
+                            <label htmlFor="validationServerUsername01">Mail</label>
+                            <div className="input-group">
+                                <InputEmailLogin 
+                                    value={data.email}    
+                                    onChange={this.handleChange}                                                               
+                                    name="email"                               
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="form-column">
                         <label htmlFor="validationTooltip01">Pasword</label>
                         <InputPasswordLogin 
-                            value={data.passwordLogin}    
+                            value={data.password}    
                             onChange={this.handleChange}                                                               
-                            name="passwordLogin"                                                                                            
+                            name="password"                                                                                            
                         />
                     </div>
                     <button className="btn btn-light" type="submit">Log in!</button>
