@@ -1,3 +1,9 @@
+.timetable-wrapper {
+    width: 100%;
+    height: 108em;
+    background: #ccffff;
+}
+
 .tabbable {
     padding: 3.5em 2em 2em 2em;
 }
@@ -37,4 +43,28 @@
    width: 50em; 
    height: 50em; 
    background: blue;
+}
+
+.linking {
+    min-width: 15%;
+    height: 10em;
+    font-size: 1.25em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.linking .register-link,
+.linking .login-link {
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+.linking .register-link {
+    background: #ff4000;
+    color: #ffffff;
+}
+
+.linking .login-link {
+    background: #ffff00;
 }

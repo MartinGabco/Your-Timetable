@@ -1,0 +1,22 @@
+.navigation-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.navigation-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.6em;
+}
+
+.navigation-item {
+    padding: 1.3em 0 0 2em;
+}
+
+.navigation-link:hover,
+.navigation-link:focus {
+    color: #ff0000;
+}
+

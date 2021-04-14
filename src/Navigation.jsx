@@ -2,37 +2,34 @@ import React from 'react';
 import { NavLink, Router } from 'react-router-dom';
 
 //Components
-import About from './components/About';
-import Compulsory from './components/Compulsory';
-import Elective from './components/Elective';
-import MyTimeTable from './components/MyTimeTable';
+import Timetable from './components/Timetable.jsx';
+import RegisterForm from './components/RegisterForm';
+import LoginForm from './components/LoginForm';
+
+// style
+import './Navigation.css';
 
 const Navigation = () => {
-    return (
-        <div class="tabbable">  
-            <nav class="nav nav-tabs">
-                <li class="active">
-                    <a href="#tab1" data-toggle="tab">
-                        <NavLink to="/" exact>About</NavLink>
-                    </a>
+    return (  
+        <nav class="navigation-menu">
+            <ul className="navigation-list">
+                <li className="navigation-item active">
+                    <NavLink to="/" exact>
+                        <a className="navigation-link">Home</a>
+                    </NavLink>
                 </li>
-                <li>
-                    <a href="#tab2" data-toggle="tab">
-                        <NavLink to="/compulsory" exact>Compulsory</NavLink>
-                    </a>
+                <li className="navigation-item">
+                    <NavLink to="/registerform">
+                        <a className="navigation-link">Register</a>
+                    </NavLink>
+                </li>                
+                <li className="navigation-item">
+                    <NavLink to="/loginform">
+                        <a className="navigation-link">Login</a>
+                    </NavLink>
                 </li>
-                <li>
-                    <a href="#tab3" data-toggle="tab">
-                        <NavLink to="/elective">Elective</NavLink>
-                    </a>
-                </li>
-                <li>
-                    <a href="#tab4" data-toggle="tab">
-                        <NavLink to="/table">MyTimeTable</NavLink>
-                    </a>
-                </li>
-            </nav>  
-        </div>
+            </ul>
+        </nav>  
     );
 }
  
