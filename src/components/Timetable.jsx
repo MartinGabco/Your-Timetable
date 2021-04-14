@@ -548,7 +548,7 @@ class Timetable extends Component {
                                     <Link to="/loginform">
                                         <a className="login-link">Login here</a>                                    
                                     </Link>
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                         <div class="tab-pane" id="tab2" href="second">
