@@ -1,5 +1,5 @@
 import http from '../services/httpService';
-import { apiEndpoint } from '../config.json';
+import { apiEndpoint } from '../configurations/config.json';
 
 export function register(user) {
     return http.post(apiEndpoint, {

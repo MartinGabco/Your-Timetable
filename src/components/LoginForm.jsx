@@ -1,13 +1,16 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 
 // Styles
 import '../styles/LoginForm.css';
 
+import http from '../services/httpService.js';
+
 // Authentication components - Login form
 import InputEmailLogin from '../authentication-components/login-components/InputEmailLogin';
 import InputPasswordLogin from '../authentication-components/login-components/InputPasswordLogin';
+import { baseUrl } from '../configurations/authconfig.json';
 
-import { login } from '../services/authService';
+import axios from 'axios';
 
 class LoginForm extends Component {
     state = {
@@ -15,23 +18,36 @@ class LoginForm extends Component {
             email: '',
             password: '',
             returnSecureToken: true
-        }    
+        }
     }
 
     // Login form
     handleChange = ({ currentTarget: input }) => {
-        const data = {...this.state.data};
-        data[input.name]=input.value;
+        const data = {...this.state.data };
+        data[input.name] = input.value;
         this.setState({ data });
     }
 
-    handleSubmit = async () => {
+    handleSubmit = async() => {
+        const { data } = this.state;
+
+        const authOrder = {
+            email: data.email,
+            password: data.password,
+            returnSecureToken: data.returnSecureToken             
+        };
+        
+        const { data: jwt } = await http.axios(baseUrl, authOrder)
+            .then(response => console.log(response))
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
         const { data } = this.state;
 
-        return (
+        return ( 
             <div className="login-wrapper">
                 <form className="LoginForm" onSubmit={this.handleSubmit}>
                     <div className="form-column-name-password">
@@ -61,5 +77,5 @@ class LoginForm extends Component {
         )
     }
 }
- 
+
 export default LoginForm;

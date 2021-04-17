@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputEmailLogin = ({ name ,value, onChange }) => {
+const InputEmailLogin = ({ name, value, onChange }) => {
     return (
         <div className="form-group">
             <input 

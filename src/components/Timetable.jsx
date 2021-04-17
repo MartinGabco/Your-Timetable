@@ -9,7 +9,7 @@ import _ from 'lodash';
 
 //Server connection
 import http from '../services/httpService.js';
-import { apiEndpoint } from '../config.json';
+import { apiEndpoint } from '../configurations/courses_config.json';
 import * as userService from '../services/userService.js';
 import { register } from '../services/userService.js';
 
@@ -75,7 +75,7 @@ class Timetable extends Component {
     }
 
     componentDidMount() {
-        http.get('http://localhost:3000/courses')
+        http.get(apiEndpoint)
             .then(res => {
                 const courses = res.data;
                 this.setState({ courses, days });

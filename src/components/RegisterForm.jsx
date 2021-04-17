@@ -5,7 +5,7 @@ import '../styles/LoginForm.css';
 
 //Server connection
 import http from '../services/httpService.js';
-import { apiEndpoint } from '../config.json';
+import { apiEndpoint } from '../configurations/config.json';
 import * as userService from '../services/userService.js';
 import { register } from '../services/userService.js';
 
