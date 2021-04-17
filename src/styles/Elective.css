@@ -44,15 +44,13 @@
 
 .buttonsWrapper2 {
     width: 100%;
-    height: 15em;
-    margin-top: 3em;
+    height: 12em;
+    margin-top: 2em;
+    padding: 4em 4em 4em 4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     background-color: yellow;
-}
-
-.section1_2 {
-    width: 100%;
-    height: 50%;
-    padding-top: 3.1em;
 }
 
 .add-all2 {
@@ -76,7 +74,7 @@
     width: 15em;
     font-size: 1.25em;
     padding: 0.35em 1.5em 0.5em 1.5em; 
-    margin-left: 2em;   
+    margin-left: 3em;   
     text-decoration: none;
     color: #ffffff;
     background-color: #ff3333;

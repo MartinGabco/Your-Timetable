@@ -55,6 +55,9 @@ const MyTimeTable = props => {
         messagesCount
     } = props;
 
+    const store = localStorage.setItem('item', JSON.stringify(myTypes_1))  
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem('item') || '[]')
+
     return (
         <div className="content-wrapper">
             <div className="columns-wrapper">

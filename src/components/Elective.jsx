@@ -108,34 +108,24 @@ const Elective = props => {
                             onElectivePageChange={onElectivePageChange}                              
                         />
                         <div className="buttonsWrapper2">
-                            <section className="section1_2">
-                                <button
-                                    className="add-all2"
-                                    onClick={(event) => {
-                                        onAddAll2(event); 
-                                        onDisableAll2(event);
-                                        onDisableButton2(event); 
-                                        onReset2(event); 
-                                        onReturnButton2(event);
-                                    }}                        
-                                >
-                                    Add all courses
-                                </button>
-                                {show2 && <button
-                                    className="backToStart2"
-                                    onClick={(event) => onRefresh2_2(event)}
-                                >
-                                    Return to start
-                                </button>}
-                            </section> 
-                            <section className="section2_2">
-                                <button
-                                    className="start2"
-                                    onClick={(event) => onRefresh2_2_2(event)}
-                                >
-                                    Start electing again
-                                </button> 
-                            </section>
+                            <button
+                                className="add-all2"
+                                onClick={(event) => {
+                                    onAddAll2(event); 
+                                    onDisableAll2(event);
+                                    onDisableButton2(event); 
+                                    onReset2(event); 
+                                    onReturnButton2(event);
+                                }}                        
+                            >
+                                Add all courses
+                            </button>
+                            {show2 && <button
+                                className="backToStart2"
+                                onClick={(event) => onRefresh2_2(event)}
+                            >
+                                Return to start
+                            </button>}
                         </div>  
                     </div>
                 </div>

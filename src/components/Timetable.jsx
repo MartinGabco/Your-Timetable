@@ -191,8 +191,6 @@ class Timetable extends Component {
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
         this.setState({ removed_1 })
-
-        window.location.reload(false)
     }
 
     handleRemoveArray_2 = event => {
@@ -200,8 +198,6 @@ class Timetable extends Component {
         const removed_2 = this.state.myTypes_2;
         removed_2.length = 0;
         this.setState({ removed_2 })
-
-        window.location.reload(false)
     }    
 
     handleDisableAll = event => {
@@ -242,7 +238,6 @@ class Timetable extends Component {
 
     handleRefresh = event => {
         event.preventDefault();
-        this.setState({ disabled: !this.state.disabled });
 
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
@@ -251,22 +246,7 @@ class Timetable extends Component {
         this.setState({ removeAllAdds: this.state.removeAllAdds = true })
         this.setState({ isRemoved: this.state.isRemoved = true })
 
-        window.location.reload(false);
-
-        event.preventDefault();
         this.setState({ show: false })
-    }
-
-    handleRefresh2 = event => {
-        event.preventDefault();
-
-        const removed_1 = this.state.myTypes_1;
-        removed_1.length = 0;
-        this.setState({ removed_1 })
-
-        this.setState({ remove: this.state.remove = true });
-
-        window.location.reload(false);
     }
 
     handleRefresh2_2 = event => {
@@ -280,8 +260,6 @@ class Timetable extends Component {
         this.setState({ removeAllAdds2: this.state.removeAllAdds2 = true })
         this.setState({ isRemoved: this.state.isRemoved = true })
 
-        window.location.reload(false);
-
         event.preventDefault();
         this.setState({ show2: false })
     }
@@ -294,8 +272,6 @@ class Timetable extends Component {
         this.setState({ removed_2 })
 
         this.setState({ remove: this.state.remove = true });
-
-        window.location.reload(false);
     }
 
     handleReturnButton = event => {
@@ -570,7 +546,6 @@ class Timetable extends Component {
                                 onRefresh={this.handleRefresh}
                                 onReturnButton={this.handleReturnButton}                                
                                 onFadeOut={this.handleFadeOut}
-                                onRefresh2={this.handleRefresh2}
                                 isHidden1={isHidden1}
                                 onRemoveMyTypes_1={this.handleRemoveMyTypes_1}
                                 onDisableOnClickRemove_1={this.handleDisableOnClickRemove_1}
@@ -586,7 +561,7 @@ class Timetable extends Component {
                                 searchQuery={searchQuery}
                                 onChangeCompulsory={this.handleChangeCompulsory}
                                 removeAllAdds={removeAllAdds}
-                                myTypes_1={myTypes_1}     
+                                myTypes_1={myTypes_1}
                             />
                         </div>
                         <div class="tab-pane" id="tab3" href="third">                           
