@@ -27,8 +27,7 @@ const MyTimeTable = props => {
         sorted_time_2,
         sorted_1,
         sorted_2,
-        onRemoveArray_1,
-        onRemoveArray_2,
+        onRemoveArray,
         items,
         items_elective,
         pageSize,
@@ -96,9 +95,6 @@ const MyTimeTable = props => {
                             onCompulsoryPageChange={onCompulsoryPageChange}
                         />
                     </div>
-                    <div className="myCompulsoryCoursesRemove">
-                        <a className="remove-all" onClick={(event) => onRemoveArray_1(event)}>Remove all courses</a>                 
-                    </div>
                 </div>
                 <div className="my-elective-courses-column">                
                     <div className="myElectiveCoursesFilter">
@@ -134,12 +130,12 @@ const MyTimeTable = props => {
                             currentPage2={currentPage2}
                             onElectivePageChange={onElectivePageChange}
                         />
-                    </div>   
-                    <div className="myElectiveCoursesRemove">
-                        <a className="remove-all-elective" onClick={(event) => onRemoveArray_2(event)}>Remove all courses</a>                 
                     </div>                 
-                </div>
+                </div>            
             </div>
+            <div className="myElectiveCoursesRemove">
+                    <a className="remove-all-elective" onClick={(event) => onRemoveArray(event)}>Remove all courses</a>                 
+                </div>       
             <div className="table">
                 {showRecentMessage && 
                     <p className="recentMessageCompulsory">

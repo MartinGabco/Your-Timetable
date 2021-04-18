@@ -186,19 +186,14 @@ class Timetable extends Component {
         this.setState({ showDaysMessage2: this.state.showDaysMessage2 = false });     
     }
 
-    handleRemoveArray_1 = event => {
+    handleRemoveArray = event => {
         event.preventDefault();
         const removed_1 = this.state.myTypes_1;
         removed_1.length = 0;
         this.setState({ removed_1 })
-    }
 
-    handleRemoveArray_2 = event => {
-        event.preventDefault();
-        const removed_2 = this.state.myTypes_2;
-        removed_2.length = 0;
-        this.setState({ removed_2 })
-    }    
+        window.location.reload(false);
+    }
 
     handleDisableAll = event => {
         event.preventDefault();
@@ -607,8 +602,7 @@ class Timetable extends Component {
                                 sorted_2={sorted_2}
                                 sorted_time={sorted_time}
                                 sorted_time_2={sorted_time_2}
-                                onRemoveArray_1={this.handleRemoveArray_1}
-                                onRemoveArray_2={this.handleRemoveArray_2}
+                                onRemoveArray={this.handleRemoveArray}
                                 items={sorted1Count}
                                 items_elective={sorted2Count}
                                 pageSize={pageSize}
