@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // styles
-import '../styles/LoginForm.css';
+import '../css/main.css';
 
 //Server connection
 import http from '../services/httpService.js';

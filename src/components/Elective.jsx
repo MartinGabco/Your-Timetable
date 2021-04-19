@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Styles
-import '../styles/Elective.css';
+import '../css/main.css';
 
 // Util components
 import PaginationElective from '../util-components/PaginationElective';

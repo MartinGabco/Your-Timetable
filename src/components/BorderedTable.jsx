@@ -1,6 +1,6 @@
 import React from 'react';      
 
-import '../styles/BorderedTable.css';
+import '../css/main.css';
 
 const BorderedTable = props => {
     const { sorted_time, sorted_time_2 } = props;

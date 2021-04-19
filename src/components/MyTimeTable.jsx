@@ -11,7 +11,7 @@ import DropdownListGroup from '../util-components/DropdownListGroup';
 import DropdownListGroupElective from '../util-components/DropdownListGroupElective';
 
 //styles
-import '../styles/MyTimeTable.css';
+import '../css/main.css';
 
 const MyTimeTable = props => {
     const { 
@@ -133,7 +133,7 @@ const MyTimeTable = props => {
                     </div>                 
                 </div>            
             </div>
-            <div className="myElectiveCoursesRemove">
+            <div className="myCoursesRemove">
                     <a className="remove-all-elective" onClick={(event) => onRemoveArray(event)}>Remove all courses</a>                 
                 </div>       
             <div className="table">

@@ -7,7 +7,7 @@ import ListGroup from '../util-components/ListGroup.jsx';
 import SearchBoxCompulsory from '../util-components/SearchBoxCompulsory.jsx';
 
 //Styles
-import '../styles/Compulsory.css';
+import '../css/main.css';
 
 const Compulsory = props => {
     const { 

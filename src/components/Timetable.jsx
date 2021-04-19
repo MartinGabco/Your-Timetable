@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 //Styles
-import '../styles/Timetable.css';
-import '../styles/LoginForm.css';
+import '../css/main.css';
 
 //lodash
 import _ from 'lodash';

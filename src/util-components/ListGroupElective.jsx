@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/ListGroup.css';
+import '../css/main.css';
 
 const ListGroupElective = props => {
     const { items, selectedDay2, onDaysSelect2, countElective } = props;

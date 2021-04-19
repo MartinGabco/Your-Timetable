@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Styles
-import '../styles/RegisterForm.css';
+import '../css/main.css';
 
 const InputLastName = ({ name ,value, onChange }) => {
     return (
