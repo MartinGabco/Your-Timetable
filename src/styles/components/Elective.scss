@@ -13,21 +13,29 @@
 
 .elective-course-list {
     @include course-list;
-    height: 64.9em;
     background-color: $color-elective-courses;
 
     @media #{$screen-laptop-down} {
-        height: 69em;          
-    }
+        font-size: 84%;
+    }    
 
     .elective-course-item {
         @include course-item;
         @include flexbox-column-space-around;
         background: $compulsory-course-item;
 
+        @media #{$screen-laptop-down} {
+            font-size: 87.5%;
+        }
+
+        h4 {
+            font-size: 1.5em;
+            padding-top: 0.25em;
+        }
+
         .add-button {
             width: 60%;
-            margin: 0.75em auto 1.5em auto;
+            margin: 0.75em auto 0.5em auto;
         }
 
         .remove-button {

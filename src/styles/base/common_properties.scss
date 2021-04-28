@@ -15,15 +15,14 @@
             @include flex-direction(column);
         }
     }
-    .compulsory-course-item,
-    .elective-course-item,
+
     .buttonsWrapper,
     .buttonsWrapper2 ,
     .register-wrapper,
     .RegisterForm {
         @include flexbox();
     }
-    .compulsory-course-item,
+
     .buttonsWrapper,
     .buttonsWrapper2 {
         @include align-items(center);
@@ -61,17 +60,19 @@
 
 @mixin course-list {
     min-width: 50em;
-    height: 62.35em;
-    padding: 2em 2em 2em 13em;
+    min-height: 70em;
+    padding: 4em 0 4em 0;
     margin-top: 5em 0 1.25em 0;
     list-style: none;
 }
 
 @mixin course-item {
-    width: 20em;
+    min-width: 20em;
     min-height: 7.5em;
-    padding-top: 0.5em;
-    margin: 2.5em 1.5em 2.5em 1.5em;
+    margin: 1.5em 0 1.5em 0;
+    @media #{$screen-laptop-down} {
+        min-height: 10em;
+    }
 }
 
 //common properties - MyTimeTable.scss

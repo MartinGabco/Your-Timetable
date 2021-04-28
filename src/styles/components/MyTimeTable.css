@@ -14,6 +14,26 @@
 /* Chrome 10-25, Safari 5.1-6 */
 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 /*PREMENNÉ = FONTY*/
+.recentMessageCompulsory,
+.message,
+.recentMessageElective,
+.messageElective,
+p {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.myElectiveCoursesPageNumbers,
+.myCompulsoryCoursesRemove {
+  min-height: 10em;
+}
+
+.title,
+p,
+h3,
+.table {
+  text-align: center;
+}
+
 /*SASS MEDIA QUERIES*/
 /*375px/16px*/
 /*1024px/16px*/
@@ -85,16 +105,21 @@ ul,
 .title {
   padding-top: 1.5em;
 }
+@media (max-width: 82.6875em) {
+  .title {
+    font-size: 2.25em;
+  }
+}
 
 .columns-wrapper {
-  width: 80em;
+  min-width: 80em;
   min-height: 50em;
   padding: 5em 3em 6em 3em;
   margin: 6em 0 0 0;
 }
 @media (max-width: 82.6875em) {
   .columns-wrapper {
-    font-size: 90%;
+    font-size: 80%;
   }
 }
 .columns-wrapper .my-compulsory-courses-column {
@@ -107,6 +132,12 @@ ul,
   min-height: 10em;
   padding-top: 3.6em;
   background-color: #ebffa4;
+}
+.columns-wrapper .my-compulsory-courses-column .myCompulsoryCoursesFilter .dropdown-list {
+  padding: 0.5em 0.5em 0.25em 1.2em;
+}
+.columns-wrapper .my-compulsory-courses-column .myCompulsoryCoursesFilter .dropdown-list .dropdown-item {
+  margin-right: 1em;
 }
 .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses {
   height: 44em;
@@ -142,8 +173,6 @@ ul,
             flex-direction: column;
   }
 }
-.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .compulsory-course-item,
-.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .elective-course-item,
 .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper,
 .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper2,
 .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .register-wrapper,
@@ -152,7 +181,6 @@ ul,
   display: -ms-flexbox;
   display: flex;
 }
-.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .compulsory-course-item,
 .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper,
 .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper2 {
   -webkit-box-align: center;
@@ -212,6 +240,11 @@ ul,
   width: 100%;
   margin-right: 2.8em;
 }
+@media (max-width: 82.6875em) {
+  .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses ul {
+    padding-right: 1.6em;
+  }
+}
 .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses ul .my-compulsory-course {
   width: 90%;
   min-height: 1.5em;
@@ -250,6 +283,12 @@ ul,
   padding-top: 3.6em;
   background-color: #ebffa4;
 }
+.columns-wrapper .my-elective-courses-column .myElectiveCoursesFilter .dropdown-list {
+  padding: 0.5em 0.5em 0.25em 1.2em;
+}
+.columns-wrapper .my-elective-courses-column .myElectiveCoursesFilter .dropdown-list .dropdown-item {
+  margin-right: 1em;
+}
 .columns-wrapper .my-elective-courses-column .my-elective-courses {
   height: 44em;
   padding: 3.5em 2em 4em 2em;
@@ -284,8 +323,6 @@ ul,
             flex-direction: column;
   }
 }
-.columns-wrapper .my-elective-courses-column .my-elective-courses .compulsory-course-item,
-.columns-wrapper .my-elective-courses-column .my-elective-courses .elective-course-item,
 .columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper,
 .columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper2,
 .columns-wrapper .my-elective-courses-column .my-elective-courses .register-wrapper,
@@ -294,7 +331,6 @@ ul,
   display: -ms-flexbox;
   display: flex;
 }
-.columns-wrapper .my-elective-courses-column .my-elective-courses .compulsory-course-item,
 .columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper,
 .columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper2 {
   -webkit-box-align: center;
@@ -354,6 +390,11 @@ ul,
   width: 100%;
   margin-right: 2.8em;
 }
+@media (max-width: 82.6875em) {
+  .columns-wrapper .my-elective-courses-column .my-elective-courses ul {
+    padding-right: 1.6em;
+  }
+}
 .columns-wrapper .my-elective-courses-column .my-elective-courses ul .my-elective-course {
   width: 90%;
   min-height: 1.5em;
@@ -374,14 +415,8 @@ ul,
   font-size: 0.85em;
 }
 .columns-wrapper .my-elective-courses-column .myElectiveCoursesPageNumbers {
-  min-height: 10em;
+  min-height: 5.5em;
 }
-@media (max-width: 82.6875em) {
-  .columns-wrapper .my-elective-courses-column .myElectiveCoursesPageNumbers {
-    min-height: 11em;
-  }
-}
-
 .remove-wrapper {
   min-width: 100%;
   height: 9em;
@@ -400,10 +435,12 @@ ul,
   background-color: #ffffff;
 }
 
+.table {
+  margin-top: 4em;
+}
 .table .message-table-wrapper {
   width: 100%;
-  height: 10.5em;
+  height: 2em;
   font-size: 1.25em;
-  padding-top: 2.5em;
   background-color: #ccffff;
 }/*# sourceMappingURL=MyTimeTable.css.map */

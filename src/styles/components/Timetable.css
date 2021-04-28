@@ -40,17 +40,20 @@
 }
 .timetable-wrapper .tabbable {
   padding: 6em 6em 6em 6em;
+}
+.timetable-wrapper .tabbable .nav {
+  font-size: 1.25em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -moz-flex-direction: horizontal;
   -ms-flex-direction: row;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
           flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-.timetable-wrapper .tabbable .nav {
-  font-size: 1.25em;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  justify-content: left;
 }
 .timetable-wrapper .tabbable .nav li a {
   cursor: pointer;

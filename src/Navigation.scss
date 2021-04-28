@@ -7,7 +7,8 @@
 // navigation
 .navigation-menu,
 .navigation-list {
-    @include flexbox-row-justify-align;
+    @include flexbox();
+    @include flex-direction(row);
     
     @media #{$screen-laptop-down} {
         margin: 0 auto;
@@ -15,13 +16,9 @@
 }
 
 .navigation-menu {
-    @media #{$screen-laptop-down} {
-        padding-right: 6em
-    }
-
     .navigation-list {
-        list-style: none;
         font-size: 1.6em;
+        list-style: none;
 
         .navigation-item {
             padding-right: 2em;

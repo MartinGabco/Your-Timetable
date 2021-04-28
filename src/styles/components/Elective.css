@@ -55,23 +55,21 @@ h3,
 
 .elective-course-list {
   min-width: 50em;
-  height: 62.35em;
-  padding: 2em 2em 2em 13em;
+  min-height: 70em;
+  padding: 4em 0 4em 0;
   margin-top: 5em 0 1.25em 0;
   list-style: none;
-  height: 64.9em;
   background-color: #ffa64d;
 }
 @media (max-width: 82.6875em) {
   .elective-course-list {
-    height: 69em;
+    font-size: 84%;
   }
 }
 .elective-course-list .elective-course-item {
-  width: 20em;
+  min-width: 20em;
   min-height: 7.5em;
-  padding-top: 0.5em;
-  margin: 2.5em 1.5em 2.5em 1.5em;
+  margin: 1.5em 0 1.5em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,9 +83,23 @@ h3,
   align-items: center;
   background: #ffff66;
 }
+@media (max-width: 82.6875em) {
+  .elective-course-list .elective-course-item {
+    min-height: 10em;
+  }
+}
+@media (max-width: 82.6875em) {
+  .elective-course-list .elective-course-item {
+    font-size: 87.5%;
+  }
+}
+.elective-course-list .elective-course-item h4 {
+  font-size: 1.5em;
+  padding-top: 0.25em;
+}
 .elective-course-list .elective-course-item .add-button {
   width: 60%;
-  margin: 0.75em auto 1.5em auto;
+  margin: 0.75em auto 0.5em auto;
 }
 .elective-course-list .elective-course-item .remove-button {
   width: 60%;

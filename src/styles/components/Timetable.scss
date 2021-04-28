@@ -27,11 +27,12 @@
 
     .tabbable {
         padding: 6em 6em 6em 6em;
-        @include flex-direction(row);
-        @include justify-content(center);
 
         .nav {
             font-size: 1.25em;
+            @include flexbox();
+            @include flex-direction(row);
+            @include justify-content(left);
 
             li a {
                 cursor: pointer;

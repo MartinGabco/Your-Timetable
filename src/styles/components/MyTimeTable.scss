@@ -39,18 +39,22 @@ ul,
 //classes
 .title {
     padding-top: 1.5em;
+
+    @media #{$screen-laptop-down} {
+        font-size: 2.25em;
+    }
 }
 
 //nested-classes
 .columns-wrapper {
-    width: 80em;
+    min-width: 80em;
     min-height: 50em;
     padding: 5em 3em 6em 3em;
     margin: 6em 0 0 0;
 
     @media #{$screen-laptop-down} {
-        font-size: 90%;
-    }
+        font-size: 80%;
+    }   
 
     .my-compulsory-courses-column {
         width: 30%;
@@ -62,6 +66,14 @@ ul,
             min-height: 10em;
             padding-top: 3.6em;
             background-color: $color-myCoursesFilter;
+
+            .dropdown-list {
+                padding: 0.5em 0.5em 0.25em 1.2em;
+                
+                    .dropdown-item {
+                        margin-right: 1em;
+                    } 
+            }
         }
 
         .my-compulsory-courses {
@@ -86,7 +98,11 @@ ul,
 
             ul {
                 width: $font-size-base; 
-                margin-right: 2.8em;   
+                margin-right: 2.8em;  
+                
+                @media #{$screen-laptop-down} {
+                    padding-right: 1.6em; 
+                } 
 
                 .my-compulsory-course {
                     width: 90%;
@@ -130,6 +146,13 @@ ul,
             min-height: 10em;
             padding-top: 3.6em;
             background-color: $color-myCoursesFilter;
+
+            .dropdown-list {
+                padding: 0.5em 0.5em 0.25em 1.2em;
+                .dropdown-item {
+                    margin-right: 1em;
+                }
+            }
         }
 
         .my-elective-courses {
@@ -156,6 +179,10 @@ ul,
                 width: $font-size-base;
                 margin-right: 2.8em;   
 
+                @media #{$screen-laptop-down} {
+                    padding-right: 1.6em; 
+                } 
+
                 .my-elective-course {
                     width: 90%;
                     min-height: 1.5em;
@@ -164,9 +191,9 @@ ul,
                     background-color: $color-sixth;
 
                     @media #{$screen-laptop-down} {
-                        font-size: 115%;    
-                        padding-bottom: 0.5em;        
-                    } 
+                        font-size: 115%;
+                        padding-bottom: 0.5em;   
+                    }
     
                     h3 {
                         font-size: 1.1em;
@@ -180,10 +207,10 @@ ul,
         }
 
         .myElectiveCoursesPageNumbers {
-            min-height: 10em;              
+            min-height: 5.5em;              
 
             @media #{$screen-laptop-down} {
-                min-height: 11em;       
+                
             } 
         }
     }
@@ -211,11 +238,12 @@ ul,
 }
 
 .table {
+    margin-top: 4em;
+
     .message-table-wrapper {
         width: $font-size-base;
-        height: 10.5em;
+        height: 2em;
         font-size: 1.25em;
-        padding-top: 2.5em;
         background-color: $color-frontSize;
     }
 }

@@ -23,7 +23,9 @@ main {
 header {
     width: 100%;
     min-height: 7em;
-    @include justify-content(left);
+    @include flexbox();
+    @include flex-direction(row);
+    @include justify-content(center);
     background-color: $color-header;
 }
 

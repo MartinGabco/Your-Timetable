@@ -73,23 +73,23 @@ const Compulsory = props => {
                         </section>
                     </div>
                 </div>
-                <div className = "col">
-                    <ul className = "compulsory-course-list">
+                <div className="col">
+                    <ul className="compulsory-course-list">
                         {filteredAndPaginatedCompulsory.map(course => ( 
-                            <li key = {course.id} className="compulsory-course-item">
+                            <li key={course.id} className="compulsory-course-item">
                                 <h4>{course.name}</h4>
                                 <p>{course.day.name}</p>
                                 <p>{course.time}{course.place}</p>
                                 {removeAllAdds && <button 
                                     className="add-button"
-                                    disabled = {course.value === 0 ? false : true}
+                                    disabled={course.value === 0 ? false : true}
                                     onClick={() => {onAddMyTypes_1(course); onDisableOnClick_1(course);}}
                                 >
                                     Add to your timetable
                                 </button>}
                                 {removeAllAdds && <button 
                                     className="remove-button"
-                                    disabled = {course.value === 1 ? false : true}
+                                    disabled={course.value === 1 ? false : true}
                                     onClick={() => {onRemoveMyTypes_1(course); onDisableOnClickRemove_1(course);}}                                
                                 >
                                     Remove from your timetable

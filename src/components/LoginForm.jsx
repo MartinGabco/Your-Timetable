@@ -11,6 +11,13 @@ import InputPasswordLogin from '../authentication-components/login-components/In
 import { baseUrl } from '../configurations/authconfig.json';
 
 class LoginForm extends Component {
+    state = {
+        data: {
+            email: '',
+            password: '',
+            returnSecureToken: true
+        }
+    }
 
     // Login form
     handleChange = ({ currentTarget: input }) => {

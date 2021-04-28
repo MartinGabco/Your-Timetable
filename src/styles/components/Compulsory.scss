@@ -30,6 +30,10 @@
         .listGroup-wrapper {
             min-width: 15em;
 
+            .list-group-item {
+                width: $font-size-base;
+            }
+
             .list-group-item:first-child {
                 font-weight: bold;
             }
@@ -85,22 +89,30 @@
             background: $color-compulsory-courses;
 
             @media #{$screen-laptop-down} {
-                height: 67em;
-            }
+                font-size: 84%;
+            }   
 
             .compulsory-course-item {
                 @include course-item;
-                @include flex-direction(column);
-                @include align-content(center);
+                @include flexbox-column-space-around;
+                padding-top: 0.25em;
                 background: $compulsory-course-item;
 
+                @media #{$screen-laptop-down} {
+                    font-size: 87.75%;
+                }
+
+                h4 {
+                    font-size: 1.5em;
+                }
+
                 .add-button {
-                    width: 60%;
-                    margin: 0.5em auto 1.5em auto;
+                    max-width: 60%;
+                    margin: 0.5em auto 1.2em auto;
                 }
 
                     .remove-button {
-                        width: 60%;
+                        max-width: 60%;
                         margin: 0.2em auto 1.5em auto;
                         border: none;
                     }

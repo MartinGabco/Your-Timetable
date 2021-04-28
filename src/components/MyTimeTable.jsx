@@ -138,29 +138,13 @@ const MyTimeTable = props => {
                 </div>
             </div> 
             <div className="table">
-                <div className="message-table-wrapper">
+                {(sortedMyTypes_1.length > 0 || sortedMyTypes_2.length > 0) && <div className="message-table-wrapper">
                     {showRecentMessage && 
                         <p className="recentMessageCompulsory">
-                            Your recently added compulsory courses
+                            Your recently added courses
                         </p>
                     }
-                    {showDaysMessage && 
-                            <p className="message">
-                                {filteredMessageCompulsory}
-                                {filteredAllDaysMessage1}
-                            </p>
-                    }
-                    {showRecentMessage2 && 
-                        <p className="recentMessageElective">
-                            Your recently added elective courses
-                        </p>
-                    }         
-                    {showDaysMessage2 && 
-                        <p className="messageElective">
-                            {filteredMessageElective}{filteredAllDaysMessage2}
-                        </p>
-                    }  
-                </div>
+                </div>}
                 <BorderedTable
                     myTypes_1={myTypes_1}
                     myTypes_2={myTypes_2}
