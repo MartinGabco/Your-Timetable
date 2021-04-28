@@ -1,27 +1,20 @@
 import React from 'react';
 
 // Components
-import CompulsoryLink from '../util-components/CompulsoryLink.jsx';
-import Pagination from '../util-components/Pagination.jsx';
-import ListGroup from '../util-components/ListGroup.jsx';
-import SearchBoxCompulsory from '../util-components/SearchBoxCompulsory.jsx';
+import PaginationCompulsory from '../util-components/PaginationCompulsory';
+import ListGroup from '../util-components/ListGroup';
+import SearchBoxCompulsory from '../util-components/SearchBoxCompulsory';
 
 //Styles
-import '../css/main.css';
+import '../styles/components/Compulsory.css';
 
 const Compulsory = props => {
     const { 
         filteredAndPaginatedCompulsory,
-        type_1, 
-        selectedType_1, 
-        onTypeSelect_1, 
-        isHidden, 
-        isHidden1,
         onAddMyTypes_1,
         onDisableOnClick_1,
         onAddAll,
         onDisableAll,
-        disabled,
         onReset,
         onDisableButton,
         onReturnButton,
@@ -104,12 +97,14 @@ const Compulsory = props => {
                             </li>                     
                         ))}                              
                     </ul>
-                    <Pagination
-                        itemsCount={itemsCount}
-                        pageSize={pageSize}    
-                        currentPage={currentPage}
-                        onPageChange={onPageChange}             
-                    /> 
+                    <div className="pagination-wrapper">
+                        <PaginationCompulsory
+                            itemsCount={itemsCount}
+                            pageSize={pageSize}    
+                            currentPage={currentPage}
+                            onPageChange={onPageChange}             
+                        />                        
+                    </div>
                     <div className="buttonsWrapper">
                         <button
                             className="add-all"

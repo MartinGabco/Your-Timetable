@@ -1,0 +1,115 @@
+@charset "UTF-8";
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+.recentMessageCompulsory,
+.message,
+.recentMessageElective,
+.messageElective,
+p {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.myElectiveCoursesPageNumbers,
+.myCompulsoryCoursesRemove {
+  min-height: 10em;
+}
+
+.title,
+p,
+h3,
+.table {
+  text-align: center;
+}
+
+/*SASS MEDIA QUERIES*/
+/*375px/16px*/
+/*1024px/16px*/
+/*1339px/16px*/
+/*SASS FLEXBOX PROPERTIES*/
+/*Properties of the parents*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
+.login-wrapper,
+.LoginForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: vertical;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.form-column-name-password,
+h2 {
+  padding-bottom: 1em;
+}
+
+.login-wrapper {
+  min-width: 80%;
+  height: 45em;
+  background: #ffc2b3;
+}
+@media (max-width: 82.6875em) {
+  .login-wrapper {
+    font-size: 90%;
+  }
+}
+.login-wrapper .LoginForm {
+  min-width: 45%;
+  height: auto;
+  padding: 2.5em 0 5em 0;
+  background-color: #99ffff;
+}
+.login-wrapper .LoginForm h2 {
+  text-align: center;
+  padding-bottom: 1.5em;
+}
+.login-wrapper .LoginForm .form-column {
+  padding: 1em 0 0 0;
+}
+.login-wrapper .LoginForm .form-column-mail {
+  padding-bottom: 3.5em;
+}
+.login-wrapper .LoginForm .form-column-password {
+  width: 10em;
+}
+.login-wrapper .LoginForm .form-check {
+  padding: 1.25em 0 1.25em 0;
+}
+.login-wrapper .LoginForm .form-text {
+  min-width: 100%;
+  text-align: center;
+}
+.login-wrapper .LoginForm .input-group {
+  min-width: 18em;
+}
+.login-wrapper .LoginForm .btn {
+  margin-top: 1.5em;
+}
+@media (max-width: 82.6875em) {
+  .login-wrapper .LoginForm .btn {
+    margin-top: 3em;
+  }
+}/*# sourceMappingURL=LoginForm.css.map */

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Styles
-import '../css/main.css';
+import '../styles/components/RegisterForm.css';
 
 const InputPassword = ({ name, value, onChange }) => {
     return (

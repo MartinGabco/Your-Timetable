@@ -1,22 +1,55 @@
-.navigation-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-}
-
+@charset "UTF-8";
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*SASS MEDIA QUERIES*/
+/*375px/16px*/
+/*1024px/16px*/
+/*1339px/16px*/
+/*SASS FLEXBOX PROPERTIES*/
+/*Properties of the parents*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
+.navigation-menu,
 .navigation-list {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    font-size: 1.6em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@media (max-width: 82.6875em) {
+  .navigation-menu,
+.navigation-list {
+    margin: 0 auto;
+  }
 }
 
-.navigation-item {
-    padding: 1.3em 0 0 2em;
+@media (max-width: 82.6875em) {
+  .navigation-menu {
+    padding-right: 6em;
+  }
 }
-
-.navigation-link:hover,
-.navigation-link:focus {
-    color: #ff0000;
+.navigation-menu .navigation-list {
+  list-style: none;
+  font-size: 1.6em;
 }
-
+.navigation-menu .navigation-list .navigation-item {
+  padding-right: 2em;
+}
+.navigation-menu .navigation-list .navigation-item:hover, .navigation-menu .navigation-list .navigation-item:focus {
+  color: #ca3f3f;
+  border-bottom-style: 0;
+}/*# sourceMappingURL=Navigation.css.map */

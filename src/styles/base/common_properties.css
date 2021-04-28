@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+.recentMessageCompulsory,
+.message,
+.recentMessageElective,
+.messageElective,
+p {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.myElectiveCoursesPageNumbers,
+.myCompulsoryCoursesRemove {
+  min-height: 10em;
+}
+
+.title,
+p,
+h3,
+.table {
+  text-align: center;
+}/*# sourceMappingURL=common_properties.css.map */

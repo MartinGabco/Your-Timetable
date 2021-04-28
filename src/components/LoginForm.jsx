@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Styles
-import '../css/main.css';
+import '../styles/components/LoginForm.css';
 
 import http from '../services/httpService.js';
 
@@ -10,16 +10,7 @@ import InputEmailLogin from '../authentication-components/login-components/Input
 import InputPasswordLogin from '../authentication-components/login-components/InputPasswordLogin';
 import { baseUrl } from '../configurations/authconfig.json';
 
-import axios from 'axios';
-
 class LoginForm extends Component {
-    state = {
-        data: {
-            email: '',
-            password: '',
-            returnSecureToken: true
-        }
-    }
 
     // Login form
     handleChange = ({ currentTarget: input }) => {

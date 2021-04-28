@@ -1,55 +1,59 @@
 {
-  "name": "your-timetable",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.21.1",
-    "bootstrap": "^3.4.1",
-    "dart-sass": "^1.25.0",
-    "express": "^4.17.1",
-    "font-awesome": "^4.7.0",
-    "joi-browser": "^13.4.0",
-    "jquery": "^3.6.0",
-    "lodash": "^4.17.21",
-    "mongodb": "^3.0.1",
-    "mongoose": "^5.0.1",
-    "node-sass": "^5.0.0",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.5.2",
-    "react-contexify": "^5.0.0",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "react-scroll": "^1.8.2",
-    "react-toastify": "^4.1.0",
-    "sass-convert": "^0.5.2",
-    "web-vitals": "^1.1.0"
-  },
-  "scripts": {
-    "start": "set PORT=4000 && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "your-timetable",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.11.9",
+        "@testing-library/react": "^11.2.5",
+        "@testing-library/user-event": "^12.8.3",
+        "axios": "^0.21.1",
+        "bootstrap": "^3.4.1",
+        "dart-sass": "^1.25.0",
+        "express": "^4.17.1",
+        "font-awesome": "^4.7.0",
+        "joi-browser": "^13.4.0",
+        "jquery": "^3.6.0",
+        "lodash": "^4.17.21",
+        "mongodb": "^3.0.1",
+        "mongoose": "^5.0.1",
+        "react": "^17.0.1",
+        "react-bootstrap": "^1.5.2",
+        "react-contexify": "^5.0.0",
+        "react-dom": "^17.0.1",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "4.0.3",
+        "react-scroll": "^1.8.2",
+        "react-toastify": "^4.1.0",
+        "sass-convert": "^0.5.2",
+        "sass-lint": "^1.13.0",
+        "web-vitals": "^1.1.0"
+    },
+    "scripts": {
+        "start": "set PORT=4000 && react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "node-sass": "node-sass --output-style compressed -o dist/css/ scss --recursive"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "node-sass": "^5.0.0"
+    }
 }

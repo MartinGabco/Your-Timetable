@@ -1,0 +1,222 @@
+// imports
+@import "../base/color_variables.scss";
+@import "../base/font_variables.scss";
+@import "../base/mixins.scss";
+@import "../base/sub_component_mixins.scss";
+@import "../base/common_properties.scss";
+@import "../base/media_queries.scss";
+@import "../base/flexbox_mixins.scss";
+
+//common color-properties
+.columns-wrapper,
+.remove-wrapper {
+    background-color: $color-columns-wrapper;
+}
+
+// flexbox
+.columns-wrapper,
+.myCompulsoryCoursesPageNumbers {
+    @include flexbox-row-space-around;
+}
+
+.my-compulsory-courses-column,
+.myCompulsoryCoursesFilter,
+.my-compulsory-courses,
+ul,
+.my-compulsory-course,
+.my-elective-courses-column,
+.myElectiveCoursesFilter,
+.my-elective-courses,
+.my-elective-course,
+.remove-wrapper {
+    @include flexbox-column-space-around;
+}
+
+.myElectiveCoursesPageNumbers {      
+    @include flexbox-row-justify-align;
+}
+
+//classes
+.title {
+    padding-top: 1.5em;
+}
+
+//nested-classes
+.columns-wrapper {
+    width: 80em;
+    min-height: 50em;
+    padding: 5em 3em 6em 3em;
+    margin: 6em 0 0 0;
+
+    @media #{$screen-laptop-down} {
+        font-size: 90%;
+    }
+
+    .my-compulsory-courses-column {
+        width: 30%;
+        min-height: 45em;
+        background: $color-compulsory-courses;
+
+        .myCompulsoryCoursesFilter {
+            width: $font-size-base;
+            min-height: 10em;
+            padding-top: 3.6em;
+            background-color: $color-myCoursesFilter;
+        }
+
+        .my-compulsory-courses {
+            @include compulory_common_properties;
+            height: 44em;
+            padding: 3.5em 2em 4em 2em;
+            list-style: none;
+
+            @media #{$screen-laptop-down} {
+                height: 53em;
+            }
+
+            .recentMessageCompulsory {
+                margin-bottom: 2em;
+                padding: 0.75em 0.5em 0.75em 0.5em;
+                background-color: $color-recentMessageCompulsory;
+            }
+    
+            .message {
+                background: $color-message;
+            }
+
+            ul {
+                width: $font-size-base; 
+                margin-right: 2.8em;   
+
+                .my-compulsory-course {
+                    width: 90%;
+                    min-height: 1.5em;
+                    font-size: 1em;
+                    margin: 1em auto;
+                    background-color: $color-my-compulsory-course;
+
+                    @media #{$screen-laptop-down} {
+                        font-size: 115%;    
+                        padding-bottom: 0.5em;        
+                    } 
+    
+                    h3 {
+                        font-size: 1.1em;
+                    }
+    
+                    p {
+                        font-size: 0.85em;
+                    }  
+                }
+            }
+        }
+
+        .myCompulsoryCoursesPageNumbers {
+            min-height: 8em;          
+
+            @media #{$screen-laptop-down} {
+                font-size: 110%;            
+            }                
+        }
+    }
+
+    .my-elective-courses-column {
+        width: 30%;
+        min-height: 45em;
+        background: $color-elective-courses;
+
+        .myElectiveCoursesFilter {
+            width: $font-size-base;
+            min-height: 10em;
+            padding-top: 3.6em;
+            background-color: $color-myCoursesFilter;
+        }
+
+        .my-elective-courses {
+            @include compulory_common_properties;
+            height: 44em;
+            padding: 3.5em 2em 4em 2em;
+            list-style: none;
+
+            @media #{$screen-laptop-down} {
+                height: 53em;
+            }
+
+            .recentMessageElective {
+                margin-bottom: 2em;
+                padding: 0.75em 0.5em 0.75em 0.5em;
+                background-color: $color-recentMessageCompulsory;
+            }
+    
+            .messageElective {
+                background: $color-message;
+            }
+
+            ul {
+                width: $font-size-base;
+                margin-right: 2.8em;   
+
+                .my-elective-course {
+                    width: 90%;
+                    min-height: 1.5em;
+                    font-size: 1em;
+                    margin: 1em auto;
+                    background-color: $color-sixth;
+
+                    @media #{$screen-laptop-down} {
+                        font-size: 115%;    
+                        padding-bottom: 0.5em;        
+                    } 
+    
+                    h3 {
+                        font-size: 1.1em;
+                    }
+    
+                    p {
+                        font-size: 0.85em;
+                    }  
+                }
+            }
+        }
+
+        .myElectiveCoursesPageNumbers {
+            min-height: 10em;              
+
+            @media #{$screen-laptop-down} {
+                min-height: 11em;       
+            } 
+        }
+    }
+}
+
+.remove-wrapper {
+    min-width: $font-size-base;
+    height: 9em;
+
+    .remove-all {
+        font-size: 1.25em;
+        padding: 0.35em 1.5em 0.5em 1.5em;  
+        margin-bottom: 2.5em; 
+        text-decoration: none;
+        color: $color-secondary;
+        background-color: $color-remove-all;
+        cursor: pointer;
+
+        &:hover,
+        &:focus{
+            color: $color-remove-all;
+            background-color: $color-secondary;
+        }
+    }
+}
+
+.table {
+    .message-table-wrapper {
+        width: $font-size-base;
+        height: 10.5em;
+        font-size: 1.25em;
+        padding-top: 2.5em;
+        background-color: $color-frontSize;
+    }
+}
+

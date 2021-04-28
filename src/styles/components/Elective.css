@@ -1,0 +1,139 @@
+@charset "UTF-8";
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+.recentMessageCompulsory,
+.message,
+.recentMessageElective,
+.messageElective,
+p {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.myElectiveCoursesPageNumbers,
+.myCompulsoryCoursesRemove {
+  min-height: 10em;
+}
+
+.title,
+p,
+h3,
+.table {
+  text-align: center;
+}
+
+/*SASS MEDIA QUERIES*/
+/*375px/16px*/
+/*1024px/16px*/
+/*1339px/16px*/
+/*SASS FLEXBOX PROPERTIES*/
+/*Properties of the parents*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
+.add-all2,
+.backToStart2 {
+  width: 15em;
+  font-size: 1.25em;
+  padding: 0.35em 1.5em 0.5em 1.5em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.elective-course-list {
+  min-width: 50em;
+  height: 62.35em;
+  padding: 2em 2em 2em 13em;
+  margin-top: 5em 0 1.25em 0;
+  list-style: none;
+  height: 64.9em;
+  background-color: #ffa64d;
+}
+@media (max-width: 82.6875em) {
+  .elective-course-list {
+    height: 69em;
+  }
+}
+.elective-course-list .elective-course-item {
+  width: 20em;
+  min-height: 7.5em;
+  padding-top: 0.5em;
+  margin: 2.5em 1.5em 2.5em 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: vertical;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #ffff66;
+}
+.elective-course-list .elective-course-item .add-button {
+  width: 60%;
+  margin: 0.75em auto 1.5em auto;
+}
+.elective-course-list .elective-course-item .remove-button {
+  width: 60%;
+  margin: 0.75em auto 1.5em auto;
+  border: none;
+}
+
+.pagination-wrapper {
+  height: 6em;
+  margin-top: 2em;
+}
+
+.buttonsWrapper2 {
+  height: 15em;
+  margin-top: 3em;
+  padding: 6em 0 6em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #f5f508;
+}
+.buttonsWrapper2 .add-all2 {
+  color: #ffffff;
+  background-color: #ff8c1a;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+.buttonsWrapper2 .add-all2:hover, .buttonsWrapper2 .add-all2:focus {
+  color: #ff0066;
+  background-color: #ffe6cc;
+}
+.buttonsWrapper2 .backToStart2 {
+  margin-left: 2em;
+  color: #ffffff;
+  background-color: #ff0000;
+}
+.buttonsWrapper2 .backToStart2:hover, .buttonsWrapper2 .backToStart2:focus {
+  color: #ff0000;
+  background-color: #ffffff;
+}/*# sourceMappingURL=Elective.css.map */

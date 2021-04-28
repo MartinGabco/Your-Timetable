@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // styles
-import '../css/main.css';
+import '../styles/components/LoginForm.css';
 
 //Server connection
 import http from '../services/httpService.js';
@@ -61,7 +61,7 @@ class RegisterForm extends Component {
                             />
                         </div>
                     </div>
-                    <div className="form-column">
+                    <div className="form-column-mail">
                         <div className="col-sm mb-8">
                             <label htmlFor="validationServerUsername">Mail</label>
                                 <div className="input-group">
@@ -73,7 +73,7 @@ class RegisterForm extends Component {
                                 </div>
                         </div>
                     </div>
-                    <div className="form-column">
+                    <div className="form-column-password">
                         <label for="validationTooltip05">Pasword</label>
                             <InputPassword
                                 value={account.password}
@@ -81,7 +81,7 @@ class RegisterForm extends Component {
                                 name="password"                                                    
                             />
                         <small id="passwordHelpBlock" className="form-text text-muted">
-                            <p>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</p> 
+                            <p>Your password must be 8-15 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</p> 
                         </small>
                     </div>
                     <div className="form-column">            

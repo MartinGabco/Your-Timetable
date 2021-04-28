@@ -11,22 +11,17 @@ import DropdownListGroup from '../util-components/DropdownListGroup';
 import DropdownListGroupElective from '../util-components/DropdownListGroupElective';
 
 //styles
-import '../css/main.css';
+import '../styles/components/MyTimeTable.css';
 
 const MyTimeTable = props => {
     const { 
         myTypes_1, 
         myTypes_2, 
-        onDeleteCourse_1,
-        onRestartCourse,
-        onDeleteCourse_2, 
         sortColumn,
         sortedMyTypes_1,
         sortedMyTypes_2,
         sorted_time,
         sorted_time_2,
-        sorted_1,
-        sorted_2,
         onRemoveArray,
         items,
         items_elective,
@@ -41,8 +36,6 @@ const MyTimeTable = props => {
         days,
         selectedDay,
         selectedDay2,
-        compulsoryMessages,
-        electiveMessages,
         filteredMessageCompulsory,
         filteredMessageElective,
         filteredAllDaysMessage1,
@@ -51,7 +44,6 @@ const MyTimeTable = props => {
         showRecentMessage2,
         showDaysMessage,
         showDaysMessage2,
-        messagesCount
     } = props;
 
     const store = localStorage.setItem('item', JSON.stringify(myTypes_1))  
@@ -59,6 +51,7 @@ const MyTimeTable = props => {
 
     return (
         <div className="content-wrapper">
+            <h1 className="title">List of added compulsory and timetable courses</h1>
             <div className="columns-wrapper">
                 <div className="my-compulsory-courses-column">
                     <div className="myCompulsoryCoursesFilter">
@@ -71,21 +64,23 @@ const MyTimeTable = props => {
                     <ul className="my-compulsory-courses">
                         {showRecentMessage && 
                             <p className="recentMessageCompulsory">
-                                Your recently added compulsory courses. Continue to upper menu.
+                                Your recently added compulsory courses. Continue to upper menu
                             </p>
                         }     
                         {showDaysMessage && 
                             <p className="message">
                                 {filteredMessageCompulsory}{filteredAllDaysMessage1}
                             </p>
-                        }                      
-                        {sortedMyTypes_1.map(myType_1 => (
-                            <li className="my-compulsory-course" key={myType_1.id}>
-                                <h3>{myType_1.name}</h3>
-                                <p>{myType_1.day.name}</p>
-                                <p>{myType_1.time}{myType_1.place}</p>
-                            </li>      
-                        ))}
+                        } 
+                        <ul>                                             
+                            {sortedMyTypes_1.map(myType_1 => (
+                                    <li className="my-compulsory-course" key={myType_1.id}>
+                                        <h3>{myType_1.name}</h3>
+                                        <p>{myType_1.day.name}</p>
+                                        <p>{myType_1.time}{myType_1.place}</p>
+                                    </li>      
+                            ))}
+                        </ul>
                     </ul>
                     <div className="myCompulsoryCoursesPageNumbers">
                         <PaginationMyCompulsory 
@@ -114,14 +109,16 @@ const MyTimeTable = props => {
                             <p className="messageElective">
                                 {filteredMessageElective} {filteredAllDaysMessage2}
                             </p>
-                        }                                                                                                
-                        {sortedMyTypes_2.map(myType_2 => (
-                            <li className="my-elective-course" key={myType_2.id}>
-                                <h3>{myType_2.name}</h3>
-                                <p>{myType_2.day.name}</p>
-                                <p>{myType_2.time}{myType_2.place}</p>
-                            </li>
-                        ))}
+                        }  
+                        <ul>
+                            {sortedMyTypes_2.map(myType_2 => (
+                                <li className="my-elective-course" key={myType_2.id}>
+                                    <h3>{myType_2.name}</h3>
+                                    <p>{myType_2.day.name}</p>
+                                    <p>{myType_2.time}{myType_2.place}</p>
+                                </li>
+                            ))}                            
+                        </ul>                                                                                              
                     </ul>
                     <div className="myElectiveCoursesPageNumbers">
                         <PaginationMyElective 
@@ -131,32 +128,39 @@ const MyTimeTable = props => {
                             onElectivePageChange={onElectivePageChange}
                         />
                     </div>                 
-                </div>            
-            </div>
-            <div className="myCoursesRemove">
-                    <a className="remove-all-elective" onClick={(event) => onRemoveArray(event)}>Remove all courses</a>                 
-                </div>       
+                </div>             
+            </div>  
+            <div className="remove-wrapper">
+                <div className="remove-wrapper">
+                    <a className="remove-all" onClick={(event) => onRemoveArray(event)}>
+                        Remove all courses
+                    </a>        
+                </div>
+            </div> 
             <div className="table">
-                {showRecentMessage && 
-                    <p className="recentMessageCompulsory">
-                        Your recently added compulsory courses. Continue to upper menu.
-                    </p>
-                }
-                {showDaysMessage && 
-                    <p className="message">
-                        {filteredMessageCompulsory}{filteredAllDaysMessage1}
-                    </p>
-                }
-                {showRecentMessage2 && 
-                    <p className="recentMessageElective">
-                        Your recently added elective courses. Continue to upper menu.
-                    </p>
-                }         
-                {showDaysMessage2 && 
-                    <p className="messageElective">
-                        {filteredMessageElective}{filteredAllDaysMessage2}
-                    </p>
-                }                 
+                <div className="message-table-wrapper">
+                    {showRecentMessage && 
+                        <p className="recentMessageCompulsory">
+                            Your recently added compulsory courses
+                        </p>
+                    }
+                    {showDaysMessage && 
+                            <p className="message">
+                                {filteredMessageCompulsory}
+                                {filteredAllDaysMessage1}
+                            </p>
+                    }
+                    {showRecentMessage2 && 
+                        <p className="recentMessageElective">
+                            Your recently added elective courses
+                        </p>
+                    }         
+                    {showDaysMessage2 && 
+                        <p className="messageElective">
+                            {filteredMessageElective}{filteredAllDaysMessage2}
+                        </p>
+                    }  
+                </div>
                 <BorderedTable
                     myTypes_1={myTypes_1}
                     myTypes_2={myTypes_2}
@@ -164,8 +168,8 @@ const MyTimeTable = props => {
                     sorted_time={sorted_time}
                     sorted_time_2={sorted_time_2}
                 />
-            </div>
-        </div>
+            </div>  
+        </div>         
     );
 }
  

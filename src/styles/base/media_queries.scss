@@ -1,0 +1,20 @@
+/*SASS MEDIA QUERIES*/
+
+$screen-mobile: 23.4375em;
+
+/*375px/16px*/
+
+$screen-iPad: 64em;
+
+/*1024px/16px*/
+
+$screen-laptop: 83.6875em;
+
+/*1339px/16px*/
+
+$screen-mobile-up: "(min-width: #{$screen-mobile})";
+$screen-iPad-up: "(min-width: #{$screen-iPad})";
+$screen-laptop-up: "(min-width: #{$screen-laptop})";
+$screen-mobile-down: "(max-width: #{$screen-mobile - 1})";
+$screen-iPad-down: "(max-width: #{$screen-iPad - 1})";
+$screen-laptop-down: "(max-width: #{$screen-laptop - 1})";

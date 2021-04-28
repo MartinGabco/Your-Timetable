@@ -1,43 +1,68 @@
+@charset "UTF-8";
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*SASS MEDIA QUERIES*/
+/*375px/16px*/
+/*1024px/16px*/
+/*1339px/16px*/
+/*SASS FLEXBOX PROPERTIES*/
+/*Properties of the parents*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
 .App {
-  text-align: center;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header,
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 63em) {
+  header,
+main {
+    -moz-flex-direction: vertical;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 
 header {
-    width: 100%;
-    height: 7em;
+  width: 100%;
+  min-height: 7em;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  justify-content: left;
+  background-color: #f7f78d;
 }
+
+main {
+  width: 100%;
+  padding: 4.5em 0 4.5em 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+@media (max-width: 63em) {
+  main {
+    font-size: 80%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}/*# sourceMappingURL=App.css.map */

@@ -1,8 +1,9 @@
-import './css/main.css';
+import './App.css';
 
 import { Switch, Route } from 'react-router-dom';
 
-import Timetable from './components/Timetable.jsx';
+// components
+import Timetable from './components/Timetable';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import Navigation from './Navigation';

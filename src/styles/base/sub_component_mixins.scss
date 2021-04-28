@@ -1,0 +1,12 @@
+// imports
+@import "../base/color_variables.scss";
+@import "../base/font_variables.scss";
+@import "../base/mixins.scss";
+@mixin pagination {
+    .link-item {
+        font-size: 1.25em;
+        padding: 0.5em 0.75em 0.75em 0.75em;
+        border: 0.05em solid $color-base;
+        cursor: pointer;
+    }
+}

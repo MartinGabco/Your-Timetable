@@ -1,0 +1,73 @@
+// imports
+@import "../base/color_variables.scss";
+@import "../base/font_variables.scss";
+@import "../base/mixins.scss";
+@import "../base/sub_component_mixins.scss";
+@import "../base/common_properties.scss";
+@import "../base/media_queries.scss";
+@import "../base/flexbox_mixins.scss";
+
+// common values
+.register-wrapper,
+.RegisterForm  {
+    @include flexbox-column-space-around; 
+    @include justify-content(center);
+}
+
+.form-column-name-password,
+h2 {
+    padding-bottom: 1em;
+}
+
+//component
+.register-wrapper {
+    width: 80%;
+    min-height: 60.25em;   
+    background: $color-register-base;
+
+    @media #{$screen-laptop-down} {
+        font-size: 90%;
+    }
+
+    .RegisterForm {
+        width: 45%;
+        min-height: $auto-height;
+        padding: 2.5em 0 5em 0;
+        background-color: $color-register-form;
+
+        h2 {
+            text-align: center;
+            padding-bottom: 1.5em;
+        }
+
+        .form-column {
+            padding: 1em 0 0 0;
+        }
+
+        .form-column-mail {
+            padding-bottom: 3.5em;
+        }
+
+        .form-column-password {
+            width: 10em;
+        }
+
+        .form-check {
+            padding: 1.25em 0 1.25em 0;
+        }
+
+        .form-text {
+            width: 100%;
+            text-align: center;
+        }
+
+        .input-group {
+            width: 18em;
+        }
+
+        .btn {
+            margin-top: 1.5em;
+        }
+    }
+}
+

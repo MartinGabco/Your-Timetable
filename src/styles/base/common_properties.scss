@@ -1,0 +1,101 @@
+// imports
+@import "../base/color_variables.scss";
+@import "../base/font_variables.scss";
+@import "../base/mixins.scss";
+@mixin compulory_common_properties {
+    .main-content,
+    .head,
+    .buttonsWrapper,
+    .buttonsWrapper2,
+    .pagination-wrapper,
+    .columns-wrapper {
+        @include flexbox();
+        @include flex-direction(row);
+        @media #{$screen-mobile-down} {
+            @include flex-direction(column);
+        }
+    }
+    .compulsory-course-item,
+    .elective-course-item,
+    .buttonsWrapper,
+    .buttonsWrapper2 ,
+    .register-wrapper,
+    .RegisterForm {
+        @include flexbox();
+    }
+    .compulsory-course-item,
+    .buttonsWrapper,
+    .buttonsWrapper2 {
+        @include align-items(center);
+    }
+    .main-content,
+    .items-message,
+    .names-input,
+    .head,
+    .count-box,
+    .body,
+    .buttonsWrapper,
+    .buttonsWrapper2,
+    .pagination-wrapper,
+    .myCompulsoryCoursesPageNumbers,
+    .myCompulsoryCoursesRemove,
+    .myCompulsoryCoursesFilter,
+    .myElectiveCoursesPageNumbers,
+    .myElectiveCoursesRemove,
+    .myElectiveCoursesFilter {
+        width: $min-width-base;
+    }
+    .head,
+    .pagination-wrapper {
+        @include justify-content(center);
+    }
+    .add-all,
+    .backToStart {
+        @include buttons;
+    }
+    .head,
+    .count-box p {
+        text-align: center;
+    }
+}
+
+@mixin course-list {
+    min-width: 50em;
+    height: 62.35em;
+    padding: 2em 2em 2em 13em;
+    margin-top: 5em 0 1.25em 0;
+    list-style: none;
+}
+
+@mixin course-item {
+    width: 20em;
+    min-height: 7.5em;
+    padding-top: 0.5em;
+    margin: 2.5em 1.5em 2.5em 1.5em;
+}
+
+//common properties - MyTimeTable.scss
+.recentMessageCompulsory,
+.message,
+.recentMessageElective,
+.messageElective,
+p {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.myElectiveCoursesPageNumbers,
+.myCompulsoryCoursesRemove {
+    min-height: 10em;
+}
+
+.title,
+p,
+h3,
+.table {
+    text-align: center;
+}
+
+
+
+
+

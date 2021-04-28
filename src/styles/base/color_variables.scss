@@ -1,0 +1,49 @@
+/*PREMENNÉ = FARBY*/
+
+$color-primary: #0000b3;
+$color-secondary: #ffffff;
+$color-tertiary: #ff8c1a;
+$color-queartery: #ff0066;
+$color-sixth: #ffe6cc;
+$color-base: #000000;
+$color-background: #FF8C00;
+$color-header: #f7f78d;
+$color-menu_dropdown: #4db8ff;
+$color-picture: #80ccff;
+$footer-background: #9CECFB;
+$color-stress: #ca3f3f;
+$color-intensive: #ff0000;
+$color-frontSize: #ccffff;
+$color-message: #ffff99;
+$color-items: #ffc6b3;
+$color-compulsory-courses: #00ccff;
+$compulsory-course-item: #ffff66;
+$color-button-wrapper: #f5f508;
+$color-elective-courses: #ffa64d;
+$color-recentMessageCompulsory: #b3ffb3;
+$color-recentMessageElective: #ecffb3;
+$color-message: #ffd699;
+$color-message-elective: #4dffff;
+$color-yellow-extra-light: #ffff1a;
+$color-yellow-elective-courses:#ffff66;
+$color-myElectiveCoursesFilter: #fff5cc;
+$color-my-elective-course: #ffb3ff;
+$color-myElectiveCoursesPageNumbers: #66a3ff;
+$color-myElectiveCoursesRemove: #b3b3ff;
+$color-register-base: #ffc2b3;
+$color-register-form: #99ffff;
+$color-head-timetable: #1212df;
+$color-columns-wrapper: #00f8f8;
+$color-myCoursesFilter: #ebffa4;
+$color-my-compulsory-course: #e6faff;
+$color-remove-all: #0000e6;
+
+/* fallback for old browsers */
+
+$footer-background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+
+/* Chrome 10-25, Safari 5.1-6 */
+
+$footer-background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

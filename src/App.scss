@@ -1,0 +1,39 @@
+// imports
+@import "./styles/base/color_variables.scss";
+@import "./styles/base/font_variables.scss";
+@import "./styles/base/mixins.scss";
+@import "./styles/base/media_queries.scss";
+@import "./styles/base/flexbox_mixins.scss";
+
+.App {
+    width: 100%;
+}
+
+header,
+main {
+    @include flexbox();
+    @include flex-direction(row);
+    
+    @media #{$screen-iPad-down} {
+        @include flex-direction(column);
+        @include justify-content(center);
+    }
+}
+
+header {
+    width: 100%;
+    min-height: 7em;
+    @include justify-content(left);
+    background-color: $color-header;
+}
+
+main {
+    width: 100%;
+    padding: 4.5em 0 4.5em 0;
+    @include justify-content(center);
+
+    @media #{$screen-iPad-down} {
+        font-size: 80%;
+        @include align-items(center);
+    }
+}

@@ -1,0 +1,260 @@
+@charset "UTF-8";
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+.recentMessageCompulsory,
+.message,
+.recentMessageElective,
+.messageElective,
+p {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.myElectiveCoursesPageNumbers,
+.myCompulsoryCoursesRemove {
+  min-height: 10em;
+}
+
+.title,
+p,
+h3,
+.table {
+  text-align: center;
+}
+
+/*SASS MEDIA QUERIES*/
+/*375px/16px*/
+/*1024px/16px*/
+/*1339px/16px*/
+/*SASS FLEXBOX PROPERTIES*/
+/*Properties of the parents*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
+.main-content,
+.head,
+.buttonsWrapper,
+.buttonsWrapper2,
+.pagination-wrapper,
+.columns-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+}
+@media (max-width: 22.4375em) {
+  .main-content,
+.head,
+.buttonsWrapper,
+.buttonsWrapper2,
+.pagination-wrapper,
+.columns-wrapper {
+    -moz-flex-direction: vertical;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+}
+
+.compulsory-course-item,
+.elective-course-item,
+.buttonsWrapper,
+.buttonsWrapper2,
+.register-wrapper,
+.RegisterForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.compulsory-course-item,
+.buttonsWrapper,
+.buttonsWrapper2 {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.main-content,
+.items-message,
+.names-input,
+.head,
+.count-box,
+.body,
+.buttonsWrapper,
+.buttonsWrapper2,
+.pagination-wrapper,
+.myCompulsoryCoursesPageNumbers,
+.myCompulsoryCoursesRemove,
+.myCompulsoryCoursesFilter,
+.myElectiveCoursesPageNumbers,
+.myElectiveCoursesRemove,
+.myElectiveCoursesFilter {
+  width: 100%;
+}
+
+.head,
+.pagination-wrapper {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.add-all,
+.backToStart {
+  width: 15em;
+  font-size: 1.25em;
+  padding: 0.35em 1.5em 0.5em 1.5em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.head,
+.count-box p {
+  text-align: center;
+}
+
+@media (max-width: 82.6875em) {
+  .listGroup-wrapper,
+.pagination-wrapper,
+.add-all,
+.backToStart {
+    font-size: 120%;
+  }
+}
+
+.main-content {
+  height: auto;
+  padding: 5.9em 5em 0 0;
+}
+@media (max-width: 82.6875em) {
+  .main-content {
+    font-size: 90%;
+  }
+}
+.main-content .listGroup-wrapper {
+  min-width: 15em;
+}
+.main-content .listGroup-wrapper .list-group-item:first-child {
+  font-weight: bold;
+}
+.main-content .namesSearchWrapper {
+  width: 100%;
+  padding-top: 2.5em;
+}
+.main-content .namesSearchWrapper .namesInput {
+  width: 100%;
+  outline: none;
+}
+.main-content .items-message {
+  min-height: 10em;
+  margin-top: 4em;
+  background: #ffd699;
+}
+.main-content .items-message .head {
+  min-height: 30%;
+  padding: 1.4em 0 1em 0;
+  background: #ffc6b3;
+}
+.main-content .items-message .head p {
+  max-width: 12.5em;
+  font-style: italic;
+}
+.main-content .items-message .count-box {
+  height: 15%;
+  font-size: 1.15em;
+  padding-top: 1.5em;
+}
+.main-content .items-message .body {
+  min-height: 55%;
+}
+.main-content .items-message .body .course-items-list {
+  text-align: left;
+  padding: 0.75em 0 1.75em 3em;
+}
+.main-content .col {
+  padding: 0 0 0 5em;
+}
+.main-content .col .compulsory-course-list {
+  min-width: 50em;
+  height: 62.35em;
+  padding: 2em 2em 2em 13em;
+  margin-top: 5em 0 1.25em 0;
+  list-style: none;
+  background: #00ccff;
+}
+@media (max-width: 82.6875em) {
+  .main-content .col .compulsory-course-list {
+    height: 67em;
+  }
+}
+.main-content .col .compulsory-course-list .compulsory-course-item {
+  width: 20em;
+  min-height: 7.5em;
+  padding-top: 0.5em;
+  margin: 2.5em 1.5em 2.5em 1.5em;
+  -moz-flex-direction: vertical;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  background: #ffff66;
+}
+.main-content .col .compulsory-course-list .compulsory-course-item .add-button {
+  width: 60%;
+  margin: 0.5em auto 1.5em auto;
+}
+.main-content .col .compulsory-course-list .compulsory-course-item .remove-button {
+  width: 60%;
+  margin: 0.2em auto 1.5em auto;
+  border: none;
+}
+.main-content .col .pagination-wrapper {
+  height: 6em;
+  margin-top: 2em;
+}
+.main-content .col .buttonsWrapper {
+  height: 15em;
+  margin-top: 3em;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #f5f508;
+}
+.main-content .col .buttonsWrapper .add-all {
+  color: #ffffff;
+  background-color: #ff8c1a;
+}
+.main-content .col .buttonsWrapper .add-all:hover, .main-content .col .buttonsWrapper .add-all:focus {
+  color: #ff0066;
+  background-color: #ffe6cc;
+}
+.main-content .col .buttonsWrapper .backToStart {
+  margin-left: 2em;
+  color: #ffffff;
+  background-color: #ff0000;
+}
+.main-content .col .buttonsWrapper .backToStart:hover, .main-content .col .buttonsWrapper .backToStart:focus {
+  color: #ff0000;
+  background-color: #ffffff;
+}/*# sourceMappingURL=Compulsory.css.map */

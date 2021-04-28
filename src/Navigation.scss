@@ -1,0 +1,36 @@
+@import "./styles/base/color_variables.scss";
+@import "./styles/base/font_variables.scss";
+@import "./styles/base/mixins.scss";
+@import "./styles/base/media_queries.scss";
+@import "./styles/base/flexbox_mixins.scss";
+
+// navigation
+.navigation-menu,
+.navigation-list {
+    @include flexbox-row-justify-align;
+    
+    @media #{$screen-laptop-down} {
+        margin: 0 auto;
+    }
+}
+
+.navigation-menu {
+    @media #{$screen-laptop-down} {
+        padding-right: 6em
+    }
+
+    .navigation-list {
+        list-style: none;
+        font-size: 1.6em;
+
+        .navigation-item {
+            padding-right: 2em;
+
+            &:hover,
+            &:focus {
+                color: $color-stress;
+                border-bottom-style: 0;
+            }
+        }
+    }
+}

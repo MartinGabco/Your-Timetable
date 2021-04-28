@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*SASS MEDIA QUERIES*/
+/*375px/16px*/
+/*1024px/16px*/
+/*1339px/16px*/
+/*SASS FLEXBOX PROPERTIES*/
+/*Properties of the parents*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
+.tab-content,
+.first-tab-pane-holder,
+.linking {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.timetable-wrapper {
+  min-width: 80%;
+  min-height: 65em;
+  margin-bottom: 4em;
+  background: #ccffff;
+}
+@media (max-width: 82.6875em) {
+  .timetable-wrapper {
+    font-size: 80%;
+    margin-bottom: 1.5em;
+  }
+}
+@media (max-width: 22.4375em) {
+  .timetable-wrapper {
+    font-size: 50%;
+  }
+}
+.timetable-wrapper .tabbable {
+  padding: 6em 6em 6em 6em;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.timetable-wrapper .tabbable .nav {
+  font-size: 1.25em;
+}
+.timetable-wrapper .tabbable .nav li a {
+  cursor: pointer;
+}
+.timetable-wrapper .tabbable .nav .badge {
+  margin-left: 0.75em;
+}
+.timetable-wrapper .tabbable .first-tab-pane-holder {
+  -moz-flex-direction: vertical;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -ms-flex-line-pack: space-around;
+  align-content: space-around;
+}
+.timetable-wrapper .tabbable .first-tab-pane-holder h1 {
+  font-size: 4em;
+  padding-top: 2.5em;
+  color: #1212df;
+}
+.timetable-wrapper .tabbable .first-tab-pane-holder .linking {
+  min-width: 15%;
+  height: 10em;
+  font-size: 1.25em;
+  padding-top: 4.5em;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: left;
+  -ms-flex-align: left;
+  align-items: left;
+}
+.timetable-wrapper .tabbable .first-tab-pane-holder .linking .register-link,
+.timetable-wrapper .tabbable .first-tab-pane-holder .linking .login-link {
+  padding: 0.5em 1em 0.5em 1em;
+  text-decoration: none;
+}
+.timetable-wrapper .tabbable .first-tab-pane-holder .linking .register-link {
+  margin-right: 5em;
+  background: #ff0000;
+  color: #ffffff;
+}
+.timetable-wrapper .tabbable .first-tab-pane-holder .linking .register-link:hover, .timetable-wrapper .tabbable .first-tab-pane-holder .linking .register-link:focus {
+  background: #ffffff;
+  color: #ff0000;
+}
+.timetable-wrapper .tabbable .first-tab-pane-holder .linking .login-link {
+  background: #ffff1a;
+}
+.timetable-wrapper .tabbable .first-tab-pane-holder .linking .login-link:hover, .timetable-wrapper .tabbable .first-tab-pane-holder .linking .login-link:focus {
+  background: #ffffff;
+}/*# sourceMappingURL=Timetable.css.map */

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../css/main.css';
+import '../styles/components/ListGroup.css';
 
 const ListGroup = props => {
     const { items, onDaysSelect, selectedItem, count } = props;

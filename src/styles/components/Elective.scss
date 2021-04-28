@@ -1,0 +1,79 @@
+@import "../base/color_variables.scss";
+@import "../base/font_variables.scss";
+@import "../base/mixins.scss";
+@import "../base/sub_component_mixins.scss";
+@import "../base/common_properties.scss";
+@import "../base/media_queries.scss";
+@import "../base/flexbox_mixins.scss";
+
+.add-all2,
+.backToStart2 {
+    @include buttons;
+}
+
+.elective-course-list {
+    @include course-list;
+    height: 64.9em;
+    background-color: $color-elective-courses;
+
+    @media #{$screen-laptop-down} {
+        height: 69em;          
+    }
+
+    .elective-course-item {
+        @include course-item;
+        @include flexbox-column-space-around;
+        background: $compulsory-course-item;
+
+        .add-button {
+            width: 60%;
+            margin: 0.75em auto 1.5em auto;
+        }
+
+        .remove-button {
+            width: 60%;
+            margin: 0.75em auto 1.5em auto;
+            border: none;
+        }
+    }
+}
+
+.pagination-wrapper {
+    height: 6em;
+    margin-top: 2em;
+}
+
+.buttonsWrapper2 {
+    height: 15em;
+    margin-top: 3em;
+    padding: 6em 0 6em 0;
+    @include flexbox();
+    @include flex-direction(row);
+    @include justify-content(center);
+    background-color: $color-button-wrapper;
+
+    .add-all2 {
+        color: $color-secondary;
+        background-color: $color-tertiary;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        &:hover,
+        &:focus {
+            color: $color-queartery;
+            background-color: $color-sixth;
+        }
+    }
+
+    .backToStart2 {
+        margin-left: 2em;
+        color: $color-secondary;
+        background-color: $color-intensive;
+        
+        &:hover,
+        &:focus {
+            color: $color-intensive;
+            background-color: $color-secondary;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Styles
-import '../css/main.css';
+import '../styles/components/Elective.css';
 
 // Util components
 import PaginationElective from '../util-components/PaginationElective';
@@ -11,13 +11,8 @@ import SearchBoxElective from '../util-components/SearchBoxElective';
 const Elective = props => {
     const { 
         filteredAndPaginatedElective,
-        type_2, 
-        selectedType_2, 
-        onTypeSelect_2, 
-        isHidden, 
         onAddMyTypes_2, 
-        onDisableOnClick_2 ,
-        disabled,
+        onDisableOnClick_2,
         onRemoveMyTypes_2,
         onDisableOnClickRemove_2,
         onAddAll2,
@@ -27,7 +22,6 @@ const Elective = props => {
         onReset2,
         onReturnButton2,
         onRefresh2_2,
-        onRefresh2_2_2,
         removeAllAdds2,
         countElective,
         pageSize2,
@@ -101,12 +95,15 @@ const Elective = props => {
                                 </li>
                             ))}
                         </ul>
-                        <PaginationElective 
-                            items={countElective}
-                            pageSize2={pageSize2}    
-                            currentPage2={currentPage2}
-                            onElectivePageChange={onElectivePageChange}                              
-                        />
+                        <div className="pagination-wrapper">
+                            <PaginationElective 
+                                items={countElective}
+                                pageSize2={pageSize2}    
+                                currentPage2={currentPage2}
+                                onElectivePageChange={onElectivePageChange}                              
+                            />
+                        </div>
+
                         <div className="buttonsWrapper2">
                             <button
                                 className="add-all2"

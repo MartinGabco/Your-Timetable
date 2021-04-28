@@ -1,0 +1,92 @@
+// imports
+@import "../base/color_variables.scss";
+@import "../base/font_variables.scss";
+@import "../base/mixins.scss";
+@import "../base/media_queries.scss";
+@import "../base/flexbox_mixins.scss";
+
+// repeats
+.tab-content,
+.first-tab-pane-holder,
+.linking {
+    @include flexbox();
+}
+
+.timetable-wrapper {
+    min-width: 80%;
+    min-height: 65em;
+    margin-bottom: 4em;
+    background: $color-frontSize;
+    @media #{$screen-laptop-down} {
+        font-size: 80%;
+        margin-bottom: 1.5em;
+    }
+    @media #{$screen-mobile-down} {
+        font-size: 50%;
+    }
+
+    .tabbable {
+        padding: 6em 6em 6em 6em;
+        @include flex-direction(row);
+        @include justify-content(center);
+
+        .nav {
+            font-size: 1.25em;
+
+            li a {
+                cursor: pointer;
+            }
+
+            .badge {
+                margin-left: 0.75em;
+            }
+        }
+
+        .first-tab-pane-holder {
+            @include flex-direction(column);
+            @include align-content(space-around);
+            
+            h1 {
+                font-size: 4em;
+                padding-top: 2.5em;
+                color: $color-head-timetable;
+            }
+
+            .linking {
+                min-width: 15%;
+                height: 10em;
+                font-size: 1.25em;
+                padding-top: 4.5em;
+                @include flex-direction(row);
+                @include align-items(left);
+
+                    .register-link,
+                    .login-link {
+                        padding: 0.5em 1em 0.5em 1em;
+                        text-decoration: none;
+                    }     
+                    
+                    .register-link {
+                        margin-right: 5em;
+                        background: $color-intensive;
+                        color:$color-secondary;
+
+                        &:hover,
+                        &:focus {
+                            background: $color-secondary;
+                            color: $color-intensive;                            
+                        }
+                    }
+                    
+                    .login-link {
+                        background: $color-yellow-extra-light;
+
+                        &:hover,
+                        &:focus {
+                            background: $color-secondary;                          
+                        }
+                    }
+            }
+        }
+    }
+}

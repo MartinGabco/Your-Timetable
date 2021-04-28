@@ -1,0 +1,409 @@
+@charset "UTF-8";
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*PREMENNÉ = FARBY*/
+/* fallback for old browsers */
+/* Chrome 10-25, Safari 5.1-6 */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*PREMENNÉ = FONTY*/
+/*SASS MEDIA QUERIES*/
+/*375px/16px*/
+/*1024px/16px*/
+/*1339px/16px*/
+/*SASS FLEXBOX PROPERTIES*/
+/*Properties of the parents*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
+.columns-wrapper,
+.remove-wrapper {
+  background-color: #00f8f8;
+}
+
+.columns-wrapper,
+.myCompulsoryCoursesPageNumbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.my-compulsory-courses-column,
+.myCompulsoryCoursesFilter,
+.my-compulsory-courses,
+ul,
+.my-compulsory-course,
+.my-elective-courses-column,
+.myElectiveCoursesFilter,
+.my-elective-courses,
+.my-elective-course,
+.remove-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: vertical;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.myElectiveCoursesPageNumbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.title {
+  padding-top: 1.5em;
+}
+
+.columns-wrapper {
+  width: 80em;
+  min-height: 50em;
+  padding: 5em 3em 6em 3em;
+  margin: 6em 0 0 0;
+}
+@media (max-width: 82.6875em) {
+  .columns-wrapper {
+    font-size: 90%;
+  }
+}
+.columns-wrapper .my-compulsory-courses-column {
+  width: 30%;
+  min-height: 45em;
+  background: #00ccff;
+}
+.columns-wrapper .my-compulsory-courses-column .myCompulsoryCoursesFilter {
+  width: 100%;
+  min-height: 10em;
+  padding-top: 3.6em;
+  background-color: #ebffa4;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses {
+  height: 44em;
+  padding: 3.5em 2em 4em 2em;
+  list-style: none;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .main-content,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .head,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper2,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .pagination-wrapper,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .columns-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+}
+@media (max-width: 22.4375em) {
+  .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .main-content,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .head,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper2,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .pagination-wrapper,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .columns-wrapper {
+    -moz-flex-direction: vertical;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .compulsory-course-item,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .elective-course-item,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper2,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .register-wrapper,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .RegisterForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .compulsory-course-item,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper2 {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .main-content,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .items-message,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .names-input,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .head,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .count-box,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .body,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .buttonsWrapper2,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .pagination-wrapper,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .myCompulsoryCoursesPageNumbers,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .myCompulsoryCoursesRemove,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .myCompulsoryCoursesFilter,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .myElectiveCoursesPageNumbers,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .myElectiveCoursesRemove,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .myElectiveCoursesFilter {
+  width: 100%;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .head,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .pagination-wrapper {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .add-all,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .backToStart {
+  width: 15em;
+  font-size: 1.25em;
+  padding: 0.35em 1.5em 0.5em 1.5em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .head,
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .count-box p {
+  text-align: center;
+}
+@media (max-width: 82.6875em) {
+  .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses {
+    height: 53em;
+  }
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .recentMessageCompulsory {
+  margin-bottom: 2em;
+  padding: 0.75em 0.5em 0.75em 0.5em;
+  background-color: #b3ffb3;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses .message {
+  background: #ffd699;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses ul {
+  width: 100%;
+  margin-right: 2.8em;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses ul .my-compulsory-course {
+  width: 90%;
+  min-height: 1.5em;
+  font-size: 1em;
+  margin: 1em auto;
+  background-color: #e6faff;
+}
+@media (max-width: 82.6875em) {
+  .columns-wrapper .my-compulsory-courses-column .my-compulsory-courses ul .my-compulsory-course {
+    font-size: 115%;
+    padding-bottom: 0.5em;
+  }
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses ul .my-compulsory-course h3 {
+  font-size: 1.1em;
+}
+.columns-wrapper .my-compulsory-courses-column .my-compulsory-courses ul .my-compulsory-course p {
+  font-size: 0.85em;
+}
+.columns-wrapper .my-compulsory-courses-column .myCompulsoryCoursesPageNumbers {
+  min-height: 8em;
+}
+@media (max-width: 82.6875em) {
+  .columns-wrapper .my-compulsory-courses-column .myCompulsoryCoursesPageNumbers {
+    font-size: 110%;
+  }
+}
+.columns-wrapper .my-elective-courses-column {
+  width: 30%;
+  min-height: 45em;
+  background: #ffa64d;
+}
+.columns-wrapper .my-elective-courses-column .myElectiveCoursesFilter {
+  width: 100%;
+  min-height: 10em;
+  padding-top: 3.6em;
+  background-color: #ebffa4;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses {
+  height: 44em;
+  padding: 3.5em 2em 4em 2em;
+  list-style: none;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses .main-content,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .head,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper2,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .pagination-wrapper,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .columns-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+}
+@media (max-width: 22.4375em) {
+  .columns-wrapper .my-elective-courses-column .my-elective-courses .main-content,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .head,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper2,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .pagination-wrapper,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .columns-wrapper {
+    -moz-flex-direction: vertical;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses .compulsory-course-item,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .elective-course-item,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper2,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .register-wrapper,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .RegisterForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses .compulsory-course-item,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper2 {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses .main-content,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .items-message,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .names-input,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .head,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .count-box,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .body,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .buttonsWrapper2,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .pagination-wrapper,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .myCompulsoryCoursesPageNumbers,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .myCompulsoryCoursesRemove,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .myCompulsoryCoursesFilter,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .myElectiveCoursesPageNumbers,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .myElectiveCoursesRemove,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .myElectiveCoursesFilter {
+  width: 100%;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses .head,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .pagination-wrapper {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses .add-all,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .backToStart {
+  width: 15em;
+  font-size: 1.25em;
+  padding: 0.35em 1.5em 0.5em 1.5em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses .head,
+.columns-wrapper .my-elective-courses-column .my-elective-courses .count-box p {
+  text-align: center;
+}
+@media (max-width: 82.6875em) {
+  .columns-wrapper .my-elective-courses-column .my-elective-courses {
+    height: 53em;
+  }
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses .recentMessageElective {
+  margin-bottom: 2em;
+  padding: 0.75em 0.5em 0.75em 0.5em;
+  background-color: #b3ffb3;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses .messageElective {
+  background: #ffd699;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses ul {
+  width: 100%;
+  margin-right: 2.8em;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses ul .my-elective-course {
+  width: 90%;
+  min-height: 1.5em;
+  font-size: 1em;
+  margin: 1em auto;
+  background-color: #ffe6cc;
+}
+@media (max-width: 82.6875em) {
+  .columns-wrapper .my-elective-courses-column .my-elective-courses ul .my-elective-course {
+    font-size: 115%;
+    padding-bottom: 0.5em;
+  }
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses ul .my-elective-course h3 {
+  font-size: 1.1em;
+}
+.columns-wrapper .my-elective-courses-column .my-elective-courses ul .my-elective-course p {
+  font-size: 0.85em;
+}
+.columns-wrapper .my-elective-courses-column .myElectiveCoursesPageNumbers {
+  min-height: 10em;
+}
+@media (max-width: 82.6875em) {
+  .columns-wrapper .my-elective-courses-column .myElectiveCoursesPageNumbers {
+    min-height: 11em;
+  }
+}
+
+.remove-wrapper {
+  min-width: 100%;
+  height: 9em;
+}
+.remove-wrapper .remove-all {
+  font-size: 1.25em;
+  padding: 0.35em 1.5em 0.5em 1.5em;
+  margin-bottom: 2.5em;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #0000e6;
+  cursor: pointer;
+}
+.remove-wrapper .remove-all:hover, .remove-wrapper .remove-all:focus {
+  color: #0000e6;
+  background-color: #ffffff;
+}
+
+.table .message-table-wrapper {
+  width: 100%;
+  height: 10.5em;
+  font-size: 1.25em;
+  padding-top: 2.5em;
+  background-color: #ccffff;
+}/*# sourceMappingURL=MyTimeTable.css.map */

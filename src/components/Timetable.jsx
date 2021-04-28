@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 //Styles
-import '../css/main.css';
+import '../styles/components/Timetable.css';
+import '../styles/components/LoginForm.css';
 
 //lodash
 import _ from 'lodash';
@@ -9,8 +10,6 @@ import _ from 'lodash';
 //Server connection
 import http from '../services/httpService.js';
 import { apiEndpoint } from '../configurations/courses_config.json';
-import * as userService from '../services/userService.js';
-import { register } from '../services/userService.js';
 
 //Help database connection
 import { getType_1 } from '../database/types.js';
@@ -25,9 +24,6 @@ import { getAllElectiveDaysMessage } from '../database/messages.js';
 import Compulsory from './Compulsory';
 import Elective from './Elective';
 import MyTimeTable from './MyTimeTable';
-
-// Util components
-import Pagination from '../util-components/Pagination.jsx';
 
 // Export functions
 import { paginate } from '../util-components/paginate.js';
@@ -89,6 +85,8 @@ class Timetable extends Component {
         this.setState({ allCompulsoryDaysMessage: getAllCompulsoryDaysMessage() });
         this.setState({ allElectiveDaysMessage: getAllElectiveDaysMessage() });
     }
+
+    // handlers
 
     handleAddMyTypes_1 = course => {
         const newMyType_1 = {
@@ -241,6 +239,7 @@ class Timetable extends Component {
         this.setState({ isRemoved: this.state.isRemoved = true })
 
         this.setState({ show: false })
+        window.location.reload(false);
     }
 
     handleRefresh2_2 = event => {
@@ -254,18 +253,7 @@ class Timetable extends Component {
         this.setState({ removeAllAdds2: this.state.removeAllAdds2 = true })
         this.setState({ isRemoved: this.state.isRemoved = true })
 
-        event.preventDefault();
-        this.setState({ show2: false })
-    }
-
-    handleRefresh2_2_2 = event => {
-        event.preventDefault();
-
-        const removed_2 = this.state.myTypes_2;
-        removed_2.length = 0;
-        this.setState({ removed_2 })
-
-        this.setState({ remove: this.state.remove = true });
+        window.location.reload(false);
     }
 
     handleReturnButton = event => {
@@ -374,11 +362,9 @@ class Timetable extends Component {
             myTypes_1,
             myTypes_2,
             sortColumn,
-            onDisableAll,
             disabled,
             show,
             show2,
-            helpVariable,
             pageSize,
             pageSize2,
             currentPage,
@@ -395,8 +381,7 @@ class Timetable extends Component {
             showDaysMessage,
             showDaysMessage2,
             removeAllAdds,
-            removeAllAdds2,
-            countReal
+            removeAllAdds2
         } = this.state;
 
         // Extracting compulsory courses ( courses <= 13)
@@ -500,7 +485,7 @@ class Timetable extends Component {
                             <a href="#tab3" data-toggle="tab">Elective courses</a>
                         </li>
                         <li>
-                            <a href="#tab4" data-toggle="tab">
+                            <a href="#tab4" data-toggle="tab" className="my-time-table">
                                 MyTimeTable 
                                 <span class="badge badge-primary badge-pill" style={{background: "#1a1aff" }}>{badgeCountComplusory}</span>
                                 <span class="badge badge-primary badge-pill" style={{background: "#FF5733" }}>{badgeCountElective}</span>

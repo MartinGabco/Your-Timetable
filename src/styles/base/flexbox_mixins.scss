@@ -1,0 +1,179 @@
+/*SASS FLEXBOX PROPERTIES*/
+
+/*Properties of the parents*/
+
+@mixin box-sizing($type) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: ($type)
+}
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex-direction($direction) {
+    @if $direction==column {
+        -webkit-flex-direction: vertical;
+        -moz-flex-direction: vertical;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+    @else {
+        -webkit-flex-direction: horizontal;
+        -moz-flex-direction: horizontal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row
+    }
+}
+
+@mixin flex-wrap($value: nowrap) {
+    -webkit-flex-wrap: $value;
+    -moz-flex-wrap: $value;
+    @if $value==nowrap {
+        -ms-flex-wrap: none;
+    }
+    @else {
+        -ms-flex-wrap: $value;
+    }
+    flex-wrap: $value;
+}
+
+
+/*main axis*/
+
+@mixin justify-content($value: flex-start) {
+    @if $value==flex-start {
+        -webkit-box-pack: start;
+        -moz-box-pack: start;
+        -ms-flex-pack: start;
+    }
+    @else if $value==flex-end {
+        -webkit-box-pack: end;
+        -moz-box-pack: end;
+        -ms-flex-pack: end;
+    }
+    @else if $value==center {
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+    }
+    @else if $value==space-between {
+        -webkit-box-pack: justify;
+        -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+    }
+    @else if $value==space-around {
+        -ms-flex-pack: distribute;
+    }
+    @else {
+        -webkit-box-pack: $value;
+        -moz-box-pack: $value;
+        -ms-flex-pack: $value;
+    }
+    -webkit-justify-content: $value;
+    justify-content: $value;
+}
+
+
+/*cross axis*/
+
+@mixin align-items($value: stretch) {
+    @if $value==flex-start {
+        -webkit-box-align: start;
+        -moz-box-align: start;
+        -ms-flex-align: start;
+    }
+    @else if $value==flex-end {
+        -webkit-box-align: end;
+        -moz-box-align: end;
+        -ms-flex-align: end;
+    }
+    @else {
+        -webkit-box-align: $value;
+        -moz-box-align: $value;
+        -ms-flex-align: $value;
+    }
+    -webkit-align-items: $value;
+    align-items: $value;
+}
+
+@mixin align-content($value: stretch) {
+    -webkit-align-content: $value;
+    @if $value==flex-start {
+        -ms-flex-line-pack: start;
+    }
+    @else if $value==flex-end {
+        -ms-flex-line-pack: end;
+    }
+    @else {
+        -ms-flex-line-pack: $value;
+    }
+    align-content: $value;
+}
+
+
+/*Properties of the children*/
+
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -ms-flex: $values;
+    -webkit-flex: $values;
+    flex: $values;
+}
+
+@mixin flex-order($properties) {
+    order: $properties;
+}
+
+@mixin flex-basis($properties) {
+    order: $properties;
+}
+
+@mixin align-self($value: auto) {
+    -webkit-align-self: $value;
+    @if $value==flex-start {
+        -ms-flex-item-align: start;
+    }
+    @else if $value==flex-end {
+        -ms-flex-item-align: end;
+    }
+    @else {
+        -ms-flex-item-align: $value;
+    }
+    align-self: $value;
+}
+
+@mixin flex-grow($int: 1) {
+    -webkit-box-flex: $int;
+    -moz-box-flex: $int;
+    -webkit-flex-grow: $int;
+    -ms-flex: $int;
+    flex-grow: $int;
+}
+
+@mixin flexbox-row-space-around {
+    @include flexbox();
+    @include flex-direction(row);
+    @include justify-content(space-around);  
+}
+
+@mixin flexbox-row-justify-align {
+    @include flexbox();
+    @include flex-direction(row);
+    @include justify-content(center);
+    @include align-items(center);
+}
+
+@mixin flexbox-column-space-around {
+    @include flexbox();
+    @include flex-direction(column);
+    @include align-items(center); 
+}

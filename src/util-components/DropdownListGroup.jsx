@@ -1,7 +1,7 @@
 import React from 'react';
 
 // styles
-import '../css/main.css';
+import '../styles/components/DropdownListGroup.css';
 
 const DropdownListGroup = props => {
     const { 
